@@ -1,0 +1,857 @@
+/* ===== ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI Light', 'Segoe UI', 'Gill Sans Light', sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #fafafa;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.container-main {
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+
+.container-main:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+.icon{
+  margin-right: 30px;
+  width: 40px;
+  height: auto;
+}
+
+section {
+  padding: 0px 0;
+}
+
+h2 {
+  font-size: 22px;
+  color: white;
+  padding:  20px 0 20px 0;
+  
+  position: relative;
+  display: inline-block;
+}
+.outer-block{
+  height: 120px;
+  display: flex;
+}
+.midlle-block-rigt{
+  background: #fddeea3a;
+  width: 30%;
+}
+.midlle-block-left1{
+  background: #dedede75;
+  width: 35%;
+}
+.midlle-block-left2{
+  width: 35%;
+}
+
+
+
+/* ===== БЛОК 1: ПРИВЕТСТВИЕ ===== */
+.hero {
+  min-height: auto; /* Убираем min-height */
+  display: flex;
+  align-items: center;
+  padding: 0;
+  height: 500px; /* Фиксируем высоту как у внутренних блоков */
+}
+
+.hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Растягиваем на всю высоту hero */
+}
+
+.hero-grid {
+  width: 70%;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 2fr) 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Правый блок с навигацией */
+.hero-nav {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+
+}
+
+.hero-nav-item {
+  text-align: right;
+  width: 100%;
+  height: calc(500px / 6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+}
+
+/* .hero-nav-item:last-child {
+  border-bottom: none;
+} */
+
+.hero-nav-item a {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 500;
+  font-size: 1.3rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: calc(500px / 6); /* Чтобы текст был по центру по вертикали */
+  text-align: right;
+  padding-right: 40px;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+.hero-nav-item a:hover {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
+}
+
+/* Все ячейки сетки */
+.grid-cell {
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Стили для разделенных ячеек */
+.split-cell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.split-left {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.split-right {
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s;
+}
+
+/* Центральная ячейка (3x3) */
+.grid-cell.center {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+}
+
+/* Контейнер для текста в центре */
+.greeting-box {
+  background-color: rgb(255, 255, 255);
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.greeting-text {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  background: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.greeting-text .name {
+  font-weight: 600;
+  background: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
+.greeting-text .name:after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(44, 62, 80, 0.15);
+  z-index: -1;
+}
+
+/* Разная прозрачность для ячеек вокруг центра (эффект креста) */
+.grid-cell.top-left {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.grid-cell.top-center {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.grid-cell.top-right {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.grid-cell.middle-left {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.grid-cell.middle-right {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.grid-cell.bottom-left {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.grid-cell.bottom-center {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.grid-cell.bottom-right {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Эффект креста */
+.grid-cell.top-center,
+.grid-cell.middle-left,
+.grid-cell.middle-right,
+.grid-cell.bottom-center {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== БЛОК 2: О СЕБЕ ===== */
+.about {
+  background: #ffffff;
+  
+  cursor: pointer;
+  
+}
+
+.about, .skills {
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.about:hover, .skills:hover,.container:hover {
+  transform: scale(1.003);
+  cursor: pointer; /* Курсор-указатель */
+}
+
+.about-container {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  
+}
+
+.title {
+  width: 70%;
+  background: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
+}
+
+.outer-title {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(223, 223, 223);
+}
+
+.about-grid {
+  display: flex;
+}
+
+.about-item-left {
+  background: #615f67;
+  width: 35%;
+  color: white;
+  padding: 40px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-item-left h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.about-item-left p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.about-item-right {
+  width: 65%;
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-item-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #333;
+  padding-left: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-list li {
+  position: relative;
+  margin-bottom: 25px;
+  padding-left: 40px; /* Отступ для поинтов */
+  min-height: 30px;
+  display: flex;
+  align-items: center; /* Выравниваем по вертикали */
+  flex-wrap: wrap; /* Разрешаем перенос на мобилках */
+}
+
+/* Поинты (точки) */
+.experience-list li::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%); /* Центрируем по вертикали */
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(251, 52, 190, 0.3);
+  z-index: 3;
+}
+
+/* Вертикальная линия */
+.experience-list li::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 60%;
+  width: 2px;
+  height: calc(100% + 15px);
+  background: linear-gradient(180deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  opacity: 0.3;
+}
+
+.experience-list li:last-child::after {
+  height: 100%; /* Линия заканчивается до точки */
+  z-index: 2;
+  
+}
+
+.experience-list li:last-child::before {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid rgb(251, 52, 190);
+  box-shadow: 0 0 15px rgba(251, 52, 190, 0.7);
+  left: 5px; /* Сдвигаем чуть левее из-за увеличения размера */
+  
+}
+
+
+
+/* Стили для содержимого */
+.experience-list .date {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  margin-right: 15px; /* Отступ между годом и местом */
+  white-space: nowrap; /* Год не переносится */
+}
+
+.experience-list .place {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.4;
+  flex: 1; /* Занимает оставшееся пространство */
+  text-align: left;
+}
+
+
+
+
+/* ===== БЛОК 3: НАВЫКИ ===== */
+.skills {
+  background: #f5f5f5;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.skills-category {
+  background: white;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.skills-category h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.skills-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.skills-list li {
+  padding: 8px 15px;
+  background: #f8f8f8;
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ===== БЛОК 4: ПОЛИГРАФИЧЕСКИЙ ДИЗАЙН ===== */
+
+
+.print-category h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.print-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Две колонки одинаковой ширины */
+}
+
+.print-card {
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  position: relative; /* Для позиционирования текста поверх картинки */
+}
+
+.print-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+  z-index: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Нижняя полупрозрачная белая полоса под названием */
+.print-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%; /* Высота нижней полосы */
+  background: rgba(255, 255, 255, 0.6); /* Белый полупрозрачный */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Контейнер для текста */
+.print-card h2 {
+  position: absolute;
+  bottom: 5%; /* Располагаем в нижней полосе */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  padding: 0 15px;
+  pointer-events: none;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 12%; /* Чуть выше описания, если нужно */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  color: #777;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 0 15px;
+  pointer-events: none;
+}
+
+
+
+.print-card:hover {
+  transform: scale(1.003);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 4px solid transparent;
+  border-image: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  border-image-slice: 1;
+}
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Картинка покрывает всю область */
+  display: block;
+}
+
+
+.print-card h4 {
+  
+  font-size: 1.1rem;
+  color: #333;
+}
+.print-card h2{
+  
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+.card-description {
+  padding: 0 15px 15px;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* ===== БЛОК 5: КОРПОРАТИВНЫЙ СТИЛЬ ===== */
+.corpstyle {
+  background: #ffffff;
+}
+
+.case {
+  background: #fafafa;
+  padding: 40px;
+}
+
+.case h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.case-description {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.case-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.case-item {
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.case-item:hover {
+  transform: scale(1.03);
+}
+
+.case-item-image {
+  height: 120px;
+  background: linear-gradient(135deg, #d0d0d0 0%, #e8e8e8 100%);
+}
+
+.case-item-title {
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 500;
+}
+
+/* ===== БЛОК 6: ВЕБ-РАЗРАБОТКА ===== */
+.web {
+  background: #f5f5f5;
+}
+
+.web-project {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.web-project h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.project-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tech-badge {
+  background: #f0f0f0;
+  padding: 6px 15px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 10px 25px;
+  background: #615f67;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.button:hover {
+  background: #333;
+}
+
+/* ===== БЛОК 7: ДОПОЛНИТЕЛЬНО (ЛОГОТИПЫ) ===== */
+.additional {
+  background: #ffffff;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.logo-card {
+  background: #fafafa;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.logo-card:hover {
+  transform: translateY(-3px);
+}
+
+.logo-image {
+  height: 150px;
+  background: linear-gradient(135deg, #e8e8e8 0%, #f8f8f8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+/* ===== БЛОК 8: КОНТАКТЫ (ФУТЕР) ===== */
+.footer {
+  background: #615f67;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer h2 {
+  color: white;
+}
+
+.footer h2:after {
+  background: linear-gradient(90deg, #fff, #aaa);
+}
+
+.contact-info {
+  margin: 30px 0;
+}
+
+.contact-name {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.contact-links p {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.contact-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  margin-left: 10px;
+}
+
+.contact-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* ===== МЕДИАЗАПРОСЫ (АДАПТИВНОСТЬ) ===== */
+@media (max-width: 768px) {
+  .hero .container {
+    flex-direction: column;
+  }
+  
+  .hero-grid {
+    width: 100%;
+  }
+  
+  .hero-nav {
+    width: 100%;
+  }
+  
+ 
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .print-category h3 {
+    font-size: 1.5rem;
+  }
+  
+  .case-items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .button {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 50px 0;
+  }
+  
+  .hero-grid {
+    height: 300px;
+  }
+  
+  .hero-nav {
+    height: 300px;
+  }
+  
+  .hero-nav-item {
+    height: calc(300px / 6);
+  }
+ 
+  
+  .print-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .case {
+    padding: 20px;
+  }
+  
+  .case-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
