@@ -158,13 +158,13 @@ h2 {
 }
 
 .split-left {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  
   transition: background-color 0.3s;
 }
 
 .split-right {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   transition: background-color 0.3s;
 }
 
@@ -228,44 +228,38 @@ h2 {
 
 /* Разная прозрачность для ячеек вокруг центра (эффект креста) */
 .grid-cell.top-left {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.23);
 }
 
 .grid-cell.top-center {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .grid-cell.top-right {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .grid-cell.middle-left {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .grid-cell.middle-right {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .grid-cell.bottom-left {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.grid-cell.bottom-center {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.grid-cell.bottom-right {
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-/* Эффект креста */
-.grid-cell.top-center,
-.grid-cell.middle-left,
-.grid-cell.middle-right,
 .grid-cell.bottom-center {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+.grid-cell.bottom-right {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+
 
 /* ===== БЛОК 2: О СЕБЕ ===== */
 .about {
@@ -437,7 +431,6 @@ h2 {
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
 }
 
 .skills-category {
@@ -557,7 +550,7 @@ h2 {
 .print-card:hover {
   transform: scale(1.003);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 4px solid transparent;
+  border: 2px solid transparent;
   border-image: linear-gradient(90deg, rgb(251, 52, 190), rgb(255, 88, 88));
   border-image-slice: 1;
 }

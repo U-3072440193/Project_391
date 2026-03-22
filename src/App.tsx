@@ -262,7 +262,7 @@ function App() {
                   <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" />
                   <PrintCard title="Вкладыши" image="/src/assets/products/vklad-zash2.png" />
                   <PrintCard title="Листовки" image="/src/assets/products/listovka.jpg" />
-                  <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.jpg" />
+                  <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.png" />
                 </div>
               </div>
 
