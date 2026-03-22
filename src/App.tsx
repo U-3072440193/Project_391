@@ -13,6 +13,10 @@ interface PrintCardProps {
 interface CaseItemProps {
   title: string;
 }
+interface CorpStyleCard {
+  title: string;
+  image?: string;
+}
 
 // 2. Теперь компоненты с типами
 function PrintCard({ title, description, image }: PrintCardProps) {
@@ -36,6 +40,21 @@ function CaseItem({ title }: CaseItemProps) {
     <div className="case-item">
       <div className="case-item-image">{/* Изображение */}</div>
       <p className="case-item-title">{title}</p>
+    </div>
+  );
+}
+
+function CorpStyleCard({ title, image }: CorpStyleCard) {
+  return (
+    <div className="сorp-item">
+      <div className="сorp-item-image">
+        {image ? (
+          <img src={image} alt={title} className="corp-image" />
+        ) : (
+          <span>Изображение</span>
+        )}
+      </div>
+      <p className="сorp-item-title">{title}</p>
     </div>
   );
 }
@@ -114,7 +133,7 @@ function App() {
                 <a href="#print">Полиграфия</a>
               </div>
               <div className="hero-nav-item">
-                <a href="#corpstyle">Корпстиль</a>
+                <a href="#corpstyle">Корпоративный стиль</a>
               </div>
               <div className="hero-nav-item">
                 <a href="#web">Веб-проекты</a>
@@ -169,7 +188,7 @@ function App() {
                     </li>
                     <li>
                       <span className="date">2024-2025</span>
-                      <span className="place">Первая цифровая типография (печатник, сублимация)</span>
+                      <span className="place">"Первая цифровая типография" (печатник, сублимация)</span>
                     </li>
                     <li>
                       <span className="date">2025–н.в.</span>
@@ -257,7 +276,8 @@ function App() {
             <>
               {/* Подблок 4.1: Деловая полиграфия */}
               <div className="print-category">
-                <h3>Деловая полиграфия</h3>
+                <h3>Рекламная полиграфия</h3>
+                <div className="description">Дизайн печатной продукции для бизнеса</div>
                 <div className="print-grid">
                   <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" />
                   <PrintCard title="Вкладыши" image="/src/assets/products/vklad-zash2.png" />
@@ -320,6 +340,7 @@ function App() {
 
           {isCorpstyleOpen && (
             <div className="case">
+              <div className="corp-img"><CorpStyleCard title="Корпоративный стиль" image="/src/assets/products/kvart.jpg" /></div>
               <h3>inДом</h3>
               <p className="case-description">Агентство недвижимости, Иваново</p>
 
@@ -364,8 +385,23 @@ function App() {
               <div className="web-project">
                 <h3>«Шишка» / Task Manager</h3>
                 <p className="project-description">
-                  Django + React приложение с канбан-досками, задачами,
-                  чатом в реальном времени и личными сообщениями
+                  Fullstack веб-приложение для управления задачами (аналог Trello):
+                  канбан-доски, задачи, чат в реальном времени и личные сообщения.
+
+                  Реализована серверная логика на Django, REST API и WebSocket-соединения
+                  для обновления данных без перезагрузки страницы.
+                </p>
+                <p>
+                  Текущий функционал:
+                  <ul>
+                    <li>канбан-доски и задачи</li>
+                    <li>канбан-доски и задачи </li>
+                    <li>чат в реальном времени (WebSocket)</li>
+                    <li>клиент-серверное взаимодействие через API </li>
+                  </ul>
+                  
+                
+                Проект находится в стадии активной разработки
                 </p>
                 <div className="project-tech">
                   <span className="tech-badge">Django</span>
@@ -374,7 +410,7 @@ function App() {
                   <span className="tech-badge">WebSockets</span>
                 </div>
                 <div className="project-links">
-                  <a href="#" className="button">GitHub</a>
+                  <a href="https://github.com/U-3072440193/project_377" className="button">GitHub</a>
                   <a href="#" className="button">Демо</a>
                 </div>
               </div>
@@ -392,7 +428,7 @@ function App() {
                   <span className="tech-badge">Vite</span>
                 </div>
                 <div className="project-links">
-                  <a href="#" className="button">GitHub</a>
+                  <a href="https://github.com/U-3072440193/Project_391" className="button">GitHub</a>
                 </div>
               </div>
             </>
@@ -428,9 +464,9 @@ function App() {
           <div className="contact-info">
             <p className="contact-name">Антон Зарубин</p>
             <div className="contact-links">
-              <p>Email: <a href="mailto:anton@email.com">anton@email.com</a></p>
+              <p>Email: <a href="mailto:shkatzman@mail.ru">shkatzman@mail.ru</a></p>
               <p>Telegram: <a href="#">@anton_z</a></p>
-              <p>GitHub: <a href="#">github.com/anton</a></p>
+              <p>GitHub: <a href="https://github.com/U-3072440193">github.com/U-3072440193</a></p>
             </div>
           </div>
           <p className="copyright">© 2025 | Антон Зарубин</p>

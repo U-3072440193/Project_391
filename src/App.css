@@ -547,7 +547,7 @@ h2 {
 
 
 
-.print-card:hover {
+.print-card:hover, .corp-img:hover {
   transform: scale(1.003);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
@@ -585,9 +585,28 @@ h2 {
   background: #ffffff;
 }
 
+/* Контейнер карточки */
+.corp-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%; /* растягиваем по высоте родителя */
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+/* Сам контент внутри */
+.corp-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* картинка покрывает всю область */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+
 .case {
   background: #fafafa;
-  padding: 40px;
 }
 
 .case h3 {
