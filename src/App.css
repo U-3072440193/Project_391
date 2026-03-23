@@ -56,14 +56,26 @@ h2 {
 }
 .midlle-block-rigt{
   background: #fddeea3a;
-  width: 30%;
+  width: 15%;
+}
+.midlle-block-rigt2{
+  background: #fff3f73a;
+  width: 15%;
 }
 .midlle-block-left1{
-  background: #dedede75;
-  width: 35%;
+  background: #d0d0d07a;
+  width: 17.5%;
 }
 .midlle-block-left2{
-  width: 35%;
+  background: #dedede7a;
+  width: 17.5%;
+}
+.midlle-block-left3{
+  background: #e9e9e97a;
+  width: 17.5%;
+}
+.midlle-block-left4{
+  width: 17.5%;
 }
 
 
@@ -547,7 +559,7 @@ h2 {
 
 
 
-.print-card:hover, .corp-img:hover {
+.print-card:hover, .corp-img:hover, .corpstyle-layout:hover {
   transform: scale(1.003);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
@@ -585,28 +597,88 @@ h2 {
   background: #ffffff;
 }
 
-/* Контейнер карточки */
-.corp-img {
+/* Контейнер для двух колонок */
+.corpstyle-layout {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
+}
+
+/* Левая колонка с большой картинкой (50%) */
+.corpstyle-left {
+  flex: 1;
+  min-width: 0; /* Чтобы не вылезало */
+  width: 50%;
+}
+
+/* Правая колонка с сеткой 2x2 (50%) */
+.corpstyle-right {
+  flex: 1; /* 50% от общего пространства */
+  min-width: 0;
+}
+
+/* Сетка 2x2 для 4 картинок */
+.corpstyle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+}
+.corpstyle-left .сorp-item {
+  width: 100%;
+  background: white;
   overflow: hidden;
-  height: 100%; /* растягиваем по высоте родителя */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  aspect-ratio: 1 / 1; /* Делаем квадратным */
+}
+/* Элементы сетки */
+.corpstyle-grid .сorp-item {
+  aspect-ratio: 1 / 1;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
-/* Сам контент внутри */
-.corp-img img {
+.corpstyle-grid .сorp-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.corpstyle-grid .сorp-item-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* картинка покрывает всю область */
-  display: block;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.corpstyle-grid .corp-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Стили для изображения внутри левой картинки */
+.corpstyle-left .сorp-item-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.corpstyle-left .corp-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Картинка заполняет весь блок без искажений */
 }
 
 
 .case {
   background: #fafafa;
+}
+.сorp-item-image{
+  width: 50%;
+}
+.inner-corpstyle-card{
+  width: 25%;
+
 }
 
 .case h3 {
@@ -865,5 +937,60 @@ h2 {
   
   .logo-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .container {
+    flex-direction: column;
+    height: auto; /* Убираем фиксированную высоту */
+    min-height: auto;
+  }
+  
+  .hero {
+    height: auto; /* Убираем фиксированную высоту */
+    min-height: auto;
+  }
+  
+  .hero-grid {
+    width: 100%;
+    height: auto;
+    
+    
+  }
+  
+  .hero-nav {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    position: relative; /* Убираем позиционирование */
+    z-index: 10;
+  }
+  
+  .hero-nav-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-nav-item {
+    height: auto; /* Убираем фиксированную высоту */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-nav-item a {
+    line-height: normal;
+    padding: 15px 20px;
+    height: auto;
+    text-align: center;
+    border-right: none;
+  }
+  
+  /* Поправляем outer-block, чтобы не мешал */
+  .outer-block {
+    position: relative;
+    z-index: -1;
   }
 }

@@ -5,9 +5,10 @@
 <style type="text/css">
 	.st0{fill:url(#SVGID_1_);}
 	.st1{fill:#615F67;}
-	.st2{fill:#FFFFFF;}
+	.st2{enable-background:new    ;}
+	.st3{fill:#FFFFFF;}
 </style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1" y1="25.3937" x2="47" y2="25.3937" gradientTransform="matrix(1 0 0 -1 0 48.3937)">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="1" y1="-776.6063" x2="47" y2="-776.6063" gradientTransform="matrix(1 0 0 -1 0 -753.6063)">
 	<stop  offset="0" style="stop-color:#FB34BE"/>
 	<stop  offset="1" style="stop-color:#FF5858"/>
 </linearGradient>
@@ -15,14 +16,14 @@
 <rect x="1" y="0" class="st1" width="23" height="23"/>
 <rect x="24" y="23" class="st1" width="23" height="23"/>
 <g>
-	<g>
-		<path class="st2" d="M7.3,17.2V4.8h10.1v12.5H15V6.9H9.7v10.4L7.3,17.2L7.3,17.2z"/>
+	<g class="st2">
+		<path class="st3" d="M17.9,16.9h-1.5l-1.2-3.2h-4.9l-1.2,3.2H7.6l4.4-11.6h1.4L17.9,16.9z M14.8,12.4l-1.8-4.9
+			c-0.1-0.2-0.1-0.4-0.2-0.8h0c-0.1,0.3-0.1,0.6-0.2,0.8l-1.8,4.9H14.8z"/>
 	</g>
 </g>
 <g>
-	<rect x="40.1" y="31.1" class="st2" width="1.6" height="9.7"/>
-	<rect x="32.2" y="39.1" class="st2" width="9.5" height="1.6"/>
-	
-		<rect x="34.7" y="26.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -13.9975 35.2071)" class="st2" width="1.6" height="16.2"/>
+	<g class="st2">
+		<path class="st3" d="M39.9,28.6l-6.8,10h6.6v1.2h-8.6v-0.4l6.7-10h-6.2v-1.2h8.2V28.6z"/>
+	</g>
 </g>
 </svg>

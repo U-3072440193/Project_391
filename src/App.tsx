@@ -10,11 +10,7 @@ interface PrintCardProps {
   image?: string;
 }
 
-interface CaseItemProps {
-  title: string;
-}
 interface CorpStyleCard {
-  title: string;
   image?: string;
 }
 
@@ -35,26 +31,19 @@ function PrintCard({ title, description, image }: PrintCardProps) {
   );
 }
 
-function CaseItem({ title }: CaseItemProps) {
-  return (
-    <div className="case-item">
-      <div className="case-item-image">{/* Изображение */}</div>
-      <p className="case-item-title">{title}</p>
-    </div>
-  );
-}
 
-function CorpStyleCard({ title, image }: CorpStyleCard) {
+
+function CorpStyleCard({ image }: CorpStyleCard) {
   return (
     <div className="сorp-item">
       <div className="сorp-item-image">
         {image ? (
-          <img src={image} alt={title} className="corp-image" />
+          <img src={image} className="corp-image" />
         ) : (
           <span>Изображение</span>
         )}
       </div>
-      <p className="сorp-item-title">{title}</p>
+
     </div>
   );
 }
@@ -151,7 +140,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 2: О СЕБЕ */}
@@ -205,7 +197,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 3: НАВЫКИ */}
@@ -255,7 +250,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 4: ПОЛИГРАФИЧЕСКИЙ ДИЗАЙН */}
@@ -280,7 +278,7 @@ function App() {
                 <div className="description">Дизайн печатной продукции для бизнеса</div>
                 <div className="print-grid">
                   <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" />
-                  <PrintCard title="Вкладыши" image="/src/assets/products/vklad-zash2.png" />
+                  <PrintCard title="Вкладыши" image="/src/assets/products/vklad.png" />
                   <PrintCard title="Листовки" image="/src/assets/products/listovka.jpg" />
                   <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.png" />
                 </div>
@@ -301,7 +299,7 @@ function App() {
               <div className="print-category">
                 <h3>Конструктивная полиграфия</h3>
                 <div className="print-grid">
-                  <PrintCard title="Вырубные изделия" />
+                  <PrintCard title="Вырубные изделия" image="/src/assets/products/hanger.jpg" />
                   <PrintCard title="Коробки" image="/src/assets/products/boxz.png" />
                 </div>
               </div>
@@ -310,7 +308,7 @@ function App() {
               <div className="print-category">
                 <h3>Наружная рекламная продукция</h3>
                 <div className="print-grid">
-                  <PrintCard title="Афиши" />
+                  <PrintCard title="Афиши" image="/src/assets/products/afisha.jpg" />
                   <PrintCard title="Баннеры и вывески" />
                 </div>
               </div>
@@ -321,7 +319,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 5: КОРПОРАТИВНЫЙ СТИЛЬ */}
@@ -340,21 +341,23 @@ function App() {
 
           {isCorpstyleOpen && (
             <div className="case">
-              <div className="corp-img"><CorpStyleCard title="Корпоративный стиль" image="/src/assets/products/kvart.jpg" /></div>
-              <h3>inДом</h3>
-              <p className="case-description">Агентство недвижимости, Иваново</p>
+              <div className="corpstyle-layout">                
+                <div className="corpstyle-left">
+                  <CorpStyleCard image="/src/assets/products/corp-style.jpg" />
+                </div>
 
-              <div className="case-items-grid">
-                <CaseItem title="Логотип" />
-                <CaseItem title="Визитки" />
-                <CaseItem title="Бланк" />
-                <CaseItem title="Папка" />
-                <CaseItem title="Табличка «Продается»" />
-                <CaseItem title="Конверт" />
-                <CaseItem title="Фирменный пакет" />
-                <CaseItem title="Бейдж" />
-                <CaseItem title="Брелок" />
+                {/* Правая колонка - сетка 2x2 (каждая картинка 25% от общей ширины) */}
+                <div className="corpstyle-right">
+                  <div className="corpstyle-grid">
+                    <CorpStyleCard image="/src/assets/products/indom-cup.jpg" />
+                    <CorpStyleCard image="/src/assets/products/baige.jpg" />
+                    <CorpStyleCard image="/src/assets/products/ezhednev.jpg" />
+                    <CorpStyleCard image="/src/assets/products/brel.jpg" />
+                  </div>
+                </div>
               </div>
+
+              
             </div>
           )}
         </div>
@@ -362,7 +365,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 6: ВЕБ-РАЗРАБОТКА */}
@@ -387,22 +393,19 @@ function App() {
                 <p className="project-description">
                   Fullstack веб-приложение для управления задачами (аналог Trello):
                   канбан-доски, задачи, чат в реальном времени и личные сообщения.
-
                   Реализована серверная логика на Django, REST API и WebSocket-соединения
                   для обновления данных без перезагрузки страницы.
                 </p>
-                <p>
-                  Текущий функционал:
+                {/* Убираем <p> вокруг списка */}
+                <div className="project-features">
+                  <strong>Текущий функционал:</strong>
                   <ul>
                     <li>канбан-доски и задачи</li>
-                    <li>канбан-доски и задачи </li>
                     <li>чат в реальном времени (WebSocket)</li>
-                    <li>клиент-серверное взаимодействие через API </li>
+                    <li>клиент-серверное взаимодействие через API</li>
                   </ul>
-                  
-                
-                Проект находится в стадии активной разработки
-                </p>
+                  <p>Проект находится в стадии активной разработки</p>
+                </div>
                 <div className="project-tech">
                   <span className="tech-badge">Django</span>
                   <span className="tech-badge">React</span>
@@ -438,7 +441,10 @@ function App() {
       <div className="outer-block">
         <div className="midlle-block-left1"></div>
         <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
         <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
       </div>
 
       {/* БЛОК 7: ДОПОЛНИТЕЛЬНО (ЛОГОТИПЫ) */}
@@ -456,6 +462,14 @@ function App() {
           </div>
         </div>
       </section>
+      <div className="outer-block">
+        <div className="midlle-block-left1"></div>
+        <div className="midlle-block-left2"></div>
+        <div className="midlle-block-left3"></div>
+        <div className="midlle-block-left4"></div>
+        <div className="midlle-block-rigt"></div>
+        <div className="midlle-block-rigt2"></div>
+      </div>
 
       {/* БЛОК 8: КОНТАКТЫ (ФУТЕР) */}
       <footer id="contact" className="footer">
