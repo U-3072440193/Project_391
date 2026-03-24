@@ -8,14 +8,16 @@ interface PrintCardProps {
   title: string;
   description?: string;
   image?: string;
+  tooltip?: string;  
 }
 
 interface CorpStyleCard {
   image?: string;
+  tooltip?: string;
 }
 
 // 2. Теперь компоненты с типами
-function PrintCard({ title, description, image }: PrintCardProps) {
+function PrintCard({ title, description, image, tooltip }: PrintCardProps) {
   return (
     <div className="print-card">
       <div className="print-card-image">
@@ -25,6 +27,10 @@ function PrintCard({ title, description, image }: PrintCardProps) {
           <span>Изображение</span>
         )}
       </div>
+      
+      {/* Сама всплывающая подсказка */}
+      {tooltip && <div className="card-tooltip">{tooltip}</div>}
+      
       <h2>{title}</h2>
       {description && <p className="card-description">{description}</p>}
     </div>
@@ -33,7 +39,7 @@ function PrintCard({ title, description, image }: PrintCardProps) {
 
 
 
-function CorpStyleCard({ image }: CorpStyleCard) {
+function CorpStyleCard({ image,tooltip }: CorpStyleCard) {
   return (
     <div className="сorp-item">
       <div className="сorp-item-image">
@@ -43,6 +49,7 @@ function CorpStyleCard({ image }: CorpStyleCard) {
           <span>Изображение</span>
         )}
       </div>
+      {tooltip && <div className="card-tooltip">{tooltip}</div>}
 
     </div>
   );
@@ -166,6 +173,7 @@ function App() {
                 <div className="about-item-left">
                   <h3>Образование</h3>
                   <p>ИГХТУ 2008-2014<br />ВХК РАН<br />специальность: химия</p>
+                  <p>Академия ТОР 2025-2026<br />Курсы повышения квалификации<br />специальность: разработка веб-приложений</p>
                 </div>
                 <div className="about-item-right">
                   <h3>Опыт работы</h3>
@@ -275,12 +283,12 @@ function App() {
               {/* Подблок 4.1: Деловая полиграфия */}
               <div className="print-category">
                 <h3>Рекламная полиграфия</h3>
-                <div className="description">Дизайн печатной продукции для бизнеса</div>
+                <div className="inblock-description">Дизайн печатной продукции для бизнеса</div>
                 <div className="print-grid">
-                  <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" />
-                  <PrintCard title="Вкладыши" image="/src/assets/products/vklad.png" />
-                  <PrintCard title="Листовки" image="/src/assets/products/listovka.jpg" />
-                  <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.png" />
+                  <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" tooltip="Посмотреть визитки"/>
+                  <PrintCard title="Вкладыши" image="/src/assets/products/vklad.png" tooltip="Посмотреть вкладыши"/>
+                  <PrintCard title="Листовки" image="/src/assets/products/listovka.jpg" tooltip="Посмотреть влистовки"/>
+                  <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.png" tooltip="Посмотреть  блокноты" />
                 </div>
               </div>
 
@@ -288,10 +296,10 @@ function App() {
               <div className="print-category">
                 <h3>Многостраничная продукция</h3>
                 <div className="print-grid">
-                  <PrintCard title="Квартальники" image="/src/assets/products/kvart.jpg" />
-                  <PrintCard title="Лифлеты" image="/src/assets/products/leaf.jpg" />
-                  <PrintCard title="Каталоги" image="/src/assets/products/katal.jpg" />
-                  <PrintCard title="Прочая многостраничная продукция" image="/src/assets/products/knigga.png" />
+                  <PrintCard title="Квартальники" image="/src/assets/products/kvart.jpg" tooltip="Посмотреть  квартальники"/>
+                  <PrintCard title="Лифлеты" image="/src/assets/products/leaf.jpg" tooltip="Посмотреть  лифлеты" />
+                  <PrintCard title="Каталоги" image="/src/assets/products/katal.jpg" tooltip="Посмотреть вкладыши"/>
+                  <PrintCard title="Прочая многостраничная продукция" image="/src/assets/products/knigga.png" tooltip="Посмотреть все"/>
                 </div>
               </div>
 
@@ -299,8 +307,8 @@ function App() {
               <div className="print-category">
                 <h3>Конструктивная полиграфия</h3>
                 <div className="print-grid">
-                  <PrintCard title="Вырубные изделия" image="/src/assets/products/hanger.jpg" />
-                  <PrintCard title="Коробки" image="/src/assets/products/boxz.png" />
+                  <PrintCard title="Вырубные изделия" image="/src/assets/products/hanger.jpg" tooltip="Посмотреть изделия" />
+                  <PrintCard title="Коробки" image="/src/assets/products/boxz.png" tooltip="Посмотреть макеты" />
                 </div>
               </div>
 
@@ -308,8 +316,8 @@ function App() {
               <div className="print-category">
                 <h3>Наружная рекламная продукция</h3>
                 <div className="print-grid">
-                  <PrintCard title="Афиши" image="/src/assets/products/afisha.jpg" />
-                  <PrintCard title="Баннеры и вывески" />
+                  <PrintCard title="Афиши и объявления" image="/src/assets/products/afisha.jpg" tooltip="Посмотреть все макеты" />
+                  <PrintCard title="Баннеры и вывески" image="/src/assets/products/banner.png" tooltip="Посмотреть все макеты" />
                 </div>
               </div>
             </>
@@ -343,13 +351,13 @@ function App() {
             <div className="case">
               <div className="corpstyle-layout">                
                 <div className="corpstyle-left">
-                  <CorpStyleCard image="/src/assets/products/corp-style.jpg" />
+                  <CorpStyleCard image="/src/assets/products/corp-style.png" />
                 </div>
 
                 {/* Правая колонка - сетка 2x2 (каждая картинка 25% от общей ширины) */}
                 <div className="corpstyle-right">
                   <div className="corpstyle-grid">
-                    <CorpStyleCard image="/src/assets/products/indom-cup.jpg" />
+                    <CorpStyleCard image="/src/assets/products/indom-cup.png" />
                     <CorpStyleCard image="/src/assets/products/baige.jpg" />
                     <CorpStyleCard image="/src/assets/products/ezhednev.jpg" />
                     <CorpStyleCard image="/src/assets/products/brel.jpg" />
