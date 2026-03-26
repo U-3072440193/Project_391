@@ -1,0 +1,136 @@
+/* Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  width: auto;
+  min-width: 1200px;
+  max-width: 90vw;
+  height: auto;
+  min-height: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  resize: both;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: white;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+  transition: color 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: linear-gradient(135deg, rgb(251, 52, 190), rgb(255, 88, 88));
+  color: #000;
+}
+
+/* Баннер внутри модалки */
+.top-banner-modal {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.top-banner-modal img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Сетка поверх картинки */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  pointer-events: none;
+}
+
+.grid-cell {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.cell-content {
+  width: 100%;
+  height: 100%;
+}
+
+.project-modal {
+  padding: 0;
+}
+
+.project-modal h2 {
+  padding: 20px 30px 0 30px;
+  color: #333;
+  font-size: 24px;
+  margin: 0;
+  background: white;
+}
+
+.modal-content-text {
+  padding: 20px 30px 30px 30px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

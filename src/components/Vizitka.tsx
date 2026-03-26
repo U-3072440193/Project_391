@@ -1,22 +1,30 @@
-import './App.css'
+import { cubes } from '../data/cubesData';
 
-// 1. Сначала определяем интерфейсы
-interface PrintCardProps {
-  title: string;
-  description?: string; // ? означает необязательный
-  image?: string;
+interface Cube {
+  bg: string;
 }
 
-interface CaseItemProps {
-  title: string;
-}
-
-
-
-function App() {
+const Vizitka = () => {
   return (
-    <div className="page"></div>
+    <div className="project-modal">
+      <div className="top-banner-modal">
+        <img src="/src/assets/viz-modal/top-viz.jpg" alt="Визитки" />
+        <div className="grid-overlay">
+          {cubes.map((cube: Cube, index: number) => (
+            <div 
+              key={index} 
+              className="grid-cell"
+              style={{ background: cube.bg }}
+            />
+          ))}
+        </div>
+      </div>
+      <h2>Визитки</h2>
+      <div className="modal-content-text">
+        <p>Примеры дизайна визиток</p>
+      </div>
+    </div>
   );
-}
+};
 
-export default App;
+export default Vizitka;

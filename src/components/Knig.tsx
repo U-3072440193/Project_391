@@ -1,14 +1,14 @@
 import React from 'react';
 import { cubes } from '../data/cubesData';
 
-const Leafleets = () => {
+const Knig = () => {
   interface Cube {
     bg: string;
   }
   return (
     <div className="project-modal">
       <div className="top-banner-modal">
-        <img src="/src/assets/bookl-modal/top-bookl.jpg" alt="Лифлеты и простые буклеты" />
+        <img src="/src/assets/knig-modal/top-knig.jpg" alt="Прочая многостраничная продукция" />
         <div className="grid-overlay">
           {cubes.map((cube: Cube, index: number) => (
             <div
@@ -19,7 +19,7 @@ const Leafleets = () => {
           ))}
         </div>
       </div>
-      <h2>Лифлеты и простые буклеты</h2>
+      <h2>Прочая многостраничная продукция</h2>
       <div className="modal-content-text">
         <p>Разработка дизайна</p>
       </div>
@@ -27,4 +27,4 @@ const Leafleets = () => {
   );
 };
 
-export default Leafleets;
+export default Knig;

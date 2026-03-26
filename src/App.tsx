@@ -1,14 +1,31 @@
 import './App.css'
+import './components/modal.css'
 import React, { useState } from "react";
 import lookupIcon from "./assets/lookup.svg";
 import lookdownIcon from "./assets/lookdown.svg";
+import Vizitka from './components/Vizitka';
+import Vkladysh from './components/Vkladysh';
+import Listovki from './components/Listovki';
+import Bloknots from './components/Bloknots';
+import Kvartalnik from './components/Kvartalnik';
+import Leafleets from './components/Leafleets';
+import Katalogs from './components/Katalogs';
+import Vyrubka from './components/Vyrubka';
+import Korobka from './components/Korobka';
+import Corpstyle from './components/Corpstyle';
+import Websites from './components/Websites';
+import Logos from './components/Logos';
+import Knig from './components/Knig';
+import Afisha from './components/Afisha';
+import Banner from './components/Banner';
 
 // 1. Сначала определяем интерфейсы
 interface PrintCardProps {
   title: string;
   description?: string;
   image?: string;
-  tooltip?: string;  
+  tooltip?: string;
+  onClick?: () => void; // Добавляем onClick
 }
 
 interface CorpStyleCard {
@@ -17,9 +34,9 @@ interface CorpStyleCard {
 }
 
 // 2. Теперь компоненты с типами
-function PrintCard({ title, description, image, tooltip }: PrintCardProps) {
+function PrintCard({ title, description, image, tooltip, onClick }: PrintCardProps) {
   return (
-    <div className="print-card">
+    <div className="print-card" onClick={onClick}>
       <div className="print-card-image">
         {image ? (
           <img src={image} alt={title} className="card-image" />
@@ -27,19 +44,17 @@ function PrintCard({ title, description, image, tooltip }: PrintCardProps) {
           <span>Изображение</span>
         )}
       </div>
-      
+
       {/* Сама всплывающая подсказка */}
       {tooltip && <div className="card-tooltip">{tooltip}</div>}
-      
+
       <h2>{title}</h2>
       {description && <p className="card-description">{description}</p>}
     </div>
   );
 }
 
-
-
-function CorpStyleCard({ image,tooltip }: CorpStyleCard) {
+function CorpStyleCard({ image, tooltip }: CorpStyleCard) {
   return (
     <div className="сorp-item">
       <div className="сorp-item-image">
@@ -50,7 +65,6 @@ function CorpStyleCard({ image,tooltip }: CorpStyleCard) {
         )}
       </div>
       {tooltip && <div className="card-tooltip">{tooltip}</div>}
-
     </div>
   );
 }
@@ -77,6 +91,22 @@ function App() {
   const togglePrint = () => setIsPrintOpen(!isPrintOpen);
   const toggleCorpstyle = () => setIsCorpstyleOpen(!isCorpstyleOpen);
   const toggleWeb = () => setIsWebOpen(!isWebOpen);
+
+  // Состояния для открытия модалки
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+
+  // Функция для открытия модалки
+  const openModal = (content: React.ReactNode) => {
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
+  // Функция для закрытия модалки
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent(null);
+  };
 
   return (
     <div className="portfolio">
@@ -158,22 +188,37 @@ function App() {
         <section id="about" className="about">
           <div className="container">
             <div className="outer-title" onClick={toggleAbout}>
-              <div className="title">
-                <h2>О себе</h2>
+              <div className="title-wrapper">
+                <div className="title">
+                  <div className="title-block"></div>
+                  <div className="title-block"></div>
+                  <div className="title-block"></div>
+                  <div className="title-block"></div>
+                  <h2>О себе</h2>
+                </div>
               </div>
-              {isAboutOpen ? (
-                <img className="icon" src={lookupIcon} alt="свернуть" />
-              ) : (
-                <img className="icon" src={lookdownIcon} alt="развернуть" />
-              )}
+              <div className="title-extra-blocks">
+                <div className="title-block-extra"></div>
+                <div className="title-block-extra last-with-icon">
+                  <img className="title-icon" src={isAboutOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
+                </div>
+              </div>
             </div>
 
             {isAboutOpen && (
               <div className="about-grid">
                 <div className="about-item-left">
                   <h3>Образование</h3>
-                  <p>ИГХТУ 2008-2014<br />ВХК РАН<br />специальность: химия</p>
-                  <p>Академия ТОР 2025-2026<br />Курсы повышения квалификации<br />специальность: разработка веб-приложений</p>
+                  <div className="education-item">
+                    <span className="education-year">ИГХТУ 2008-2014</span>
+                    <div className="education-place">ВХК РАН</div>
+                    <div className="education-specialty">специальность: химия</div>
+                  </div>
+                  <div className="education-item">
+                    <span className="education-year">Академия ТОР 2025-2026</span>
+                    <div className="education-place">Курсы повышения квалификации</div>
+                    <div className="education-specialty">специальность: разработка веб-приложений</div>
+                  </div>
                 </div>
                 <div className="about-item-right">
                   <h3>Опыт работы</h3>
@@ -215,19 +260,25 @@ function App() {
       <section className="skills">
         <div className="container">
           <div className="outer-title" onClick={toggleSkills}>
-            <div className="title">
-              <h2>Навыки</h2>
+            <div className="title-wrapper">
+              <div className="title">
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <h2>Навыки</h2>
+              </div>
             </div>
-            {isSkillsOpen ? (
-              <img className="icon" src={lookupIcon} alt="свернуть" />
-            ) : (
-              <img className="icon" src={lookdownIcon} alt="развернуть" />
-            )}
+            <div className="title-extra-blocks">
+              <div className="title-block-extra"></div>
+              <div className="title-block-extra last-with-icon">
+                <img className="title-icon" src={isSkillsOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
+              </div>
+            </div>
           </div>
 
           {isSkillsOpen && (
             <div className="skills-grid">
-              {/* Подблок: Программы */}
               <div className="skills-category">
                 <h3>Программы</h3>
                 <ul className="skills-list">
@@ -238,8 +289,6 @@ function App() {
                   <li>Adobe Acrobat</li>
                 </ul>
               </div>
-
-              {/* Подблок: Технические навыки */}
               <div className="skills-category">
                 <h3>Технические навыки</h3>
                 <ul className="skills-list">
@@ -268,14 +317,21 @@ function App() {
       <section id="print" className="print">
         <div className="container">
           <div className="outer-title" onClick={togglePrint}>
-            <div className="title">
-              <h2>Полиграфический дизайн</h2>
+            <div className="title-wrapper">
+              <div className="title">
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <h2>Полиграфический дизайн</h2>
+              </div>
             </div>
-            {isPrintOpen ? (
-              <img className="icon" src={lookupIcon} alt="свернуть" />
-            ) : (
-              <img className="icon" src={lookdownIcon} alt="развернуть" />
-            )}
+            <div className="title-extra-blocks">
+              <div className="title-block-extra"></div>
+              <div className="title-block-extra last-with-icon">
+                <img className="title-icon" src={isPrintOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
+              </div>
+            </div>
           </div>
 
           {isPrintOpen && (
@@ -285,10 +341,30 @@ function App() {
                 <h3>Рекламная полиграфия</h3>
                 <div className="inblock-description">Дизайн печатной продукции для бизнеса</div>
                 <div className="print-grid">
-                  <PrintCard title="Визитки" image="/src/assets/products/viz-shveika.jpg" tooltip="Посмотреть визитки"/>
-                  <PrintCard title="Вкладыши" image="/src/assets/products/vklad.png" tooltip="Посмотреть вкладыши"/>
-                  <PrintCard title="Листовки" image="/src/assets/products/listovka.jpg" tooltip="Посмотреть влистовки"/>
-                  <PrintCard title="Блокноты" image="/src/assets/products/bloknot-aero.png" tooltip="Посмотреть  блокноты" />
+                  <PrintCard
+                    title="Визитки"
+                    image="/src/assets/products/viz-shveika.jpg"
+                    tooltip="Посмотреть визитки"
+                    onClick={() => openModal(<Vizitka />)}
+                  />
+                  <PrintCard
+                    title="Вкладыши и наклейки"
+                    image="/src/assets/products/vklad.png"
+                    tooltip="Посмотреть вкладыши"
+                    onClick={() => openModal(<Vkladysh />)}
+                  />
+                  <PrintCard
+                    title="Листовки"
+                    image="/src/assets/products/listovka.jpg"
+                    tooltip="Посмотреть листовки"
+                    onClick={() => openModal(<Listovki />)}
+                  />
+                  <PrintCard
+                    title="Блокноты"
+                    image="/src/assets/products/bloknot-aero.png"
+                    tooltip="Посмотреть блокноты"
+                    onClick={() => openModal(<Bloknots />)}
+                  />
                 </div>
               </div>
 
@@ -296,10 +372,30 @@ function App() {
               <div className="print-category">
                 <h3>Многостраничная продукция</h3>
                 <div className="print-grid">
-                  <PrintCard title="Квартальники" image="/src/assets/products/kvart.jpg" tooltip="Посмотреть  квартальники"/>
-                  <PrintCard title="Лифлеты" image="/src/assets/products/leaf.jpg" tooltip="Посмотреть  лифлеты" />
-                  <PrintCard title="Каталоги" image="/src/assets/products/katal.jpg" tooltip="Посмотреть вкладыши"/>
-                  <PrintCard title="Прочая многостраничная продукция" image="/src/assets/products/knigga.png" tooltip="Посмотреть все"/>
+                  <PrintCard
+                    title="Квартальники"
+                    image="/src/assets/products/kvart.jpg"
+                    tooltip="Посмотреть квартальники"
+                    onClick={() => openModal(<Kvartalnik />)}
+                  />
+                  <PrintCard
+                    title="Лифлеты"
+                    image="/src/assets/products/leaf.jpg"
+                    tooltip="Посмотреть лифлеты"
+                    onClick={() => openModal(<Leafleets />)}
+                  />
+                  <PrintCard
+                    title="Каталоги"
+                    image="/src/assets/products/katal.jpg"
+                    tooltip="Посмотреть каталоги"
+                    onClick={() => openModal(<Katalogs />)}
+                  />
+                  <PrintCard
+                    title="Прочая многостраничная продукция"
+                    image="/src/assets/products/knigga.png"
+                    tooltip="Посмотреть все"
+                    onClick={() => openModal(<Knig/>)}
+                  />
                 </div>
               </div>
 
@@ -307,8 +403,18 @@ function App() {
               <div className="print-category">
                 <h3>Конструктивная полиграфия</h3>
                 <div className="print-grid">
-                  <PrintCard title="Вырубные изделия" image="/src/assets/products/hanger.jpg" tooltip="Посмотреть изделия" />
-                  <PrintCard title="Коробки" image="/src/assets/products/boxz.png" tooltip="Посмотреть макеты" />
+                  <PrintCard
+                    title="Вырубные изделия"
+                    image="/src/assets/products/hanger.png"
+                    tooltip="Посмотреть изделия"
+                    onClick={() => openModal(<Vyrubka />)}
+                  />
+                  <PrintCard
+                    title="Коробки и сложная вырубка"
+                    image="/src/assets/products/boxz.png"
+                    tooltip="Посмотреть макеты"
+                    onClick={() => openModal(<Korobka />)}
+                  />
                 </div>
               </div>
 
@@ -316,8 +422,18 @@ function App() {
               <div className="print-category">
                 <h3>Наружная рекламная продукция</h3>
                 <div className="print-grid">
-                  <PrintCard title="Афиши и объявления" image="/src/assets/products/afisha.jpg" tooltip="Посмотреть все макеты" />
-                  <PrintCard title="Баннеры и вывески" image="/src/assets/products/banner.png" tooltip="Посмотреть все макеты" />
+                  <PrintCard
+                    title="Афиши и объявления"
+                    image="/src/assets/products/afisha.jpg"
+                    tooltip="Посмотреть все макеты"
+                    onClick={() => openModal(<Afisha/>)}
+                  />
+                  <PrintCard
+                    title="Баннеры и вывески"
+                    image="/src/assets/products/banner.png"
+                    tooltip="Посмотреть все макеты"
+                    onClick={() => openModal(<Banner/>)}
+                  />
                 </div>
               </div>
             </>
@@ -337,24 +453,29 @@ function App() {
       <section id="corpstyle" className="corpstyle">
         <div className="container">
           <div className="outer-title" onClick={toggleCorpstyle}>
-            <div className="title">
-              <h2>Корпоративный стиль</h2>
+            <div className="title-wrapper">
+              <div className="title">
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <h2>Корпоративный стиль</h2>
+              </div>
             </div>
-            {isCorpstyleOpen ? (
-              <img className="icon" src={lookupIcon} alt="свернуть" />
-            ) : (
-              <img className="icon" src={lookdownIcon} alt="развернуть" />
-            )}
+            <div className="title-extra-blocks">
+              <div className="title-block-extra"></div>
+              <div className="title-block-extra last-with-icon">
+                <img className="title-icon" src={isCorpstyleOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
+              </div>
+            </div>
           </div>
 
           {isCorpstyleOpen && (
             <div className="case">
-              <div className="corpstyle-layout">                
-                <div className="corpstyle-left">
+              <div className="corpstyle-layout">
+                <div className="corpstyle-left" onClick={() => openModal(<Corpstyle />)}>
                   <CorpStyleCard image="/src/assets/products/corp-style.png" />
                 </div>
-
-                {/* Правая колонка - сетка 2x2 (каждая картинка 25% от общей ширины) */}
                 <div className="corpstyle-right">
                   <div className="corpstyle-grid">
                     <CorpStyleCard image="/src/assets/products/indom-cup.png" />
@@ -364,8 +485,6 @@ function App() {
                   </div>
                 </div>
               </div>
-
-              
             </div>
           )}
         </div>
@@ -383,20 +502,26 @@ function App() {
       <section id="web" className="web">
         <div className="container">
           <div className="outer-title" onClick={toggleWeb}>
-            <div className="title">
-              <h2>Веб-разработка</h2>
+            <div className="title-wrapper">
+              <div className="title">
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <h2>Веб-разработка</h2>
+              </div>
             </div>
-            {isWebOpen ? (
-              <img className="icon" src={lookupIcon} alt="свернуть" />
-            ) : (
-              <img className="icon" src={lookdownIcon} alt="развернуть" />
-            )}
+            <div className="title-extra-blocks">
+              <div className="title-block-extra"></div>
+              <div className="title-block-extra last-with-icon">
+                <img className="title-icon" src={isWebOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
+              </div>
+            </div>
           </div>
 
           {isWebOpen && (
             <>
-              {/* Проект: Шишка */}
-              <div className="web-project">
+              <div className="web-project" onClick={() => openModal(<Websites />)}>
                 <h3>«Шишка» / Task Manager</h3>
                 <p className="project-description">
                   Fullstack веб-приложение для управления задачами (аналог Trello):
@@ -404,7 +529,6 @@ function App() {
                   Реализована серверная логика на Django, REST API и WebSocket-соединения
                   для обновления данных без перезагрузки страницы.
                 </p>
-                {/* Убираем <p> вокруг списка */}
                 <div className="project-features">
                   <strong>Текущий функционал:</strong>
                   <ul>
@@ -426,8 +550,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Проект: Сайт-портфолио */}
-              <div className="web-project">
+              <div className="web-project" onClick={() => openModal(<Websites />)}>
                 <h3>Сайт-портфолио (этот сайт)</h3>
                 <p className="project-description">
                   React + TypeScript + Vite, адаптивная верстка,
@@ -458,15 +581,37 @@ function App() {
       {/* БЛОК 7: ДОПОЛНИТЕЛЬНО (ЛОГОТИПЫ) */}
       <section className="additional">
         <div className="container">
-          <div className="title">
-            <h2>Логотипы</h2>
+          <div className="outer-title">
+            <div className="title-wrapper">
+              <div className="title">
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <div className="title-block"></div>
+                <h2>Прочее</h2>
+              </div>
+            </div>
+            <div className="title-extra-blocks">
+              <div className="title-block-extra"></div>
+              <div className="title-block-extra last-with-icon">
+                <img className="title-icon" src={lookupIcon} alt="свернуть/развернуть" />
+              </div>
+            </div>
           </div>
 
           <div className="logo-grid">
-            <LogoCard />
-            <LogoCard />
-            <LogoCard />
-            <LogoCard />
+            <div onClick={() => openModal(<Logos />)}>
+              <LogoCard />
+            </div>
+            <div onClick={() => openModal(<Logos />)}>
+              <LogoCard />
+            </div>
+            <div onClick={() => openModal(<Logos />)}>
+              <LogoCard />
+            </div>
+            <div onClick={() => openModal(<Logos />)}>
+              <LogoCard />
+            </div>
           </div>
         </div>
       </section>
@@ -494,6 +639,18 @@ function App() {
           <p className="copyright">© 2025 | Антон Зарубин</p>
         </div>
       </footer>
+
+      {/* Модальное окно */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>×</button>
+            <div className="modal-body">
+              {modalContent}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

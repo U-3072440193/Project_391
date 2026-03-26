@@ -1,14 +1,14 @@
 import React from 'react';
 import { cubes } from '../data/cubesData';
 
-const Vyrubka = () => {
+const Afisha = () => {
     interface Cube {
     bg: string;
   }
   return (
     <div className="project-modal">
           <div className="top-banner-modal">
-            <img src="/src/assets/vyrub-modal/top-vyrub.jpg" alt="Вырубные изделия" />
+            <img src="/src/assets/afisha-modal/top-afisha.jpg" alt="Афиши и постеры" />
             <div className="grid-overlay">
               {cubes.map((cube: Cube, index: number) => (
                 <div
@@ -19,13 +19,13 @@ const Vyrubka = () => {
               ))}
             </div>
           </div>
-          <h2>Вырубные изделия</h2>
+          <h2>Афиши и постеры</h2>
           <div className="modal-content-text">
-            <p>Дизайн изделий для вырубки: бирки, этикетки, открытки.</p>
+            <p>Дизайн афиш и постеров</p>
           </div>
         </div>
 
   );
 };
 
-export default Vyrubka;
+export default Afisha;
