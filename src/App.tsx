@@ -19,6 +19,7 @@ import Knig from './components/Knig';
 import Afisha from './components/Afisha';
 import Banner from './components/Banner';
 
+
 // 1. Сначала определяем интерфейсы
 interface PrintCardProps {
   title: string;
@@ -45,7 +46,12 @@ function PrintCard({ title, description, image, tooltip, onClick }: PrintCardPro
         )}
       </div>
 
-      {/* Сама всплывающая подсказка */}
+      <div className="card-stripe">
+        <div className="stripe-section stripe-left"></div>
+        <div className="stripe-section stripe-center"></div>
+        <div className="stripe-section stripe-right"></div>
+      </div>
+
       {tooltip && <div className="card-tooltip">{tooltip}</div>}
 
       <h2>{title}</h2>

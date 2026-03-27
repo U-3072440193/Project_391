@@ -1,21 +1,30 @@
 import React from 'react';
+import { cubes } from '../data/cubesData';
 
 const Corpstyle = () => {
+    interface Cube {
+    bg: string;
+  }
   return (
     <div className="project-modal">
-      <h2>Корпоративный стиль</h2>
-      <div className="modal-content">
-        <p>Примеры разработки корпоративного стиля:</p>
-        <div className="project-images">
-          <img src="/src/assets/products/corp-style.png" alt="Корпоративный стиль 1" />
-          <img src="/src/assets/products/indom-cup.png" alt="Корпоративный стиль 2" />
-          <img src="/src/assets/products/baige.jpg" alt="Корпоративный стиль 3" />
-          <img src="/src/assets/products/ezhednev.jpg" alt="Корпоративный стиль 4" />
-          <img src="/src/assets/products/brel.jpg" alt="Корпоративный стиль 5" />
+          <div className="top-banner-modal">
+            <img src="/src/assets/corp-modal/top-corp.jpg" alt="Корпоративный стиль" />
+            <div className="grid-overlay">
+              {cubes.map((cube: Cube, index: number) => (
+                <div
+                  key={index}
+                  className="grid-cell"
+                  style={{ background: cube.bg }}
+                />
+              ))}
+            </div>
+          </div>
+          <h2>Афиши и постеры</h2>
+          <div className="modal-content-text">
+            <p>Дизайн афиш и постеров</p>
+          </div>
         </div>
-        <p>Полный комплекс работ по созданию корпоративного стиля: логотип, фирменные цвета, брендбук, сувенирная продукция.</p>
-      </div>
-    </div>
+
   );
 };
 

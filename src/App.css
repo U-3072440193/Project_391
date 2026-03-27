@@ -346,12 +346,6 @@ h2 {
   background: rgba(255, 100, 162, 0.162);
 }
 
-/* Эффект при наведении на первые 4 блока */
-.title-block:nth-child(1):hover {
-  background: rgba(255, 205, 188, 0.089);
-}
-
-
 /* Заголовок поверх блоков */
 .title h2 {
   justify-content: center;
@@ -405,10 +399,7 @@ h2 {
   transform: scale(1.1);
 }
 
-/* Эффект при наведении на дополнительные блоки */
-.title-block-extra:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
+
 
 /* Эффект при клике */
 .title-block:active,
@@ -743,6 +734,39 @@ h2 {
   background: rgba(255, 255, 255, 0.6); /* Белый полупрозрачный */
   z-index: 2;
   pointer-events: none;
+}
+/* Контейнер полосы */
+.card-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Каждая секция */
+.stripe-section {
+  flex: 1;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Левая секция */
+.stripe-left {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Центральная секция */
+.stripe-center {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Правая секция */
+.stripe-right {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Контейнер для текста */
@@ -1250,9 +1274,7 @@ h2 {
   }
  
   
-  .print-grid {
-    grid-template-columns: 1fr;
-  }
+  
   
   .case {
     padding: 20px;
