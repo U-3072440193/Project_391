@@ -103,17 +103,7 @@ const Listovki = () => {
         <div className="process-block">
 <div className="process-visual">
 
-  <div className="process-images">
-    <img src="/src/assets/list-modal/sush1.jpg" className="example-jpg" />
-    <div className="connector"></div>
-    <img src="/src/assets/list-modal/sush2.jpg" className="example-jpg" />
-  </div>
-
-  <div className="vertical-line"></div>
-
-  <div className="process-result">
-    <img src="/src/assets/list-modal/iks.jpg" className="example-jpg" />
-  </div>
+  
   
 
 </div>

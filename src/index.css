@@ -63,6 +63,13 @@
 
 body {
   margin: 0;
+  background-image: url("/src/assets/body2.svg");
+  background-repeat: repeat;
+  background-position: 65px 0;
+}
+svg {
+  width: 100%;
+  height: auto;
 }
 
 h1,

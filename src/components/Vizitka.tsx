@@ -96,7 +96,7 @@ const Vizitka = () => {
             <img src="/src/assets/viz-modal/ult2.jpg" alt="Визитки пример" className='example-jpg' />
           </div>
         </div>
-        
+
 
         <div className="tech-list">
           <h3>Технологии печати</h3>
