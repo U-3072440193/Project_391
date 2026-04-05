@@ -1,0 +1,319 @@
+/* ===== ПОЛИГРАФИЯ ===== */
+.polygraphy-section {
+  padding: 40px 0;
+  width: 100%;
+}
+
+/* Сетка */
+.polygraphy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+/* Базовые стили для карточек */
+.polygraphy-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+/* Все карточки имеют одинаковую ширину */
+/* Высота автоматически подстраивается под соотношение сторон */
+
+/* Квадратные карточки (1:1) */
+.polygraphy-card.square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Вертикальные прямоугольники (3:4) */
+.polygraphy-card.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Горизонтальные прямоугольники (4:3) */
+.polygraphy-card.landscape {
+  aspect-ratio: 4 / 3;
+}
+
+/* Широкие карточки на 2 колонки (16:9) */
+.polygraphy-card.wide {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+/* Контейнер для изображения */
+.polygraphy-card .image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Изображение */
+.polygraphy-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* Затемнение и текст при ховере */
+.polygraphy-card .print-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.3s ease;
+  z-index: 2;
+}
+
+.polygraphy-card .card-center {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: 0.3s ease;
+  padding: 20px;
+  max-width: 90%;
+}
+
+/* Эффекты при ховере */
+.polygraphy-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.polygraphy-card:hover img {
+  transform: scale(1.05);
+}
+
+.polygraphy-card:hover .card-center {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.polygraphy-card:hover .print-card-overlay {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Теги и кнопки */
+.polygraphy-card .card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.polygraphy-card .card-tag {
+  border: 1px solid white;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.polygraphy-card .card-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+.polygraphy-card .card-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.polygraphy-card .card-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .polygraphy-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .polygraphy-card.wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .polygraphy-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .polygraphy-card.wide {
+    grid-column: span 1;
+  }
+}
+
+/* Модальное окно для проекта */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.project-modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+/* Если одна картинка — центрируем и ограничиваем ширину */
+.project-modal-images:has(.project-modal-image:only-child) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: none;
+}
+/* Если одна картинка — центрируем */
+.project-modal-images:has(.project-modal-image:only-child) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.project-modal-images:has(.project-modal-image:only-child) .project-modal-image {
+  max-width: 70%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.project-modal-images:has(.project-modal-image:only-child) .project-modal-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-modal-close:hover {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+.project-modal-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  padding-right: 40px;
+}
+
+.project-modal-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.project-modal-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+
+.project-modal-image {
+  border-radius: 0px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.project-modal-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .project-modal-title {
+    font-size: 22px;
+  }
+  
+  .project-modal-description {
+    font-size: 14px;
+  }
+  
+  .project-modal-images {
+    grid-template-columns: 1fr;
+  }
+}

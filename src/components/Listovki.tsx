@@ -1,119 +1,249 @@
 import React from 'react';
-import { cubes } from '../data/cubesData';
-import './listovki.css';
+import './modal.css';
 
-const Listovki = () => {
-  interface Cube {
-    bg: string;
-  }
-  
+const BookCoverCase = () => {
   return (
     <div className="project-modal">
-      <div className="top-banner-modal">
-        <img src="/src/assets/list-modal/top-list.jpg" alt="Листовки" />
-        <div className="grid-overlay">
-          {cubes.map((cube: Cube, index: number) => (
-            <div
-              key={index}
-              className="grid-cell"
-              style={{ background: cube.bg }}
-            />
-          ))}
-        </div>
-      </div>
-      
-      <div className="modal-header">
-        <h2>Листовки</h2>
-        <div className="project-stats">
-          <span className="stat-badge">+7 лет опыта</span>
-          <span className="stat-badge">50+ проектов</span>
-          <span className="stat-badge">С 2017 года</span>
-        </div>
-      </div>
 
-      <div className="explain-block">
-        <div className="explain-image">
-          <img src="/src/assets/list-modal/explain-list.jpg" alt="Листовки пример" />
+      {/* HERO */}
+      <div className="modal-hero">
+        <div className="modal-hero-bg">
+          <img src="/src/assets/book-modal/top-book.jpg" alt="Октавиан обложка" />
+          <div className="modal-hero-overlay"></div>
         </div>
-        <div className="explain-text">
-          <p>
-            Листовка — это самый эффективный инструмент для привлечения внимания к бизнесу. 
-            Лаконичный дизайн, четкая структура информации и правильная композиция помогают донести 
-            ключевое сообщение до клиента за секунды. Разрабатываем листовки для любой сферы: 
-            от промо-акций до презентации новых услуг.
+
+        <div className="modal-hero-content">
+          <div className="modal-badge">КОНЦЕПТ</div>
+
+          <h1 className="modal-hero-title">
+            Октавиан<br />
+            <span className="accent">У истоков империи</span>
+          </h1>
+
+          <p className="modal-hero-subtitle">
+            Дизайн обложки для научно-популярного издания об истории Рима
           </p>
+
+          <div className="project-stats">
+            <span className="stat-badge">Редизайн</span>
+            <span className="stat-badge">Книжная обложка</span>
+            <span className="stat-badge">Типографика</span>
+          </div>
         </div>
       </div>
 
-      <div className="modal-content-text">
-        <div className="features-list">
-          <h3>Что входит в разработку</h3>
-          <ul>
-            <li>Разработка 2-3 вариантов дизайна</li>
-            <li>Создание продающей структуры и текстов</li>
-            <li>Подбор типографики и цветового решения</li>
-            <li>Подготовка макетов к печати (PDF, TIFF, CMYK)</li>
-          </ul>
-        </div>
+      <div className="inner-proj-modal">
 
-        <div className="description-viz">
-          <div className="mono">
-            <img src="/src/assets/list-modal/iks.jpg" alt="Листовка пример" className="example-jpg" />
+        {/* INFO */}
+        <div className="modal-info-grid">
+          <div className="info-card">
+            <div className="info-icon"><img src="/icons/book.svg" alt="Формат" /></div>
+            <h3>Формат</h3>
+            <p>Научно-популярное издание</p>
           </div>
-          <div className="bis">
-            <img src="/src/assets/list-modal/sush1.jpg" alt="Листовка пример" className="example-jpg" />
-            <div className="line"></div>
-            <img src="/src/assets/list-modal/sush2.jpg" alt="Листовка пример" className="example-jpg" />
-          </div>
-        </div>
 
-        <div className="formats-list">
-          <h3>Популярные форматы</h3>
-          <div className="format-tags">
-            <span>A6 (105×148 мм)</span>
-            <span>A5 (148×210 мм)</span>
-            <span>A4 (210×297 мм)</span>
-            <span>DL (99×210 мм)</span>
-            <span>Евро (98×210 мм)</span>
-            <span>Квадрат (210×210 мм)</span>
+          <div className="info-card">
+            <div className="info-icon"><img src="/icons/idea.svg" alt="Идея" /></div>
+            <h3>Идея</h3>
+            <p>Власть, порядок и становление империи</p>
+          </div>
+
+          <div className="info-card">
+            <div className="info-icon"><img src="/icons/type.svg" alt="Акцент" /></div>
+            <h3>Акцент</h3>
+            <p>Контрастная типографика и классический образ</p>
           </div>
         </div>
 
-        <div className="tech-list">
-          <h3>Технологии печати</h3>
-          <div className="tech-tags">
-            <span>Цифровая печать</span>
-            <span>Офсетная печать</span>
-            <span>УФ-лак</span>
-            <span>Ламинация</span>
-            <span>Выборочный лак</span>
-            <span>Биговка</span>
+        {/* PROCESS */}
+        <div className="modal-section">
+          <div className="modal-section-header">
+            <h2>Процесс работы</h2>
+            <div className="section-line"></div>
+          </div>
+
+          <div className="process-steps">
+
+            {/* 1 КОНТЕКСТ */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <img src="/src/assets/book-modal/context.jpg" alt="Контекст" />
+              </div>
+
+              <div className="process-step-content">
+                <h3>Контекст</h3>
+                <p className="process-step-description">
+                  Обложки исторических книг часто перегружены деталями.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Большинство изданий используют иллюстрации баталий,
+                    сложные композиции и устаревшую типографику, что снижает
+                    читаемость и визуальную актуальность.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 2 ПРОБЛЕМА */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <img src="/src/assets/book-modal/example.jpg" alt="Пример" />
+              </div>
+
+              <div className="process-step-content">
+                <h3>Проблема</h3>
+                <p className="process-step-description">
+                  Визуал не передаёт масштаб и характер темы.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Сложные изображения и слабая иерархия делают книгу
+                    менее заметной и ухудшают восприятие на полке.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 3 ЗАДАЧА */}
+            <div className="process-step no-image">
+              <div className="process-step-content full">
+                <h3>Задача</h3>
+
+                <div className="keywords">
+                  <span>читаемость</span>
+                  <span>иерархия</span>
+                  <span>характер</span>
+                  <span>актуальность</span>
+                </div>
+
+                <div className="process-step-details">
+                  <p>
+                    Создать обложку, которая будет визуально строгой,
+                    современной и при этом отражать историческую глубину темы.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 4 ИДЕЯ */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <img src="/src/assets/book-modal/search.jpg" alt="Идея" />
+              </div>
+
+              <div className="process-step-content">
+                <h3>Идея</h3>
+                <p className="process-step-description">
+                  Октавиан как символ власти.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Центральный образ — скульптура, отсылающая к классике и
+                    авторитету. Минимализм усиливает ощущение контроля и порядка.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 5 ВИЗУАЛ */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <img src="/src/assets/book-modal/typography.jpg" alt="Типографика" />
+              </div>
+
+              <div className="process-step-content">
+                <h3>Типографика</h3>
+                <p className="process-step-description">
+                  Контраст и чёткая иерархия.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Крупное название формирует главный акцент, подзаголовок
+                    добавляет контекст. Шрифтовая композиция остаётся
+                    сдержанной и читаемой.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 6 МАТЕРИАЛЬНОСТЬ */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <img src="/src/assets/book-modal/material.jpg" alt="Материальность" />
+              </div>
+
+              <div className="process-step-content">
+                <h3>Материальность</h3>
+                <p className="process-step-description">
+                  Тактильность и премиальность.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Тёмный фон и золотые акценты предполагают использование
+                    матовой ламинации и тиснения для усиления восприятия.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 7 НОСИТЕЛИ */}
+            <div className="process-step">
+              <div className="process-step-image mockup-grid">
+                <div className="mockup-grid-container">
+                  <div className="mockup-row">
+                    <div className="mockup-item"><img src="/src/assets/book-modal/mock1.jpg" alt="Книга" /></div>
+                    <div className="mockup-item"><img src="/src/assets/book-modal/mock2.jpg" alt="Книга" /></div>
+                  </div>
+
+                  <div className="mockup-row full">
+                    <div className="mockup-item full-width"><img src="/src/assets/book-modal/mock3.jpg" alt="Композиция" /></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="process-step-content">
+                <h3>Издание</h3>
+                <p className="process-step-description">
+                  Обложка как часть цельного продукта.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Дизайн адаптирован под физическое издание: лицевая часть,
+                    корешок и задняя сторона формируют единый визуальный образ.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 8 РЕЗУЛЬТАТ */}
+            <div className="process-step">
+              <div className="process-step-image placeholder">
+                <div className="mockup-item-final">
+                  <img src="/src/assets/book-modal/final.jpg" alt="Финал" />
+                </div>
+              </div>
+
+              <div className="process-step-content">
+                <h3>Результат</h3>
+                <p className="process-step-description">
+                  Сдержанный и выразительный визуал.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Обложка выделяется за счёт минимализма и типографики,
+                    передаёт характер темы и выглядит актуально в книжной среде.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div className="paper-list">
-          <h3>Бумага</h3>
-          <div className="paper-tags">
-            <span>Мелованная 130-300 г/м²</span>
-            <span>Дизайнерская бумага</span>
-            <span>Крафт</span>
-            <span>Офсетная</span>
-          </div>
-        </div>
-        <div className="process-block">
-<div className="process-visual">
-
-  
-  
-
-</div>
-
-
-
-</div>
       </div>
     </div>
   );
 };
 
-export default Listovki;
+export default BookCoverCase;

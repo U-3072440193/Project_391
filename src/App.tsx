@@ -1,664 +1,276 @@
-import './App.css'
-import './components/modal.css'
-import React, { useState } from "react";
-import lookupIcon from "./assets/lookup.svg";
-import lookdownIcon from "./assets/lookdown.svg";
-import Vizitka from './components/Vizitka';
-import Vkladysh from './components/Vkladysh';
-import Listovki from './components/Listovki';
-import Bloknots from './components/Bloknots';
-import Kvartalnik from './components/Kvartalnik';
-import Leafleets from './components/Leafleets';
-import Katalogs from './components/Katalogs';
-import Vyrubka from './components/Vyrubka';
-import Korobka from './components/Korobka';
-import Corpstyle from './components/Corpstyle';
-import Websites from './components/Websites';
-import Logos from './components/Logos';
-import Knig from './components/Knig';
-import Afisha from './components/Afisha';
-import Banner from './components/Banner';
+import "./App.css";
+import "./components/modal.css";
+import type { ReactNode } from "react";
+import React, { useState, useRef } from "react";
+
+// модалки
+import Leafleets from "./components/Leafleets";
+import Vkladysh from "./components/Vkladysh";
+import BookCoverCase from "./components/BookCoverCase";
+import About from "./About";
+import AboutMirror from "./AboutMirror";
+import Polygraphy from "./Polygraphy";
+import CorpStyle from "./CorpStyle";
+import CorpStyleCase from "./components/CorpStyleCase";
+import Web from "./Web";
+
+// картинки
+import leaf from "./assets/products/leaf-sd.jpg";
+import vklad from "./assets/products/vklad.png";
+import book from "./assets/products/book.jpg";
+import Corp from "./assets/products/corp-style.png";
+
+/* ================= HEADER ================= */
+function Header() {
+  return (
+    <header className="header">
+      <div className="hero-box">
+        <div className="hero-bg"></div>
+        <div className="hero-overlay"></div>
+
+        <svg className="rays" viewBox="0 0 1000 500" preserveAspectRatio="none">
+          <line x1="500" y1="150" x2="200" y2="500" />
+          <line x1="500" y1="150" x2="350" y2="500" />
+          <line x1="500" y1="150" x2="500" y2="500" />
+          <line x1="500" y1="150" x2="650" y2="500" />
+          <line x1="500" y1="150" x2="800" y2="500" />
+        </svg>
+
+        <div className="container">
+          <div className="schema-center">
+            <div className="center-left">
+              <h3>Приветствую вас на моей страничке</h3>
+              <h3 className="muted">Предлагаю ознакомиться с портфолио</h3>
+            </div>
+
+            <div className="big-circle"></div>
+
+            <div className="center-right">
+              <h1>Антон Зарубин</h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
 
-// 1. Сначала определяем интерфейсы
-interface PrintCardProps {
+    </header>
+  );
+}
+
+/* ================= CARD ================= */
+type PrintCardProps = {
   title: string;
-  description?: string;
-  image?: string;
-  tooltip?: string;
-  onClick?: () => void; // Добавляем onClick
-}
+  image: string;
+  tags?: string[];
+  onClick?: () => void;
+};
 
-interface CorpStyleCard {
-  image?: string;
-  tooltip?: string;
-}
-
-// 2. Теперь компоненты с типами
-function PrintCard({ title, description, image, tooltip, onClick }: PrintCardProps) {
+function PrintCard({ title, image, tags, onClick }: PrintCardProps) {
   return (
     <div className="print-card" onClick={onClick}>
-      <div className="print-card-image">
-        {image ? (
-          <img src={image} alt={title} className="card-image" />
-        ) : (
-          <span>Изображение</span>
-        )}
+      <img src={image} alt={title} className="print-card-img" />
+
+      <div className="print-card-overlay">
+        <div className="card-center">
+          <div className="card-tags">
+            {tags?.map((tag, i) => (
+              <span key={i} className="card-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h2 className="card-title">{title}</h2>
+          <button className="card-btn">посмотреть</button>
+        </div>
       </div>
-
-      <div className="card-stripe">
-        <div className="stripe-section stripe-left"></div>
-        <div className="stripe-section stripe-center"></div>
-        <div className="stripe-section stripe-right"></div>
-      </div>
-
-      {tooltip && <div className="card-tooltip">{tooltip}</div>}
-
-      <h2>{title}</h2>
-      {description && <p className="card-description">{description}</p>}
     </div>
   );
 }
 
-function CorpStyleCard({ image, tooltip }: CorpStyleCard) {
-  return (
-    <div className="сorp-item">
-      <div className="сorp-item-image">
-        {image ? (
-          <img src={image} className="corp-image" />
-        ) : (
-          <span>Изображение</span>
-        )}
-      </div>
-      {tooltip && <div className="card-tooltip">{tooltip}</div>}
-    </div>
-  );
-}
-
-function LogoCard() {
-  return (
-    <div className="logo-card">
-      <div className="logo-image">{/* Логотип */}</div>
-    </div>
-  );
-}
-
-function App() {
-  // Отдельные стейты для каждого блока
-  const [isAboutOpen, setIsAboutOpen] = useState(true);
-  const [isSkillsOpen, setIsSkillsOpen] = useState(true);
-  const [isPrintOpen, setIsPrintOpen] = useState(true);
-  const [isCorpstyleOpen, setIsCorpstyleOpen] = useState(true);
-  const [isWebOpen, setIsWebOpen] = useState(true);
-
-  // Функции для переключения
-  const toggleAbout = () => setIsAboutOpen(!isAboutOpen);
-  const toggleSkills = () => setIsSkillsOpen(!isSkillsOpen);
-  const togglePrint = () => setIsPrintOpen(!isPrintOpen);
-  const toggleCorpstyle = () => setIsCorpstyleOpen(!isCorpstyleOpen);
-  const toggleWeb = () => setIsWebOpen(!isWebOpen);
-
-  // Состояния для открытия модалки
+/* ================= APP ================= */
+export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+  const [modalContent, setModalContent] = useState<ReactNode | null>(null);
 
-  // Функция для открытия модалки
-  const openModal = (content: React.ReactNode) => {
+  // Отдельные состояния для каждой секции
+  const [showCases, setShowCases] = useState(true);
+  const [showAbout, setShowAbout] = useState(true);
+  const [showPoly, setShowPoly] = useState(true);
+  const [showCorpStyle, setShowCorpStyle] = useState(true);
+  const [showWeb, setShowWeb] = useState(true);
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const openModal = (content: React.ReactNode): void => {
     setModalContent(content);
     setIsModalOpen(true);
   };
 
-  // Функция для закрытия модалки
   const closeModal = () => {
     setIsModalOpen(false);
     setModalContent(null);
   };
 
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
+  };
+
   return (
     <div className="portfolio">
-      {/* БЛОК 1: ПРИВЕТСТВИЕ */}
-      <section className="hero">
-        <div className="container container-main">
-          {/* Левый блок с сеткой 3x3 */}
-          <div className="hero-grid">
-            {/* Верхний ряд */}
-            <div className="grid-cell top-left"></div>
-            <div className="grid-cell top-center">
-              <div className="split-cell">
-                <div className="split-left"></div>
-                <div className="split-right"></div>
-              </div>
-            </div>
-            <div className="grid-cell top-right"></div>
+      <Header />
+      <div className="container">
 
-            {/* Средний ряд */}
-            <div className="grid-cell middle-left"></div>
-            <div className="grid-cell center">
-              <div className="greeting-box">
-                <h3 className="greeting-text">
-                  Приветствую вас на моей страничке,<br />
-                  меня зовут <span className="name">Антон Зарубин</span><br />
-                  и я предлагаю ознакомиться с моим портфолио.
-                </h3>
-              </div>
-            </div>
-            <div className="grid-cell middle-right"></div>
-
-            {/* Нижний ряд */}
-            <div className="grid-cell bottom-left"></div>
-            <div className="grid-cell bottom-center">
-              <div className="split-cell">
-                <div className="split-left"></div>
-                <div className="split-right"></div>
-              </div>
-            </div>
-            <div className="grid-cell bottom-right"></div>
-          </div>
-
-          {/* Правый блок с навигацией */}
-          <div className="hero-nav">
-            <div className="hero-nav-items">
-              <div className="hero-nav-item">
-                <a href="#about">О себе</a>
-              </div>
-              <div className="hero-nav-item">
-                <a href="#print">Полиграфия</a>
-              </div>
-              <div className="hero-nav-item">
-                <a href="#corpstyle">Корпоративный стиль</a>
-              </div>
-              <div className="hero-nav-item">
-                <a href="#web">Веб-проекты</a>
-              </div>
-              <div className="hero-nav-item">
-                <a href="#contact">Контакты</a>
-              </div>
-              <div className="hero-nav-item">
-                <a href="#blog">Блог</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
+      </div>
+      <div className="nav-wrapper">
+        <nav className="nav-line">
+          <a href="#about">О себе</a>
+          <a href="#polygraphy">Полиграфия</a>
+          <a href="#corpstyle">Корп стиль</a>
+          <a href="#web">Веб</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
       </div>
 
-      {/* БЛОК 2: О СЕБЕ */}
-      <div className="about-container">
-        <section id="about" className="about">
-          <div className="container">
-            <div className="outer-title" onClick={toggleAbout}>
-              <div className="title-wrapper">
-                <div className="title">
-                  <div className="title-block"></div>
-                  <div className="title-block"></div>
-                  <div className="title-block"></div>
-                  <div className="title-block"></div>
-                  <h2>О себе</h2>
+      <main className="portfolio-body">
+        {/* Секция КЕЙСЫ */}
+        <section className="cases container">
+          <div className="cases-header">
+            <div className="cases-circle">Кейсы</div>
+            <div className="cases-line"></div>
+            <button className="toggle" onClick={() => setShowCases(!showCases)}>
+              <svg className={`toggle-icon ${showCases ? "up" : "down"}`} viewBox="0 0 100 100">
+                <polyline points="20,60 50,30 80,60" />
+              </svg>
+            </button>
+          </div>
+
+          {showCases && (
+            <div className="cases-controls">
+              <div className="carousel-wrapper">
+                <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
+                <div className="carousel" ref={scrollRef}>
+                  <PrintCard title="Корпоративный стиль НеоДом" image={Corp} tags={["Корп.стиль", "Брендинг"]} onClick={() => openModal(<CorpStyleCase />)} />
+                  <PrintCard title="Разработка обложки книги" image={book} tags={["Полиграфия", "Книги"]} onClick={() => openModal(<BookCoverCase />)} />
+                  <PrintCard title="Разработка макета вкладыша" image={vklad} tags={["Вкладыши", "Полиграфия"]} onClick={() => openModal(<Vkladysh />)} />
+                  <PrintCard title="Разработка макета лифлета для пекарни" image={leaf} tags={["Branding", "Print"]} onClick={() => openModal(<Leafleets />)} />
                 </div>
-              </div>
-              <div className="title-extra-blocks">
-                <div className="title-block-extra"></div>
-                <div className="title-block-extra last-with-icon">
-                  <img className="title-icon" src={isAboutOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
-                </div>
+                <button className="carousel-btn right" onClick={scrollRight}>›</button>
               </div>
             </div>
-
-            {isAboutOpen && (
-              <div className="about-grid">
-                <div className="about-item-left">
-                  <h3>Образование</h3>
-                  <div className="education-item">
-                    <span className="education-year">ИГХТУ 2008-2014</span>
-                    <div className="education-place">ВХК РАН</div>
-                    <div className="education-specialty">специальность: химия</div>
-                  </div>
-                  <div className="education-item">
-                    <span className="education-year">Академия ТОР 2025-2026</span>
-                    <div className="education-place">Курсы повышения квалификации</div>
-                    <div className="education-specialty">специальность: разработка веб-приложений</div>
-                  </div>
-                </div>
-                <div className="about-item-right">
-                  <h3>Опыт работы</h3>
-                  <ul className="experience-list">
-                    <li>
-                      <span className="date">2016-2018</span>
-                      <span className="place">Типография «Икс-Пресс» (дизайнер)</span>
-                    </li>
-                    <li>
-                      <span className="date">2018-2024</span>
-                      <span className="place">Типография «Мегапринт» (дизайнер, печатник)</span>
-                    </li>
-                    <li>
-                      <span className="date">2024-2025</span>
-                      <span className="place">"Первая цифровая типография" (печатник, сублимация)</span>
-                    </li>
-                    <li>
-                      <span className="date">2025–н.в.</span>
-                      <span className="place">РА «Афина» (дизайнер)</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            )}
-          </div>
+          )}
         </section>
-      </div>
 
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
-
-      {/* БЛОК 3: НАВЫКИ */}
-      <section className="skills">
-        <div className="container">
-          <div className="outer-title" onClick={toggleSkills}>
-            <div className="title-wrapper">
-              <div className="title">
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <h2>Навыки</h2>
-              </div>
-            </div>
-            <div className="title-extra-blocks">
-              <div className="title-block-extra"></div>
-              <div className="title-block-extra last-with-icon">
-                <img className="title-icon" src={isSkillsOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
-              </div>
-            </div>
+        {/* Секция О СЕБЕ */}
+        <section id="about" className="cases container">
+          <div className="cases-header">
+            <div className="menu-head"><h2>О себе</h2></div>
+            <div className="cases-line"></div>
+            <button className="toggle" onClick={() => setShowAbout(!showAbout)}>
+              <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
+                <polyline points="20,60 50,30 80,60" />
+              </svg>
+            </button>
           </div>
-
-          {isSkillsOpen && (
-            <div className="skills-grid">
-              <div className="skills-category">
-                <h3>Программы</h3>
-                <ul className="skills-list">
-                  <li>Adobe Illustrator</li>
-                  <li>CorelDRAW</li>
-                  <li>Adobe InDesign</li>
-                  <li>Adobe Photoshop</li>
-                  <li>Adobe Acrobat</li>
-                </ul>
-              </div>
-              <div className="skills-category">
-                <h3>Технические навыки</h3>
-                <ul className="skills-list">
-                  <li>Печать на плоттере Graphtec FC1600</li>
-                  <li>Резка тиражей Eurocutter</li>
-                  <li>Сублимационный каландр Monti Antonio</li>
-                  <li>Konica Minolta C6000L</li>
-                  <li>Брошюровка</li>
-                  <li>Упаковка готовой продукции</li>
-                </ul>
-              </div>
+          {showAbout && (
+            <div className="cases-controls">
+              <About />
+              <AboutMirror />
             </div>
           )}
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
+        </section>
 
-      {/* БЛОК 4: ПОЛИГРАФИЧЕСКИЙ ДИЗАЙН */}
-      <section id="print" className="print">
-        <div className="container">
-          <div className="outer-title" onClick={togglePrint}>
-            <div className="title-wrapper">
-              <div className="title">
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <h2>Полиграфический дизайн</h2>
-              </div>
-            </div>
-            <div className="title-extra-blocks">
-              <div className="title-block-extra"></div>
-              <div className="title-block-extra last-with-icon">
-                <img className="title-icon" src={isPrintOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
-              </div>
-            </div>
+        {/* Секция ПОЛИГРАФИЯ */}
+        <section id="polygraphy" className="cases container">
+          <div className="cases-header">
+            <div className="menu-head"><h2>Полиграфия</h2></div>
+            <div className="cases-line"></div>
+            <button className="toggle" onClick={() => setShowPoly(!showPoly)}>
+              <svg className={`toggle-icon ${showPoly ? "up" : "down"}`} viewBox="0 0 100 100">
+                <polyline points="20,60 50,30 80,60" />
+              </svg>
+            </button>
           </div>
-
-          {isPrintOpen && (
-            <>
-              {/* Подблок 4.1: Деловая полиграфия */}
-              <div className="print-category">
-                <h3>Рекламная полиграфия</h3>
-                <div className="inblock-description">Дизайн печатной продукции для бизнеса</div>
-                <div className="print-grid">
-                  <PrintCard
-                    title="Визитки"
-                    image="/src/assets/products/viz-shveika.jpg"
-                    tooltip="Посмотреть визитки"
-                    onClick={() => openModal(<Vizitka />)}
-                  />
-                  <PrintCard
-                    title="Вкладыши и наклейки"
-                    image="/src/assets/products/vklad.png"
-                    tooltip="Посмотреть вкладыши"
-                    onClick={() => openModal(<Vkladysh />)}
-                  />
-                  <PrintCard
-                    title="Листовки"
-                    image="/src/assets/products/listovka.jpg"
-                    tooltip="Посмотреть листовки"
-                    onClick={() => openModal(<Listovki />)}
-                  />
-                  <PrintCard
-                    title="Блокноты"
-                    image="/src/assets/products/bloknot-aero.png"
-                    tooltip="Посмотреть блокноты"
-                    onClick={() => openModal(<Bloknots />)}
-                  />
-                </div>
-              </div>
-
-              {/* Подблок 4.2: Многостраничная продукция */}
-              <div className="print-category">
-                <h3>Многостраничная продукция</h3>
-                <div className="print-grid">
-                  <PrintCard
-                    title="Квартальники"
-                    image="/src/assets/products/kvart.jpg"
-                    tooltip="Посмотреть квартальники"
-                    onClick={() => openModal(<Kvartalnik />)}
-                  />
-                  <PrintCard
-                    title="Лифлеты"
-                    image="/src/assets/products/leaf.jpg"
-                    tooltip="Посмотреть лифлеты"
-                    onClick={() => openModal(<Leafleets />)}
-                  />
-                  <PrintCard
-                    title="Каталоги"
-                    image="/src/assets/products/katal.jpg"
-                    tooltip="Посмотреть каталоги"
-                    onClick={() => openModal(<Katalogs />)}
-                  />
-                  <PrintCard
-                    title="Прочая многостраничная продукция"
-                    image="/src/assets/products/knigga.png"
-                    tooltip="Посмотреть все"
-                    onClick={() => openModal(<Knig/>)}
-                  />
-                </div>
-              </div>
-
-              {/* Подблок 4.3: Конструктивная полиграфия */}
-              <div className="print-category">
-                <h3>Конструктивная полиграфия</h3>
-                <div className="print-grid">
-                  <PrintCard
-                    title="Вырубные изделия"
-                    image="/src/assets/products/hanger.png"
-                    tooltip="Посмотреть изделия"
-                    onClick={() => openModal(<Vyrubka />)}
-                  />
-                  <PrintCard
-                    title="Коробки и сложная вырубка"
-                    image="/src/assets/products/boxz.png"
-                    tooltip="Посмотреть макеты"
-                    onClick={() => openModal(<Korobka />)}
-                  />
-                </div>
-              </div>
-
-              {/* Подблок 4.4: Плакатная продукция */}
-              <div className="print-category">
-                <h3>Наружная рекламная продукция</h3>
-                <div className="print-grid">
-                  <PrintCard
-                    title="Афиши и объявления"
-                    image="/src/assets/products/afisha.jpg"
-                    tooltip="Посмотреть все макеты"
-                    onClick={() => openModal(<Afisha/>)}
-                  />
-                  <PrintCard
-                    title="Баннеры и вывески"
-                    image="/src/assets/products/banner.png"
-                    tooltip="Посмотреть все макеты"
-                    onClick={() => openModal(<Banner/>)}
-                  />
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
-
-      {/* БЛОК 5: КОРПОРАТИВНЫЙ СТИЛЬ */}
-      <section id="corpstyle" className="corpstyle">
-        <div className="container">
-          <div className="outer-title" onClick={toggleCorpstyle}>
-            <div className="title-wrapper">
-              <div className="title">
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <h2>Корпоративный стиль</h2>
-              </div>
-            </div>
-            <div className="title-extra-blocks">
-              <div className="title-block-extra"></div>
-              <div className="title-block-extra last-with-icon">
-                <img className="title-icon" src={isCorpstyleOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
-              </div>
-            </div>
-          </div>
-
-          {isCorpstyleOpen && (
-            <div className="case">
-              <div className="corpstyle-layout">
-                <div className="corpstyle-left" onClick={() => openModal(<Corpstyle />)}>
-                  <CorpStyleCard image="/src/assets/products/corp-style.png" />
-                </div>
-                <div className="corpstyle-right">
-                  <div className="corpstyle-grid">
-                    <CorpStyleCard image="/src/assets/products/indom-cup.png" />
-                    <CorpStyleCard image="/src/assets/products/baige.jpg" />
-                    <CorpStyleCard image="/src/assets/products/ezhednev.jpg" />
-                    <CorpStyleCard image="/src/assets/products/brel.jpg" />
-                  </div>
-                </div>
-              </div>
+          {showPoly && (
+            <div className="cases-controls">
+              <Polygraphy />
             </div>
           )}
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
+        </section>
 
-      {/* БЛОК 6: ВЕБ-РАЗРАБОТКА */}
-      <section id="web" className="web">
-        <div className="container">
-          <div className="outer-title" onClick={toggleWeb}>
-            <div className="title-wrapper">
-              <div className="title">
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <h2>Веб-разработка</h2>
-              </div>
-            </div>
-            <div className="title-extra-blocks">
-              <div className="title-block-extra"></div>
-              <div className="title-block-extra last-with-icon">
-                <img className="title-icon" src={isWebOpen ? lookupIcon : lookdownIcon} alt="свернуть/развернуть" />
-              </div>
-            </div>
+        {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ */}
+        <section id="corpstyle" className="cases container">
+          <div className="cases-header">
+            <div className="menu-head"><h2>Корпоративный стиль</h2></div>
+            <div className="cases-line"></div>
+            <button className="toggle" onClick={() => setShowCorpStyle(!showCorpStyle)}>
+              <svg className={`toggle-icon ${showCorpStyle ? "up" : "down"}`} viewBox="0 0 100 100">
+                <polyline points="20,60 50,30 80,60" />
+              </svg>
+            </button>
           </div>
-
-          {isWebOpen && (
-            <>
-              <div className="web-project" onClick={() => openModal(<Websites />)}>
-                <h3>«Шишка» / Task Manager</h3>
-                <p className="project-description">
-                  Fullstack веб-приложение для управления задачами (аналог Trello):
-                  канбан-доски, задачи, чат в реальном времени и личные сообщения.
-                  Реализована серверная логика на Django, REST API и WebSocket-соединения
-                  для обновления данных без перезагрузки страницы.
-                </p>
-                <div className="project-features">
-                  <strong>Текущий функционал:</strong>
-                  <ul>
-                    <li>канбан-доски и задачи</li>
-                    <li>чат в реальном времени (WebSocket)</li>
-                    <li>клиент-серверное взаимодействие через API</li>
-                  </ul>
-                  <p>Проект находится в стадии активной разработки</p>
-                </div>
-                <div className="project-tech">
-                  <span className="tech-badge">Django</span>
-                  <span className="tech-badge">React</span>
-                  <span className="tech-badge">TypeScript</span>
-                  <span className="tech-badge">WebSockets</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/U-3072440193/project_377" className="button">GitHub</a>
-                  <a href="#" className="button">Демо</a>
-                </div>
-              </div>
-
-              <div className="web-project" onClick={() => openModal(<Websites />)}>
-                <h3>Сайт-портфолио (этот сайт)</h3>
-                <p className="project-description">
-                  React + TypeScript + Vite, адаптивная верстка,
-                  модальные окна с проектами
-                </p>
-                <div className="project-tech">
-                  <span className="tech-badge">React</span>
-                  <span className="tech-badge">TypeScript</span>
-                  <span className="tech-badge">Vite</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/U-3072440193/Project_391" className="button">GitHub</a>
-                </div>
-              </div>
-            </>
+          {showCorpStyle && (
+            <div className="cases-controls">
+              <CorpStyle />
+            </div>
           )}
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
+        </section>
 
-      {/* БЛОК 7: ДОПОЛНИТЕЛЬНО (ЛОГОТИПЫ) */}
-      <section className="additional">
-        <div className="container">
-          <div className="outer-title">
-            <div className="title-wrapper">
-              <div className="title">
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <div className="title-block"></div>
-                <h2>Прочее</h2>
-              </div>
-            </div>
-            <div className="title-extra-blocks">
-              <div className="title-block-extra"></div>
-              <div className="title-block-extra last-with-icon">
-                <img className="title-icon" src={lookupIcon} alt="свернуть/развернуть" />
-              </div>
-            </div>
+        {/* Секция ВЕБ-РАЗРАБОТКА */}
+        <section id="web" className="cases container">
+          <div className="cases-header">
+            <div className="menu-head"><h2>Веб-разработка</h2></div>
+            <div className="cases-line"></div>
+            <button className="toggle" onClick={() => setShowWeb(!showWeb)}>
+              <svg className={`toggle-icon ${showWeb ? "up" : "down"}`} viewBox="0 0 100 100">
+                <polyline points="20,60 50,30 80,60" />
+              </svg>
+            </button>
           </div>
+          {showWeb && (
+            <div className="cases-controls">
+              <Web />
+            </div>
+          )}
+        </section>
+      </main>
 
-          <div className="logo-grid">
-            <div onClick={() => openModal(<Logos />)}>
-              <LogoCard />
-            </div>
-            <div onClick={() => openModal(<Logos />)}>
-              <LogoCard />
-            </div>
-            <div onClick={() => openModal(<Logos />)}>
-              <LogoCard />
-            </div>
-            <div onClick={() => openModal(<Logos />)}>
-              <LogoCard />
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="outer-block">
-        <div className="midlle-block-left1"></div>
-        <div className="midlle-block-left2"></div>
-        <div className="midlle-block-left3"></div>
-        <div className="midlle-block-left4"></div>
-        <div className="midlle-block-rigt"></div>
-        <div className="midlle-block-rigt2"></div>
-      </div>
-
-      {/* БЛОК 8: КОНТАКТЫ (ФУТЕР) */}
-      <footer id="contact" className="footer">
-        <div className="container">
-          <h2>Контакты</h2>
-          <div className="contact-info">
-            <p className="contact-name">Антон Зарубин</p>
-            <div className="contact-links">
-              <p>Email: <a href="mailto:shkatzman@mail.ru">shkatzman@mail.ru</a></p>
-              <p>Telegram: <a href="#">@anton_z</a></p>
-              <p>GitHub: <a href="https://github.com/U-3072440193">github.com/U-3072440193</a></p>
-            </div>
-          </div>
-          <p className="copyright">© 2025 | Антон Зарубин</p>
-        </div>
-      </footer>
-
-      {/* Модальное окно */}
+      {/* MODAL */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
-            <div className="modal-body">
-              {modalContent}
-            </div>
+            {modalContent}
           </div>
         </div>
       )}
+
+      <footer id='contacts' className="footer">
+        <div className="footer-bg"></div>
+        <div className="footer-overlay"></div>
+        <div className="footer-content container">
+          <div className="footer-contacts">
+            <div className="contact-item">
+              <i className="fas fa-envelope contact-icon"></i>
+              <a href="mailto:shkatzman@mail.ru">shkatzman@mail.ru</a>
+            </div>
+
+            <div className="contact-item">
+              <i className="fab fa-telegram contact-icon"></i>
+              <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+
+            <div className="contact-item">
+              <i className="fab fa-github contact-icon"></i>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
-
-export default App;
