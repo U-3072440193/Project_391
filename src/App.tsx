@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import React, { useState, useRef } from "react";
 
 // модалки
-import Leafleets from "./components/Leafleets";
 import Vkladysh from "./components/Vkladysh";
 import BookCoverCase from "./components/BookCoverCase";
+import LeafleetCase from "./components/LeafleetCase";
 import About from "./About";
 import AboutMirror from "./AboutMirror";
 import Polygraphy from "./Polygraphy";
@@ -157,7 +157,7 @@ export default function App() {
                   <PrintCard title="Корпоративный стиль НеоДом" image={Corp} tags={["Корп.стиль", "Брендинг"]} onClick={() => openModal(<CorpStyleCase />)} />
                   <PrintCard title="Разработка обложки книги" image={book} tags={["Полиграфия", "Книги"]} onClick={() => openModal(<BookCoverCase />)} />
                   <PrintCard title="Разработка макета вкладыша" image={vklad} tags={["Вкладыши", "Полиграфия"]} onClick={() => openModal(<Vkladysh />)} />
-                  <PrintCard title="Разработка макета лифлета для пекарни" image={leaf} tags={["Branding", "Print"]} onClick={() => openModal(<Leafleets />)} />
+                  <PrintCard title="Разработка макета лифлета для пекарни" image={leaf} tags={["Branding", "Print"]} onClick={() => openModal(<LeafleetCase />)} />
                 </div>
                 <button className="carousel-btn right" onClick={scrollRight}>›</button>
               </div>

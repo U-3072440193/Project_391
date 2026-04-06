@@ -1,14 +1,14 @@
 import React from 'react';
 import './modal.css';
 
-const BookCoverCase = () => {
+const LeafleetCase = () => {
   return (
     <div className="project-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/book-modal/top-book.jpg" alt="Октавиан обложка" />
+          <img src="/src/assets/book-modal/top-knig.jpg" alt="Октавиан обложка" />
           <div className="modal-hero-overlay"></div>
         </div>
 
@@ -25,7 +25,7 @@ const BookCoverCase = () => {
           </p>
 
           <div className="project-stats">
-            <span className="stat-badge">Редизайн</span>
+            <span className="stat-badge">Концепт</span>
             <span className="stat-badge">Книжная обложка</span>
             <span className="stat-badge">Типографика</span>
           </div>
@@ -67,7 +67,7 @@ const BookCoverCase = () => {
             {/* 1 КОНТЕКСТ */}
             <div className="process-step">
               <div className="process-step-image placeholder">
-                <img src="/src/assets/book-modal/context.jpg" alt="Контекст" />
+                <img src="/src/assets/case/book-example.jpg" alt="Контекст" />
               </div>
 
               <div className="process-step-content">
@@ -180,8 +180,8 @@ const BookCoverCase = () => {
                 </p>
                 <div className="process-step-details">
                   <p>
-                    Тёмный фон и золотые акценты предполагают использование
-                    матовой ламинации и тиснения для усиления восприятия.
+                    Тёмный фон и контрастная типографика формируют выразительный визуал.
+Обложка сохраняет читаемость и характер при печати в стандартных условиях.
                   </p>
                 </div>
               </div>
@@ -192,12 +192,12 @@ const BookCoverCase = () => {
               <div className="process-step-image mockup-grid">
                 <div className="mockup-grid-container">
                   <div className="mockup-row">
-                    <div className="mockup-item"><img src="/src/assets/book-modal/mock1.jpg" alt="Книга" /></div>
-                    <div className="mockup-item"><img src="/src/assets/book-modal/mock2.jpg" alt="Книга" /></div>
+                    <div className="mockup-item"><img src="/src/assets/case/book-face.jpg" alt="Книга" /></div>
+                    <div className="mockup-item"><img src="/src/assets/case/book-back.jpg" alt="Книга" /></div>
                   </div>
 
                   <div className="mockup-row full">
-                    <div className="mockup-item full-width"><img src="/src/assets/book-modal/mock3.jpg" alt="Композиция" /></div>
+                    <div className="mockup-item full-width"><img src="/src/assets/case/book-open.jpg" alt="Композиция" /></div>
                   </div>
                 </div>
               </div>
@@ -220,7 +220,7 @@ const BookCoverCase = () => {
             <div className="process-step">
               <div className="process-step-image placeholder">
                 <div className="mockup-item-final">
-                  <img src="/src/assets/book-modal/final.jpg" alt="Финал" />
+                  <img src="/src/assets/case/final.jpg" alt="Финал" />
                 </div>
               </div>
 
@@ -246,4 +246,4 @@ const BookCoverCase = () => {
   );
 };
 
-export default BookCoverCase;
+export default LeafleetCase;
