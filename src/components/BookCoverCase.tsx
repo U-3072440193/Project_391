@@ -147,25 +147,52 @@ const BookCoverCase = () => {
             </div>
 
             {/* 5 ВИЗУАЛ */}
-            <div className="process-step">
-              <div className="process-step-image placeholder">
-                <img src="/src/assets/book-modal/typography.jpg" alt="Типографика" />
-              </div>
+            {/* 5 ТИПОГРАФИКА */}
+<div className="process-step">
+  <div className="process-step-image mockup-grid">
+    <div className="mockup-grid-container">
 
-              <div className="process-step-content">
-                <h3>Типографика</h3>
-                <p className="process-step-description">
-                  Контраст и чёткая иерархия.
-                </p>
-                <div className="process-step-details">
-                  <p>
-                    Крупное название формирует главный акцент, подзаголовок
-                    добавляет контекст. Шрифтовая композиция остаётся
-                    сдержанной и читаемой.
-                  </p>
-                </div>
-              </div>
-            </div>
+      {/* 2 варианта сверху */}
+      <div className="mockup-row">
+        <div className="mockup-item">
+          <img src="/src/assets/book-modal/type-1.jpg" alt="Вариант 1" />
+        </div>
+        <div className="mockup-item">
+          <img src="/src/assets/book-modal/type-2.jpg" alt="Вариант 2" />
+        </div>
+      </div>
+
+      {/* 1 вариант ниже */}
+      <div className="mockup-row">
+        <div className="mockup-item">
+          <img src="/src/assets/book-modal/type-3.jpg" alt="Вариант 3" />
+        </div>
+      </div>
+
+      {/* финальный — широкий */}
+      <div className="mockup-row full">
+        <div className="mockup-item full-width">
+          <img src="/src/assets/book-modal/type-final.jpg" alt="Финальный вариант" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div className="process-step-content">
+    <h3>Типографика</h3>
+    <p className="process-step-description">
+      Поиск композиции и иерархии.
+    </p>
+    <div className="process-step-details">
+      <p>
+        Исследованы различные варианты расположения текста и взаимодействия
+        с изображением. Финальный вариант выбран на основе баланса,
+        читаемости и выразительности.
+      </p>
+    </div>
+  </div>
+</div>
 
             {/* 6 МАТЕРИАЛЬНОСТЬ */}
             <div className="process-step">

@@ -446,6 +446,9 @@
     height: auto;
     display: block;
 }
+.mockup-row:not(.full) .mockup-item {
+    aspect-ratio: 3 / 4;
+}
 
 /* Адаптивность */
 @media (max-width: 1024px) {
