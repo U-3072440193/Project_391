@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import "./App.css";
 import "./polygraphy.css";
 
@@ -68,9 +68,41 @@ const Polygraphy = () => {
     description: string;
     images: string[];
   } | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+const scrollLeft = () => {
+  scrollRef.current?.scrollBy({ left: -320, behavior: "smooth" });
+};
+
+const scrollRight = () => {
+  scrollRef.current?.scrollBy({ left: 320, behavior: "smooth" });
+};
 
   // Данные для карточек с деталями
   const printItems = [
+    {
+      title: "Вкладыш для КПБ",
+      image: "/src/assets/vklad-modal/vklad.png",
+      tags: ["Вкладыши", "Офсетная печать","Металлизированные пантоны"],
+      description: "Разработка вкладыша КПБ с двумя биговками и металлизированным пантоном 871с.",
+      images: [
+        "/src/assets/vklad-modal/vklad.png",
+        '/src/assets/vklad-modal/shemme.svg',
+
+        
+      ]
+    },
+     {
+      title: "Рекламный лифлет для пекарни",
+      image: "/src/assets/bookl-modal/sdob-ul.jpg",
+      tags: ["Листовки", "Офсетная печать"],
+      description: 'Разработка двустороннего лифлета для пекарни "Сдобная улица".',
+      images: [
+        "/src/assets/bookl-modal/sdob-ul1.jpg",
+        "/src/assets/bookl-modal/sdob-ul2.jpg",
+        
+      ]
+    },
     {
       title: "Рекламная листовка Икспресс",
       image: "/src/assets/list-modal/ikspr.jpg",
@@ -204,21 +236,27 @@ const Polygraphy = () => {
 
   return (
     <>
-      <div className="polygraphy-grid">
-        {printItems.map((item, index) => (
-          <PrintCard
-            key={index}
-            title={item.title}
-            image={item.image}
-            tags={item.tags}
-            onClick={() => setSelectedProject({
-              title: item.title,
-              description: item.description,
-              images: item.images
-            })}
-          />
-        ))}
-      </div>
+      <div className="polygraphy-carousel-wrapper">
+  <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
+
+  <div className="polygraphy-carousel" ref={scrollRef}>
+    {printItems.map((item, index) => (
+      <PrintCard
+        key={index}
+        title={item.title}
+        image={item.image}
+        tags={item.tags}
+        onClick={() => setSelectedProject({
+          title: item.title,
+          description: item.description,
+          images: item.images
+        })}
+      />
+    ))}
+  </div>
+
+  <button className="carousel-btn right" onClick={scrollRight}>›</button>
+</div>
 
       {/* Модальное окно */}
       {selectedProject && (

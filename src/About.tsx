@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutImg from "./assets/about3.jpg";
+
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
 
       {/* LEFT - картинка с текстом */}
       <div className="about-left">
-        <div className="about-image" style={{ backgroundImage: `url(${aboutImg})` }}>
+        <div className="about-image">
           <div className="about-content-overlay about-content-overlay-edu">
             {/* Образование */}
             <div className="education-section">
@@ -35,14 +35,14 @@ const About = () => {
   
  
   <svg className="skills-lines">
-    <line x1="50%" y1="50%" x2="50%" y2="10%" />
-    <line x1="50%" y1="50%" x2="80%" y2="25%" />
-    <line x1="50%" y1="50%" x2="90%" y2="50%" />
-    <line x1="50%" y1="50%" x2="80%" y2="75%" />
-    <line x1="50%" y1="50%" x2="50%" y2="90%" />
-    <line x1="50%" y1="50%" x2="20%" y2="75%" />
-    <line x1="50%" y1="50%" x2="10%" y2="50%" />
-    <line x1="50%" y1="50%" x2="20%" y2="25%" />
+    <line x1="50%" y1="50%" x2="50%" y2="17%" />
+<line x1="50%" y1="50%" x2="70%" y2="32%" />
+<line x1="50%" y1="50%" x2="73%" y2="50%" />
+<line x1="50%" y1="50%" x2="76%" y2="68%" />
+<line x1="50%" y1="50%" x2="50%" y2="85.5%" />
+<line x1="50%" y1="50%" x2="23%" y2="70.5%" />
+<line x1="50%" y1="50%" x2="16%" y2="50%" />
+<line x1="50%" y1="50%" x2="27%" y2="29.5%" />
   </svg>
 
   

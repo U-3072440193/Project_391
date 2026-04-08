@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutImg from "./assets/about3.jpg";
+
 
 const AboutMirror = () => {
     return (
@@ -10,14 +10,14 @@ const AboutMirror = () => {
 
 
                     <svg className="skills-lines">
-                        <line x1="50%" y1="50%" x2="50%" y2="10%" />
-                        <line x1="50%" y1="50%" x2="80%" y2="25%" />
-                        <line x1="50%" y1="50%" x2="90%" y2="50%" />
-                        <line x1="50%" y1="50%" x2="80%" y2="75%" />
-                        <line x1="50%" y1="50%" x2="50%" y2="90%" />
-                        <line x1="50%" y1="50%" x2="20%" y2="75%" />
-                        <line x1="50%" y1="50%" x2="10%" y2="50%" />
-                        <line x1="50%" y1="50%" x2="20%" y2="25%" />
+                        <line x1="50%" y1="50%" x2="50%" y2="15%" />
+                        <line x1="50%" y1="50%" x2="75%" y2="29.5%" />
+                        <line x1="50%" y1="50%" x2="80%" y2="50%" />
+                        <line x1="50%" y1="50%" x2="74%" y2="71%" />
+                        <line x1="50%" y1="50%" x2="50%" y2="85%" />
+                        <line x1="50%" y1="50%" x2="25%" y2="72%" />
+                        <line x1="50%" y1="50%" x2="21.5%" y2="50%" />
+                        <line x1="50%" y1="50%" x2="25%" y2="29%" />
                     </svg>
 
 
@@ -40,7 +40,7 @@ const AboutMirror = () => {
 
             {/* LEFT - картинка с текстом */}
             <div className="about-left">
-                <div className="about-image" style={{ backgroundImage: `url(${aboutImg})` }}>
+                <div className="about-image" >
                     <div className="about-content-overlay">
                         
 

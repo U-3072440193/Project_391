@@ -6,11 +6,13 @@ import React, { useState, useRef } from "react";
 // модалки
 import Vkladysh from "./components/Vkladysh";
 import BookCoverCase from "./components/BookCoverCase";
+import PosterCase from "./components/PosterCase";
 import LeafleetCase from "./components/LeafleetCase";
 import About from "./About";
 import AboutMirror from "./AboutMirror";
 import Polygraphy from "./Polygraphy";
 import CorpStyle from "./CorpStyle";
+import Shishka from "./Shishka";
 import CorpStyleCase from "./components/CorpStyleCase";
 import Web from "./Web";
 
@@ -19,42 +21,73 @@ import leaf from "./assets/products/leaf-sd.jpg";
 import vklad from "./assets/products/vklad.png";
 import book from "./assets/products/book.jpg";
 import Corp from "./assets/products/corp-style.png";
+import poster from "./assets/products/poster.jpg";
+import shishkaGif from "./assets/web/shishka.gif";
 
 /* ================= HEADER ================= */
 function Header() {
   return (
-    <header className="header">
-      <div className="hero-box">
-        <div className="hero-bg"></div>
-        <div className="hero-overlay"></div>
+    <>
+      {/* HERO (только фон) */}
+      <header className="header">
+        <div className="hero-box">
+          <div className="hero-bg"></div>
+          <div className="hero-overlay"></div>
+        </div>
+      </header>
 
+      {/* ВЫНЕСЕННЫЙ БЛОК С ЛИНИЯМИ */}
+      <div className="hero-content-wrapper">
+
+        {/* ЛИНИИ ТЕПЕРЬ ТУТ */}
         <svg className="rays" viewBox="0 0 1000 500" preserveAspectRatio="none">
-          <line x1="500" y1="150" x2="200" y2="500" />
-          <line x1="500" y1="150" x2="350" y2="500" />
+          <line x1="500" y1="150" x2="130" y2="500" />
+          <line x1="500" y1="150" x2="300" y2="500" />
           <line x1="500" y1="150" x2="500" y2="500" />
-          <line x1="500" y1="150" x2="650" y2="500" />
-          <line x1="500" y1="150" x2="800" y2="500" />
+          <line x1="500" y1="150" x2="700" y2="500" />
+          <line x1="500" y1="150" x2="870" y2="500" />
         </svg>
 
-        <div className="container">
-          <div className="schema-center">
+        <div className="schema-center">
+          <div className="inner-sh-ce">
             <div className="center-left">
-              <h3>Приветствую вас на моей страничке</h3>
-              <h3 className="muted">Предлагаю ознакомиться с портфолио</h3>
-            </div>
-
-            <div className="big-circle"></div>
-
-            <div className="center-right">
-              <h1>Антон Зарубин</h1>
-            </div>
+            <h3>Приветствую вас на моей страничке</h3>
+            <h3 className="muted">Предлагаю посмотреть моё портфолио</h3>
           </div>
+
+          <div className="big-circle"></div>
+
+          <div className="center-right">
+            <h1>Антон Зарубин</h1>
+          </div>
+          </div>
+          
         </div>
-
       </div>
+    </>
+  );
+}
 
+/* ================= SERVICE CARD (большая карточка как у Polygraphy) ================= */
+type ServiceCardProps = {
+  title: string;
+  description: string;
+  image?: string;
+  onClick?: () => void;
+};
 
-    </header>
+function ServiceCard({ title, description, image, onClick }: ServiceCardProps) {
+  return (
+    <div className="service-card-full" onClick={onClick}>
+      {image && <img src={image} alt={title} className="service-card-img" />}
+      <div className="service-card-overlay">
+        <div className="service-card-content">
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <button className="service-card-btn">Подробнее</button>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -123,9 +156,8 @@ export default function App() {
   return (
     <div className="portfolio">
       <Header />
-      <div className="container">
+      <div className="container"></div>
 
-      </div>
       <div className="nav-wrapper">
         <nav className="nav-line">
           <a href="#about">О себе</a>
@@ -154,10 +186,36 @@ export default function App() {
               <div className="carousel-wrapper">
                 <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
                 <div className="carousel" ref={scrollRef}>
-                  <PrintCard title="Корпоративный стиль НеоДом" image={Corp} tags={["Корп.стиль", "Брендинг"]} onClick={() => openModal(<CorpStyleCase />)} />
-                  <PrintCard title="Разработка обложки книги" image={book} tags={["Полиграфия", "Книги"]} onClick={() => openModal(<BookCoverCase />)} />
-                  <PrintCard title="Разработка макета вкладыша" image={vklad} tags={["Вкладыши", "Полиграфия"]} onClick={() => openModal(<Vkladysh />)} />
-                  <PrintCard title="Разработка макета лифлета для пекарни" image={leaf} tags={["Branding", "Print"]} onClick={() => openModal(<LeafleetCase />)} />
+                  <PrintCard
+                    title="Корпоративный стиль НеоДом"
+                    image={Corp}
+                    tags={["Корп.стиль", "Брендинг"]}
+                    onClick={() => openModal(<CorpStyleCase />)}
+                  />
+                  <PrintCard
+                    title="Разработка обложки книги"
+                    image={book}
+                    tags={["Полиграфия", "Книги"]}
+                    onClick={() => openModal(<BookCoverCase />)}
+                  />
+                  <PrintCard
+                    title="Разработка серии постеров"
+                    image={poster}
+                    tags={["Полиграфия", "плакат"]}
+                    onClick={() => openModal(<PosterCase />)}
+                  />
+                  {/* <PrintCard 
+                    title="Разработка макета вкладыша" 
+                    image={vklad} 
+                    tags={["Вкладыши", "Полиграфия"]} 
+                    onClick={() => openModal(<Vkladysh />)} 
+                  />
+                  <PrintCard 
+                    title="Разработка макета лифлета для пекарни" 
+                    image={leaf} 
+                    tags={["Branding", "Print"]} 
+                    onClick={() => openModal(<LeafleetCase />)} 
+                  /> */}
                 </div>
                 <button className="carousel-btn right" onClick={scrollRight}>›</button>
               </div>
@@ -166,23 +224,27 @@ export default function App() {
         </section>
 
         {/* Секция О СЕБЕ */}
-        <section id="about" className="cases container">
-          <div className="cases-header">
-            <div className="menu-head"><h2>О себе</h2></div>
-            <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowAbout(!showAbout)}>
-              <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
-                <polyline points="20,60 50,30 80,60" />
-              </svg>
-            </button>
-          </div>
-          {showAbout && (
-            <div className="cases-controls">
-              <About />
-              <AboutMirror />
-            </div>
-          )}
-        </section>
+        <section id="about" className="about-section">
+  <div className="cases container">
+    <div className="cases-header">
+      <div className="menu-head about-head"><h2>О себе</h2></div>
+      <div className="cases-line about-head-line"></div>
+
+      <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)}>
+        <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
+          <polyline points="20,60 50,30 80,60" />
+        </svg>
+      </button>
+    </div>
+
+    {showAbout && (
+      <div className="cases-controls">
+        <About />
+        <AboutMirror />
+      </div>
+    )}
+  </div>
+</section>
 
         {/* Секция ПОЛИГРАФИЯ */}
         <section id="polygraphy" className="cases container">
@@ -202,7 +264,7 @@ export default function App() {
           )}
         </section>
 
-        {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ */}
+        {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ - большая карточка на всю ширину */}
         <section id="corpstyle" className="cases container">
           <div className="cases-header">
             <div className="menu-head"><h2>Корпоративный стиль</h2></div>
@@ -215,11 +277,17 @@ export default function App() {
           </div>
           {showCorpStyle && (
             <div className="cases-controls">
-              <CorpStyle />
+              <ServiceCard
+                title="Брендинг агентства недвижимости НеоДом"
+                description="Разработка фирменного стиля, логотипов, брендбуков и визуальных систем"
+                image={Corp}
+                onClick={() => openModal(<CorpStyle />)}
+              />
             </div>
           )}
         </section>
 
+        
         {/* Секция ВЕБ-РАЗРАБОТКА */}
         <section id="web" className="cases container">
           <div className="cases-header">
@@ -233,7 +301,21 @@ export default function App() {
           </div>
           {showWeb && (
             <div className="cases-controls">
-              <Web />
+              {/* Карточка для открытия модалки Shishka */}
+              <ServiceCard
+                title="Сайт для кофеен «Шишка»"
+                description="Разработка современного сайта с атмосферным дизайном и плавными анимациями"
+                image={shishkaGif}
+                onClick={() => openModal(<Shishka />)}
+              />
+
+              {/* Карточка для сайта-портфолио */}
+              <ServiceCard
+                title="Сайт-портфолио"
+                description="React + TypeScript + Vite, адаптивная верстка, модальные окна с проектами"
+                image={shishkaGif} // замени на свою картинку для портфолио
+                onClick={() => window.open('https://github.com/U-3072440193/Project_391', '_blank')}
+              />
             </div>
           )}
         </section>

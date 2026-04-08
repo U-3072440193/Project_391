@@ -49,7 +49,7 @@ const BookCoverCase = () => {
           </div>
 
           <div className="info-card">
-            <div className="info-icon"><img src="/icons/type.svg" alt="Акцент" /></div>
+            <div className="info-icon"><img src="/icons/detail.svg" alt="Акцент" /></div>
             <h3>Акцент</h3>
             <p>Контрастная типографика и классический образ</p>
           </div>
@@ -82,17 +82,6 @@ const BookCoverCase = () => {
                     читаемость и визуальную актуальность.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            {/* 2 ПРОБЛЕМА */}
-            <div className="process-step">
-              <div className="process-step-image placeholder">
-                <img src="/src/assets/book-modal/example.jpg" alt="Пример" />
-              </div>
-
-              <div className="process-step-content">
-                <h3>Проблема</h3>
                 <p className="process-step-description">
                   Визуал не передаёт масштаб и характер темы.
                 </p>
@@ -104,6 +93,8 @@ const BookCoverCase = () => {
                 </div>
               </div>
             </div>
+
+
 
             {/* 3 ЗАДАЧА */}
             <div className="process-step no-image">
@@ -127,9 +118,31 @@ const BookCoverCase = () => {
             </div>
 
             {/* 4 ИДЕЯ */}
-            <div className="process-step">
-              <div className="process-step-image placeholder">
-                <img src="/src/assets/book-modal/search.jpg" alt="Идея" />
+            <div className="process-step idea-step">
+
+              {/* Общий контейнер */}
+              <div className="idea-wrapper">
+
+
+
+                {/* Контейнер с картинками 2×2 */}
+                <div className="idea-visual-container">
+                  <div className="idea-grid-2x2">
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-idea1.jpg" alt="Идея 1" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-idea2.jpg" alt="Идея 2" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-idea3.jpg" alt="Идея 3" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-idea4.jpg" alt="Идея 4" />
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               <div className="process-step-content">
@@ -148,56 +161,51 @@ const BookCoverCase = () => {
 
             {/* 5 ВИЗУАЛ */}
             {/* 5 ТИПОГРАФИКА */}
-<div className="process-step">
-  <div className="process-step-image mockup-grid">
-    <div className="mockup-grid-container">
+            <div className="process-step">
+              <div className="idea-wrapper">
 
-      {/* 2 варианта сверху */}
-      <div className="mockup-row">
-        <div className="mockup-item">
-          <img src="/src/assets/book-modal/type-1.jpg" alt="Вариант 1" />
-        </div>
-        <div className="mockup-item">
-          <img src="/src/assets/book-modal/type-2.jpg" alt="Вариант 2" />
-        </div>
-      </div>
 
-      {/* 1 вариант ниже */}
-      <div className="mockup-row">
-        <div className="mockup-item">
-          <img src="/src/assets/book-modal/type-3.jpg" alt="Вариант 3" />
-        </div>
-      </div>
 
-      {/* финальный — широкий */}
-      <div className="mockup-row full">
-        <div className="mockup-item full-width">
-          <img src="/src/assets/book-modal/type-final.jpg" alt="Финальный вариант" />
-        </div>
-      </div>
+                {/* Контейнер с картинками 2×2 */}
+                <div className="idea-visual-container">
+                  <div className="idea-grid-2x2">
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-var1.jpg" alt="Идея 1" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-var2.jpg" alt="Идея 2" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-var3.jpg" alt="Идея 3" />
+                    </div>
+                    <div className="grid-item">
+                      <img src="/src/assets/case/book-var4.jpg" alt="Идея 4" />
+                    </div>
+                  </div>
+                </div>
 
-    </div>
-  </div>
+              </div>
 
-  <div className="process-step-content">
-    <h3>Типографика</h3>
-    <p className="process-step-description">
-      Поиск композиции и иерархии.
-    </p>
-    <div className="process-step-details">
-      <p>
-        Исследованы различные варианты расположения текста и взаимодействия
-        с изображением. Финальный вариант выбран на основе баланса,
-        читаемости и выразительности.
-      </p>
-    </div>
-  </div>
-</div>
+
+              <div className="process-step-content">
+                <h3>Типографика</h3>
+                <p className="process-step-description">
+                  Поиск композиции и иерархии.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Исследованы различные варианты расположения текста и взаимодействия
+                    с изображением. Финальный вариант выбран на основе баланса,
+                    читаемости и выразительности.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* 6 МАТЕРИАЛЬНОСТЬ */}
             <div className="process-step">
               <div className="process-step-image placeholder">
-                <img src="/src/assets/book-modal/material.jpg" alt="Материальность" />
+                <img src="/src/assets/case/book-material.png" alt="Материальность" />
               </div>
 
               <div className="process-step-content">
@@ -208,7 +216,7 @@ const BookCoverCase = () => {
                 <div className="process-step-details">
                   <p>
                     Тёмный фон и контрастная типографика формируют выразительный визуал.
-Обложка сохраняет читаемость и характер при печати в стандартных условиях.
+                    Обложка сохраняет читаемость и характер при печати в стандартных условиях.
                   </p>
                 </div>
               </div>
