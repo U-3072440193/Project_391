@@ -22,7 +22,7 @@ import vklad from "./assets/products/vklad.png";
 import book from "./assets/products/book.jpg";
 import Corp from "./assets/products/corp-style.png";
 import poster from "./assets/products/poster.jpg";
-import shishkaGif from "./assets/web/shishka.gif";
+import shishkaJpg from "./assets/shishka/shishka.jpg";
 
 /* ================= HEADER ================= */
 function Header() {
@@ -156,6 +156,7 @@ export default function App() {
   return (
     <div className="portfolio">
       <Header />
+      
       <div className="container"></div>
 
       <div className="nav-wrapper">
@@ -167,6 +168,7 @@ export default function App() {
           <a href="#contacts">Контакты</a>
         </nav>
       </div>
+      <div className="hero-spacer"></div>
 
       <main className="portfolio-body">
         {/* Секция КЕЙСЫ */}
@@ -303,9 +305,9 @@ export default function App() {
             <div className="cases-controls">
               {/* Карточка для открытия модалки Shishka */}
               <ServiceCard
-                title="Сайт для кофеен «Шишка»"
-                description="Разработка современного сайта с атмосферным дизайном и плавными анимациями"
-                image={shishkaGif}
+                title="Сайт для Kanban доски «Шишка»"
+                description="Fullstack-платформа для управления проектами"
+                image={shishkaJpg}
                 onClick={() => openModal(<Shishka />)}
               />
 
@@ -313,7 +315,7 @@ export default function App() {
               <ServiceCard
                 title="Сайт-портфолио"
                 description="React + TypeScript + Vite, адаптивная верстка, модальные окна с проектами"
-                image={shishkaGif} // замени на свою картинку для портфолио
+                image={shishkaJpg} // замени на свою картинку для портфолио
                 onClick={() => window.open('https://github.com/U-3072440193/Project_391', '_blank')}
               />
             </div>

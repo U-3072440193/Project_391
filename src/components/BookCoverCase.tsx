@@ -97,7 +97,7 @@ const BookCoverCase = () => {
 
 
             {/* 3 ЗАДАЧА */}
-            <div className="process-step no-image">
+            <div className="process-step no-image full-width-bg">
               <div className="process-step-content full">
                 <h3>Задача</h3>
 
