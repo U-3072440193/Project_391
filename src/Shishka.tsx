@@ -1,5 +1,6 @@
 import React from 'react';
 import './components/modal.css';
+import './components/shishka.css';
 
 const Shishka = () => {
   return (
@@ -8,7 +9,7 @@ const Shishka = () => {
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/shishka/top-shishka.jpg" alt="Шишка Task Manager" />
+          <img src="/src/assets/shishka/header.jpg" alt="Шишка Task Manager" />
           <div className="modal-hero-overlay"></div>
         </div>
 
@@ -38,7 +39,7 @@ const Shishka = () => {
         {/* INFO */}
         <div className="modal-info-grid">
           <div className="info-card">
-            <div className="info-icon"><img src="/icons/web.svg" alt="Проект" /></div>
+            <div className="info-icon"><img src="/icons/project.svg" alt="Проект" /></div>
             <h3>О проекте</h3>
             <p>Полноценная Kanban-платформа для управления задачами и командной работы</p>
           </div>
@@ -50,7 +51,7 @@ const Shishka = () => {
           </div>
 
           <div className="info-card">
-            <div className="info-icon"><img src="/icons/feature.svg" alt="Особенность" /></div>
+            <div className="info-icon"><img src="/icons/uniq.svg" alt="Особенность" /></div>
             <h3>Особенность</h3>
             <p>Real-time обновления, drag-and-drop, rich-text редактор</p>
           </div>
@@ -89,12 +90,12 @@ const Shishka = () => {
             </div>
 
             {/* ЗАДАЧА */}
-            <div className="process-step no-image full-width-bg">
+            <div className="process-step no-image full-width-bg no-gap-after">
               {/* Фоновая картинка и затемнение */}
               <div className="step-bg"></div>
               <div className="step-bg-overlay"></div>
 
-              <div className="process-step-content full">
+              <div className="process-step-content full ">
                 <h3>Задача</h3>
                 <div className="keywords">
                   <span>Kanban</span>
@@ -112,18 +113,27 @@ const Shishka = () => {
               </div>
             </div>
 
+            {/* НОВЫЙ БЛОК: полноширинная картинка с текстом */}
+            <div className="full-width-image-block">
+              <img src="/src/assets/shishka/main.jpg" alt="Интерфейс приложения" />
+              <div className="image-caption-overlay">
+                <div className="caption-content">
+                  <h3 className="caption-title">Архитектура</h3>
+                  <p className="caption-text">
+                    Django REST Framework + React + Django Channels
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* АРХИТЕКТУРА */}
             {/* АРХИТЕКТУРА */}
             <div className="process-step">
               <div className="process-step-image placeholder">
-                <div className="placeholder-img">
-                  [Здесь будет схема архитектуры: Django + React + WebSockets + Redis]
-                </div>
+                <img src="/src/assets/shishka/shishka-schemme.jpg" alt="Схема архитектуры" />
               </div>
               <div className="process-step-content">
-                <h3>Архитектура</h3>
-                <p className="process-step-description">
-                  Django REST Framework + React + Django Channels
-                </p>
+
                 <div className="process-step-details">
                   <p>
                     Бэкенд построен на Django с использованием DRF для REST API
@@ -132,6 +142,49 @@ const Shishka = () => {
                     обновления через WebSocket без перезагрузки страницы.
                   </p>
                 </div>
+
+                {/* НОВЫЙ БЛОК: Технологический стек с иконками */}
+                <div className="tech-stack">
+                  <h4 className="tech-stack-title">Технологический стек</h4>
+                  <div className="tech-grid">
+                    <div className="tech-item">
+                      <div className="tech-icon django-icon"><img src="/src/assets/shishka/logos-1.png" alt="лого" /></div>
+                      <span>Django</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon react-icon"><img src="/src/assets/shishka/logos-2.png" alt="лого" /></div>
+                      <span>React</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon drf-icon"><img src="/src/assets/shishka/logos-3.png" alt="лого" /></div>
+                      <span>DRF</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon channels-icon"><img src="/src/assets/shishka/logos-4.png" alt="лого" /></div>
+                      <span>Channels</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon redis-icon"><img src="/src/assets/shishka/logos-5.png" alt="лого" /></div>
+                      <span>Redis</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon websocket-icon"><img src="/src/assets/shishka/logos-6.png" alt="лого" /></div>
+                      <span>WebSocket</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon dndkit-icon"><img src="/src/assets/shishka/logos-7.png" alt="лого" /></div>
+                      <span>@dnd-kit</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon tiptap-icon"><img src="/src/assets/shishka/logos-8.png" alt="лого" /></div>
+                      <span>TipTap</span>
+                    </div>
+                    <div className="tech-item">
+                      <div className="tech-icon postgresql-icon"><img src="/src/assets/shishka/logos-9.png" alt="лого" /></div>
+                      <span>PostgreSQL</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -139,7 +192,16 @@ const Shishka = () => {
             <div className="process-step">
               <div className="process-step-image placeholder">
                 <div className="placeholder-gif">
-                  [Здесь будет GIF: drag-and-drop карточек между колонками]
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="demo-video"
+                  >
+                    <source src="/src/assets/shishka/demo.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео
+                  </video>
                 </div>
               </div>
               <div className="process-step-content">

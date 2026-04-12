@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #111;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 80px;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.4)
+  );
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+}
+
+.hero-title {
+  font-family: 'Alumni Sans', sans-serif;
+  font-size: 80px;
+  line-height: 0.9;
+}
+
+.hero-accent {
+  display: block;
+  font-size: 42px;
+  color: #ff2a2a;
+  margin-top: -10px;
+}
+
+/* PRODUCT */
+
+.product {
+  position: relative;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  color: white;
+}
+
+/* SECTION */
+
+.section {
+  padding: 100px 60px;
+}
+
+.narrow {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* FEATURE */
+
+.feature {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-media video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ARCH */
+
+.architecture {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.architecture div {
+  border: 1px solid black;
+  padding: 10px 14px;
+}
+
+/* RESULT */
+
+.result {
+  text-align: center;
+}
+
+.result-image {
+  height: 300px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PLACEHOLDER */
+
+.placeholder {
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}

@@ -23,6 +23,7 @@ import book from "./assets/products/book.jpg";
 import Corp from "./assets/products/corp-style.png";
 import poster from "./assets/products/poster.jpg";
 import shishkaJpg from "./assets/shishka/shishka.jpg";
+import portfolio from "./assets/web/portf.jpg";
 
 /* ================= HEADER ================= */
 function Header() {
@@ -97,20 +98,19 @@ type PrintCardProps = {
   image: string;
   tags?: string[];
   onClick?: () => void;
+  size?: "normal" | "wide" | "tall" | "big";
 };
 
-function PrintCard({ title, image, tags, onClick }: PrintCardProps) {
+function PrintCard({ title, image, tags, onClick, size = "normal" }: PrintCardProps) {
   return (
-    <div className="print-card" onClick={onClick}>
+    <div className={`print-card ${size}`} onClick={onClick}>
       <img src={image} alt={title} className="print-card-img" />
 
       <div className="print-card-overlay">
         <div className="card-center">
           <div className="card-tags">
             {tags?.map((tag, i) => (
-              <span key={i} className="card-tag">
-                {tag}
-              </span>
+              <span key={i} className="card-tag">{tag}</span>
             ))}
           </div>
           <h2 className="card-title">{title}</h2>
@@ -152,6 +152,7 @@ export default function App() {
   const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
   };
+  const [isGrid, setIsGrid] = useState(false);
 
   return (
     <div className="portfolio">
@@ -175,6 +176,9 @@ export default function App() {
         <section className="cases container">
           <div className="cases-header">
             <div className="cases-circle">Кейсы</div>
+            <button onClick={() => setIsGrid(!isGrid)}>
+  {isGrid ? "Карусель" : "Сетка"}
+</button>
             <div className="cases-line"></div>
             <button className="toggle" onClick={() => setShowCases(!showCases)}>
               <svg className={`toggle-icon ${showCases ? "up" : "down"}`} viewBox="0 0 100 100">
@@ -187,37 +191,31 @@ export default function App() {
             <div className="cases-controls">
               <div className="carousel-wrapper">
                 <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
-                <div className="carousel" ref={scrollRef}>
+                <div  className={isGrid ? "carousel cases-grid" : "carousel"}
+  ref={scrollRef}>
                   <PrintCard
-                    title="Корпоративный стиль НеоДом"
-                    image={Corp}
-                    tags={["Корп.стиль", "Брендинг"]}
-                    onClick={() => openModal(<CorpStyleCase />)}
-                  />
-                  <PrintCard
-                    title="Разработка обложки книги"
-                    image={book}
-                    tags={["Полиграфия", "Книги"]}
-                    onClick={() => openModal(<BookCoverCase />)}
-                  />
-                  <PrintCard
-                    title="Разработка серии постеров"
-                    image={poster}
-                    tags={["Полиграфия", "плакат"]}
-                    onClick={() => openModal(<PosterCase />)}
-                  />
-                  {/* <PrintCard 
-                    title="Разработка макета вкладыша" 
-                    image={vklad} 
-                    tags={["Вкладыши", "Полиграфия"]} 
-                    onClick={() => openModal(<Vkladysh />)} 
-                  />
-                  <PrintCard 
-                    title="Разработка макета лифлета для пекарни" 
-                    image={leaf} 
-                    tags={["Branding", "Print"]} 
-                    onClick={() => openModal(<LeafleetCase />)} 
-                  /> */}
+  title="Корпоративный стиль НеоДом"
+  image={Corp}
+  tags={["Корп.стиль", "Брендинг"]}
+  size="big"
+  onClick={() => openModal(<CorpStyleCase />)}
+/>
+
+<PrintCard
+  title="Разработка обложки книги"
+  image={book}
+  tags={["Полиграфия", "Книги"]}
+  size="tall"
+  onClick={() => openModal(<BookCoverCase />)}
+/>
+
+<PrintCard
+  title="Разработка серии постеров"
+  image={poster}
+  tags={["Полиграфия", "плакат"]}
+  size="normal"
+  onClick={() => openModal(<PosterCase />)}
+/>
                 </div>
                 <button className="carousel-btn right" onClick={scrollRight}>›</button>
               </div>
@@ -308,14 +306,14 @@ export default function App() {
                 title="Сайт для Kanban доски «Шишка»"
                 description="Fullstack-платформа для управления проектами"
                 image={shishkaJpg}
-                onClick={() => openModal(<Shishka />)}
+                onClick={() => openModal(<Shishka  />)}
               />
 
               {/* Карточка для сайта-портфолио */}
               <ServiceCard
                 title="Сайт-портфолио"
                 description="React + TypeScript + Vite, адаптивная верстка, модальные окна с проектами"
-                image={shishkaJpg} // замени на свою картинку для портфолио
+                image={portfolio} // замени на свою картинку для портфолио
                 onClick={() => window.open('https://github.com/U-3072440193/Project_391', '_blank')}
               />
             </div>

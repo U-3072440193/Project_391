@@ -317,6 +317,7 @@ h3 {
 .print-card {
   position: relative;
   min-width: 600px;
+  height: 800px;
   width: 25%;
   border: 1px solid rgba(182, 182, 182, 0.301);
   border-radius: 8px;
@@ -542,14 +543,14 @@ h3 {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   position: relative;
-  background: url("./assets/grunge-wall-texture.jpg") center/cover no-repeat;
+  /* background: url("./assets/grunge-wall-texture.jpg") center/cover no-repeat; */
 }
 
 .about-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 0, 0, 0.801);
+  /* background: rgba(255, 0, 0, 0.801); */
   z-index: 0;
 }
 
@@ -558,18 +559,18 @@ h3 {
   z-index: 2;
 }
 
-.about-head h2 {
+/* .about-head h2 {
   color: white !important;
-}
+} */
 
-.about-head-line {
+/* .about-head-line {
   background: #ffffff;
 }
 
 .about-head-btn {
   border: 2px solid white;
   color: white;
-}
+} */
 
 /* About контент */
 .about {
@@ -621,7 +622,7 @@ h3 {
   font-weight: 500;
   margin-bottom: 20px;
   letter-spacing: 1px;
-  color: white;
+  color: rgb(0, 0, 0);
   position: relative;
   padding-bottom: 12px;
   text-align: center;
@@ -635,33 +636,33 @@ h3 {
   margin-bottom: 25px;
   text-align: left;
   padding-left: 15px;
-  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  border-left: 2px solid rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .education-item:hover {
-  border-left-color: white;
+  border-left-color: rgb(31, 31, 31);
   padding-left: 20px;
 }
 
 .education-year {
   font-size: 22px;
   font-weight: 600;
-  color: white;
+  color: rgb(0, 0, 0);
   margin-bottom: 8px;
   display: block;
 }
 
 .education-place {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   margin-bottom: 5px;
   font-weight: 500;
 }
 
 .education-specialty {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(32, 32, 32, 0.7);
   font-style: italic;
 }
 
@@ -694,7 +695,7 @@ h3 {
   top: 5px;
   width: 12px;
   height: 12px;
-  background: white;
+  background: rgb(0, 0, 0);
   border-radius: 50%;
   z-index: 2;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
@@ -712,7 +713,7 @@ h3 {
   top: 17px;
   width: 2px;
   height: calc(100% + 20px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(180deg, rgba(61, 61, 61, 0.6), rgba(24, 24, 24, 0.2));
   z-index: 1;
 }
 
@@ -729,13 +730,13 @@ h3 {
 .timeline-date {
   font-size: 22px;
   font-weight: 600;
-  color: white;
+  color: rgb(0, 0, 0);
   display: block;
 }
 
 .timeline-place {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 1.4;
 }
 
@@ -765,8 +766,8 @@ h3 {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: rgb(255, 255, 255);
-  color: rgb(255, 0, 0);
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -780,8 +781,8 @@ h3 {
   border-radius: 999px;
   white-space: nowrap;
   transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  border: 2px solid white;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
 }
 
 /* Позиции тегов навыков */
@@ -801,7 +802,7 @@ h3 {
 }
 
 .skills-lines line {
-  stroke: rgb(255, 255, 255);
+  stroke: rgb(0, 0, 0);
   stroke-width: 1;
 }
 
@@ -840,9 +841,9 @@ h3 {
   transition: 0.25s ease;
   display: block;
 }
-.about-head-btn{
+/* .about-head-btn{
   border: 2px solid rgb(255, 255, 255);
-}
+} */
 .toggle-icon.up {
   transform: rotate(0deg);
 }
@@ -851,13 +852,13 @@ h3 {
   transform: rotate(180deg);
 }
 
-.about-head-btn {
+/* .about-head-btn {
   border-color: white;
 }
 
 .about-head-btn .toggle-icon {
   stroke: white;
-}
+} */
 
 /* ============================================ */
 /* 10. FOOTER (Подвал)                         */
@@ -963,4 +964,55 @@ h3 {
   .service-card-content p {
     font-size: 14px;
   }
+}
+
+
+
+
+
+
+
+
+/* ============================================ */
+/* GRID РЕЖИМ (НЕ ЛОМАЕТ КАРУСЕЛЬ)              */
+/* ============================================ */
+
+.cases-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 220px;
+  gap: 20px;
+
+  overflow: visible !important;
+}
+
+/* отключаем горизонтальный скролл в grid режиме */
+.cases-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* карточки начинают вести себя как grid элементы */
+.cases-grid .print-card {
+  min-width: unset;
+  width: 100%;
+  height: 100%;
+}
+
+/* размеры */
+.print-card.normal {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.print-card.tall {
+  grid-row: span 2;
+}
+
+.print-card.wide {
+  grid-column: span 2;
+}
+
+.print-card.big {
+  grid-column: span 2;
+  grid-row: span 2;
 }

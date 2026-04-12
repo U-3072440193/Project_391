@@ -261,6 +261,9 @@
     flex-direction: column;
     gap: 80px;
 }
+.process-step.no-gap-after {
+  margin-bottom: -80px; /* Отрицательный margin, компенсирующий gap */
+}
 
 .process-step {
     display: flex;
@@ -665,7 +668,7 @@
 
 .placeholder {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     color: #555;
     font-size: 14px;
@@ -992,20 +995,23 @@
 .project-link-btn {
     display: inline-block;
     padding: 12px 30px;
-    background: #01435d;
-    color: white;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    border-radius: 8px;
+    border: 1px solid black;
+    border-radius: 50px;
     font-weight: 500;
     transition: background 0.3s ease;
 }
 
 .project-link-btn:hover {
-    background: #012a3a;
+    background: #ff0000;
+    color: rgb(255, 255, 255);
+    border:none;
 }
 
 .project-link-btn.disabled {
-    background: #ccc;
+   
     cursor: not-allowed;
     pointer-events: none;
 }
