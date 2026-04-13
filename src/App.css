@@ -973,32 +973,23 @@ h3 {
 
 
 
+
+
 /* ============================================ */
-/* GRID РЕЖИМ (НЕ ЛОМАЕТ КАРУСЕЛЬ)              */
+/* GRID РЕЖИМ (ТОЛЬКО СЕТКА, БЕЗ КАРУСЕЛИ)      */
 /* ============================================ */
+
+.cases-grid-container {
+  margin-top: 30px;
+}
 
 .cases-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 220px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-
-  overflow: visible !important;
 }
 
-/* отключаем горизонтальный скролл в grid режиме */
-.cases-grid::-webkit-scrollbar {
-  display: none;
-}
-
-/* карточки начинают вести себя как grid элементы */
-.cases-grid .print-card {
-  min-width: unset;
-  width: 100%;
-  height: 100%;
-}
-
-/* размеры */
+/* размеры карточек в сетке */
 .print-card.normal {
   grid-column: span 1;
   grid-row: span 1;
@@ -1015,4 +1006,496 @@ h3 {
 .print-card.big {
   grid-column: span 2;
   grid-row: span 2;
+}
+
+/* Карточки в сетке */
+.cases-grid .print-card {
+  min-width: unset;
+  width: 100%;
+  height: 300px;
+}
+
+/* Для tall карточек - больше высота */
+.cases-grid .print-card.tall {
+  height: 620px;
+}
+
+/* Для big карточек */
+.cases-grid .print-card.big {
+  height: 620px;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  .cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cases-grid .print-card {
+    height: 400px;
+  }
+  
+  .cases-grid .print-card.tall,
+  .cases-grid .print-card.big {
+    height: 500px;
+  }
+}
+
+/* ============================================ */
+/* АДАПТИВНАЯ НАВИГАЦИЯ */
+/* ============================================ */
+
+@media (max-width: 900px) {
+  .nav-line {
+    padding: 15px 30px;
+    font-size: 20px;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-line {
+    padding: 12px 20px;
+    font-size: 16px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-line {
+    padding: 10px 15px;
+    font-size: 14px;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-line {
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-line a {
+    white-space: nowrap;
+  }
+}
+/* ============================================ */
+/* АДАПТИВНОСТЬ ДЛЯ СЕКЦИИ ABOUT */
+/* ============================================ */
+
+@media (max-width: 1024px) {
+  .about {
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .about-left {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+  
+  .about-right {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-left {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .about-right {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .about-content-overlay-edu {
+    padding: 40px 30px;
+  }
+  
+  .skills {
+    height: auto;
+    min-height: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content-overlay-edu {
+    padding: 30px 20px;
+  }
+  
+  .education-year {
+    font-size: 18px;
+  }
+  
+  .education-place {
+    font-size: 16px;
+  }
+  
+  .education-specialty {
+    font-size: 14px;
+  }
+  
+  .skill-tag {
+    font-size: 10px;
+    padding: 6px 10px;
+    white-space: normal;
+    text-align: center;
+    max-width: 120px;
+  }
+  
+  .skills-center {
+    width: 100px;
+    height: 100px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    gap: 30px;
+  }
+  
+  .about-content-overlay-edu {
+    padding: 20px 15px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .education-item {
+    padding-left: 10px;
+  }
+  
+  .education-year {
+    font-size: 16px;
+  }
+  
+  .education-place {
+    font-size: 14px;
+  }
+  
+  .education-specialty {
+    font-size: 12px;
+  }
+  
+  .skills {
+    min-height: 400px;
+  }
+  
+  .skill-tag {
+    font-size: 9px;
+    padding: 4px 8px;
+    max-width: 100px;
+  }
+  
+  .skills-center {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+  }
+  
+  /* Перепозиционирование тегов навыков для мобильных */
+  .t1 { top: 5%; left: 50%; }
+  .t2 { top: 20%; left: 75%; }
+  .t3 { top: 45%; left: 85%; }
+  .t4 { top: 70%; left: 75%; }
+  .t5 { top: 88%; left: 50%; }
+  .t6 { top: 70%; left: 25%; }
+  .t7 { top: 45%; left: 15%; }
+  .t8 { top: 20%; left: 25%; }
+}
+
+@media (max-width: 480px) {
+  .skill-tag {
+    font-size: 8px;
+    padding: 3px 6px;
+    max-width: 85px;
+    border-radius: 20px;
+  }
+  
+  .skills-center {
+    width: 65px;
+    height: 65px;
+    font-size: 10px;
+  }
+  
+  .t1, .t2, .t3, .t4, .t5, .t6, .t7, .t8 {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 5px auto;
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    min-height: auto;
+    padding: 20px;
+  }
+  
+  .skills-center {
+    position: relative;
+    transform: none;
+    margin: 10px auto;
+    order: -1;
+  }
+  
+  .skills-lines {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    height: auto;
+    position: relative;
+  }
+  
+  .skills-center {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 10px auto;
+    order: -1;
+  }
+  
+  .skill-tag {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 5px;
+    width: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  .skills-lines {
+    display: none;
+  }
+}
+
+/* ============================================ */
+/* АДАПТАЦИЯ ХЕДЕРА (ПРИВЕТСТВИЕ И ИМЯ) */
+/* ============================================ */
+
+@media (max-width: 900px) {
+  .schema-center {
+    padding: 120px 20px;
+    gap: 20px;
+  }
+  
+  .inner-sh-ce {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .center-left {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    top: -50px;
+  }
+  
+  .center-right {
+    width: 100%;
+    text-align: center;
+    top: -50px;
+  }
+  
+  .center-right h1 {
+    font-size: 42px;
+  }
+  
+  .big-circle {
+    width: 90px;
+    height: 90px;
+    top: -50px;
+  }
+  
+  .hero-content-wrapper {
+    margin-top: -180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .schema-center {
+    padding: 100px 15px;
+  }
+  
+  .center-left {
+    font-size: 18px;
+    top: -30px;
+  }
+  
+  .center-left h3 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  
+  .center-right h1 {
+    font-size: 32px;
+  }
+  
+  .big-circle {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+  }
+  
+  .hero-content-wrapper {
+    margin-top: -150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .schema-center {
+    padding: 80px 12px;
+  }
+  
+  .inner-sh-ce {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .center-left {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    top: 0;
+  }
+  
+  .center-left h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  
+  .center-right {
+    width: 100%;
+    text-align: center;
+    top: 0;
+  }
+  
+  .center-right h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  
+  .big-circle {
+    width: 60px;
+    height: 60px;
+    top: 0;
+  }
+  
+  .hero-content-wrapper {
+    margin-top: -120px;
+  }
+  
+  .hero-spacer {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schema-center {
+    padding: 60px 10px;
+  }
+  
+  .center-left h3 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .center-right h1 {
+    font-size: 24px;
+  }
+  
+  .big-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .hero-content-wrapper {
+    margin-top: -100px;
+  }
+  
+  .hero-spacer {
+    height: 60px;
+  }
+}
+
+/* Исправление длинных слов и межстрочного расстояния */
+@media (max-width: 600px) {
+  .center-left h3,
+  .center-right h1 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+  
+  .center-left {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  .inner-sh-ce {
+    width: 100%;
+  }
+}
+
+/* Адаптация лучей на мобильных */
+@media (max-width: 768px) {
+  .rays {
+    display: none;
+  }
+}
+
+/* Адаптация hero фона */
+@media (max-width: 768px) {
+  .hero-box {
+    height: 350px;
+  }
+  
+  .hero-bg {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-box {
+    height: 280px;
+  }
 }

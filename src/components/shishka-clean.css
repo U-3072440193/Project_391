@@ -5,7 +5,6 @@ body {
 }
 
 /* REVEAL ANIMATION */
-
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -17,41 +16,75 @@ body {
   transform: translateY(0);
 }
 
-/* HERO */
-
+/* HERO - исправленный (текст внизу слева) */
 .hero {
   position: relative;
-  height: 90vh;
+  width: 100vw;
+  margin: -60px -30px 0 -30px;
+  min-height: 110vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* прижимает содержимое вниз */
   padding: 80px;
+  overflow: hidden;
+}
+.feature{}
+
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.hero-bg {
-  position: absolute;
+.hero-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.4)
-  );
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0.2) 40%);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
   color: white;
+  z-index: 2;
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 0px;
+  /* отступ снизу */
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 6px 14px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
 }
 
 .hero-title {
-  font-family: 'Alumni Sans', sans-serif;
+  font-family: 'Alumni Sans', sans-serif !important;
   font-size: 80px;
   line-height: 0.9;
+  margin: 0 0 16px 0;
+  color: #ffffff !important;
 }
 
 .hero-accent {
@@ -61,14 +94,23 @@ body {
   margin-top: -10px;
 }
 
-/* PRODUCT */
+.hero-content p {
+  font-size: 18px;
+  opacity: 0.9;
+  max-width: 500px;
+  line-height: 1.5;
+}
 
+/* PRODUCT */
 .product {
   position: relative;
+  overflow: hidden;
 }
 
 .product img {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
 .product-overlay {
@@ -76,12 +118,18 @@ body {
   bottom: 40px;
   left: 60px;
   color: white;
+  z-index: 2;
+}
+
+.product-overlay h2 {
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* SECTION */
-
 .section {
-  padding: 100px 60px;
+  padding: 100px 0px;
 }
 
 .narrow {
@@ -90,56 +138,208 @@ body {
 }
 
 /* FEATURE */
-
 .feature {
   display: flex;
-  gap: 60px;
-  align-items: center;
+  gap: 80px;
+  align-items: top;  /* ← меняем с 'top' на 'center' */
+  flex-direction: row;
 }
 
+/* Меняет местами блоки */
 .feature.reverse {
   flex-direction: row-reverse;
+}
+
+.feature-media {
+  flex: 1.7;
+}
+
+.feature-text {
+  flex: 1;
+  text-align: left;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* ← прижимает текст к верху */
 }
 
 .feature-media video {
   width: 100%;
   border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.feature-text h2 {
+  font-size: 36px;
+  margin-bottom: 24px;
+  font-family: 'Alumni Sans', sans-serif;
+}
+
+.feature-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-text ul li {
+  padding: 8px 0;
+  font-size: 18px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.feature-text ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+
+.feature-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
+}
+
+.final-image{
+  margin: 30px 0 30px;
+  width: 100%;
 }
 
 /* ARCH */
-
 .architecture {
   display: flex;
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: center;
 }
 
 .architecture div {
-  border: 1px solid black;
-  padding: 10px 14px;
+  border: 1px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 40px;
+  background: white;
+  font-weight: 500;
+}
+
+.architecture span {
+  font-size: 20px;
+  color: #ff2a2a;
 }
 
 /* RESULT */
-
 .result {
   text-align: center;
 }
 
 .result-image {
-  height: 300px;
-  background: #eee;
+  
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  margin-bottom: 32px;
 }
 
-/* PLACEHOLDER */
+.result h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
 
-.placeholder {
-  background: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
+.result p {
+  font-size: 18px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero {
+    padding: 40px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-accent {
+    font-size: 32px;
+  }
+
+  .feature {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .feature.reverse {
+     flex-direction: row-reverse !important;
+  }
+
+  .section {
+    padding: 60px 30px;
+  }
+
+  .product-overlay {
+    left: 30px;
+    bottom: 20px;
+  }
+
+  .product-overlay h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 80vh;
+    padding: 24px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-accent {
+    font-size: 22px;
+  }
+
+  .badge {
+    font-size: 10px;
+    margin-bottom: 16px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .feature-text h2 {
+    font-size: 28px;
+  }
+
+  .architecture div {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .result h2 {
+    font-size: 28px;
+  }
+}
+
+/* Для контента модалки */
+.modal-content {
+  padding: 0 !important;
+  overflow-x: hidden;
 }

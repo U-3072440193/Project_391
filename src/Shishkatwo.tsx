@@ -23,11 +23,12 @@ const Shishkatwo = () => {
   return (
     <div className="project">
 
-      {/* HERO */}
+      {/* HERO - только картинка с текстом */}
       <section className="hero">
-        <img src="/src/assets/shishka/header.jpg" className="hero-bg" />
-
-        <div className="hero-overlay" />
+        <div className="hero-bg-container">
+          <img src="/src/assets/shishka/main.jpg" alt="Шишка Task Manager" className="hero-bg-image" />
+          <div className="hero-overlay"></div>
+        </div>
 
         <div className="hero-content reveal">
           <span className="badge">FULLSTACK / WEB APP</span>
@@ -47,7 +48,7 @@ const Shishkatwo = () => {
 
       {/* WOW PRODUCT */}
       <section className="product reveal">
-        <img src="/src/assets/shishka/main.jpg" />
+        
 
         <div className="product-overlay">
           <h2>Интерфейс системы</h2>
@@ -76,7 +77,9 @@ const Shishkatwo = () => {
       {/* CHAT */}
       <section className="section feature reverse reveal">
         <div className="feature-media placeholder">
-          <div>CHAT GIF</div>
+          <video autoPlay loop muted playsInline>
+            <source src="/src/assets/shishka/chat.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="feature-text">
@@ -105,8 +108,8 @@ const Shishkatwo = () => {
 
       {/* RESULT */}
       <section className="section result reveal">
-        <div className="result-image placeholder">
-          <div>FINAL MOCKUP</div>
+        <div className="result-image">
+          <div><img src="/src/assets/web/web2.jpg" alt="Final mockup" className="final-image" /></div>
         </div>
 
         <h2>Результат</h2>

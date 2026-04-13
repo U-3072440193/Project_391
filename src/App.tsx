@@ -13,6 +13,7 @@ import AboutMirror from "./AboutMirror";
 import Polygraphy from "./Polygraphy";
 import CorpStyle from "./CorpStyle";
 import Shishka from "./Shishka";
+import Shishkatwo from "./Shishkatwo";
 import CorpStyleCase from "./components/CorpStyleCase";
 import Web from "./Web";
 
@@ -52,17 +53,17 @@ function Header() {
         <div className="schema-center">
           <div className="inner-sh-ce">
             <div className="center-left">
-            <h3>Приветствую вас на моей страничке</h3>
-            <h3 className="muted">Предлагаю посмотреть моё портфолио</h3>
+              <h3>Приветствую вас на моей страничке</h3>
+              <h3 className="muted">Предлагаю посмотреть моё портфолио</h3>
+            </div>
+
+            <div className="big-circle"></div>
+
+            <div className="center-right">
+              <h1>Антон Зарубин</h1>
+            </div>
           </div>
 
-          <div className="big-circle"></div>
-
-          <div className="center-right">
-            <h1>Антон Зарубин</h1>
-          </div>
-          </div>
-          
         </div>
       </div>
     </>
@@ -157,7 +158,7 @@ export default function App() {
   return (
     <div className="portfolio">
       <Header />
-      
+
       <div className="container"></div>
 
       <div className="nav-wrapper">
@@ -173,12 +174,10 @@ export default function App() {
 
       <main className="portfolio-body">
         {/* Секция КЕЙСЫ */}
+        {/* Секция КЕЙСЫ */}
         <section className="cases container">
           <div className="cases-header">
             <div className="cases-circle">Кейсы</div>
-            <button onClick={() => setIsGrid(!isGrid)}>
-  {isGrid ? "Карусель" : "Сетка"}
-</button>
             <div className="cases-line"></div>
             <button className="toggle" onClick={() => setShowCases(!showCases)}>
               <svg className={`toggle-icon ${showCases ? "up" : "down"}`} viewBox="0 0 100 100">
@@ -188,36 +187,47 @@ export default function App() {
           </div>
 
           {showCases && (
-            <div className="cases-controls">
-              <div className="carousel-wrapper">
-                <button className="carousel-btn left" onClick={scrollLeft}>‹</button>
-                <div  className={isGrid ? "carousel cases-grid" : "carousel"}
-  ref={scrollRef}>
-                  <PrintCard
-  title="Корпоративный стиль НеоДом"
-  image={Corp}
-  tags={["Корп.стиль", "Брендинг"]}
-  size="big"
-  onClick={() => openModal(<CorpStyleCase />)}
-/>
+            <div className="cases-grid-container">
+              <div className="cases-grid">
+                <PrintCard
+                  title="Корпоративный стиль НеоДом"
+                  image={Corp}
+                  tags={["Корп.стиль", "Брендинг"]}
+                  size="big"
+                  onClick={() => openModal(<CorpStyleCase />)}
+                />
 
-<PrintCard
-  title="Разработка обложки книги"
-  image={book}
-  tags={["Полиграфия", "Книги"]}
-  size="tall"
-  onClick={() => openModal(<BookCoverCase />)}
-/>
+                <PrintCard
+                  title="Разработка обложки книги"
+                  image={book}
+                  tags={["Полиграфия", "Книги"]}
+                  size="tall"
+                  onClick={() => openModal(<BookCoverCase />)}
+                />
 
-<PrintCard
-  title="Разработка серии постеров"
-  image={poster}
-  tags={["Полиграфия", "плакат"]}
-  size="normal"
-  onClick={() => openModal(<PosterCase />)}
-/>
-                </div>
-                <button className="carousel-btn right" onClick={scrollRight}>›</button>
+                <PrintCard
+                  title="Разработка серии постеров"
+                  image={poster}
+                  tags={["Полиграфия", "плакат"]}
+                  size="big"
+                  onClick={() => openModal(<PosterCase />)}
+                />
+
+                {/* <PrintCard
+                  title="Вкладыш"
+                  image={vklad}
+                  tags={["Полиграфия", "Вкладыш"]}
+                  size="normal"
+                  onClick={() => openModal(<Vkladysh />)}
+                /> */}
+
+                {/* <PrintCard
+                  title="Листовка"
+                  image={leaf}
+                  tags={["Полиграфия", "Листовка"]}
+                  size="normal"
+                  onClick={() => openModal(<LeafleetCase />)}
+                /> */}
               </div>
             </div>
           )}
@@ -225,26 +235,26 @@ export default function App() {
 
         {/* Секция О СЕБЕ */}
         <section id="about" className="about-section">
-  <div className="cases container">
-    <div className="cases-header">
-      <div className="menu-head about-head"><h2>О себе</h2></div>
-      <div className="cases-line about-head-line"></div>
+          <div className="cases container">
+            <div className="cases-header">
+              <div className="menu-head about-head"><h2>О себе</h2></div>
+              <div className="cases-line about-head-line"></div>
 
-      <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)}>
-        <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
-          <polyline points="20,60 50,30 80,60" />
-        </svg>
-      </button>
-    </div>
+              <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)}>
+                <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
+                  <polyline points="20,60 50,30 80,60" />
+                </svg>
+              </button>
+            </div>
 
-    {showAbout && (
-      <div className="cases-controls">
-        <About />
-        <AboutMirror />
-      </div>
-    )}
-  </div>
-</section>
+            {showAbout && (
+              <div className="cases-controls">
+                <About />
+                <AboutMirror />
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* Секция ПОЛИГРАФИЯ */}
         <section id="polygraphy" className="cases container">
@@ -287,7 +297,7 @@ export default function App() {
           )}
         </section>
 
-        
+
         {/* Секция ВЕБ-РАЗРАБОТКА */}
         <section id="web" className="cases container">
           <div className="cases-header">
@@ -306,7 +316,7 @@ export default function App() {
                 title="Сайт для Kanban доски «Шишка»"
                 description="Fullstack-платформа для управления проектами"
                 image={shishkaJpg}
-                onClick={() => openModal(<Shishka  />)}
+                onClick={() => openModal(<Shishkatwo />)}
               />
 
               {/* Карточка для сайта-портфолио */}
