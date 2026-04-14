@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './modal.css';
 
 const CorpStyleCase = () => {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    elements.forEach(el => observer.observe(el));
+  }, []);
   return (
     <div className="project-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/corp-modal/top-corp.jpg" alt="inDom ребрендинг" />
+          <img src="/src/assets/case/neodom.jpg" alt="inDom ребрендинг" />
           <div className="modal-hero-overlay"></div>
         </div>
 
@@ -68,7 +84,7 @@ const CorpStyleCase = () => {
           <div className="process-steps">
 
             {/* 1 КОНТЕКСТ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <img src="/src/assets/corp-modal/neodom-problem2.gif" alt="Контекст рынка" />
               </div>
@@ -88,7 +104,7 @@ const CorpStyleCase = () => {
             </div>
 
             {/* 2 ПРОБЛЕМА */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <img src="/src/assets/case/example-neodom.jpg" alt="Пример" />
               </div>
@@ -108,7 +124,7 @@ const CorpStyleCase = () => {
             </div>
 
             {/* 3 ЗАДАЧА */}
-            <div className="process-step no-image full-width-bg">
+            <div className="process-step no-image full-width-bg reveal">
               <div className="process-step-content full">
                 <h3>Задача</h3>
 
@@ -128,104 +144,104 @@ const CorpStyleCase = () => {
               </div>
             </div>
 
-{/* 4 ИДЕЯ */}
-<div className="process-step idea-step">
-  
-  {/* Общий контейнер 70% */}
-  <div className="idea-wrapper">
-    
-    {/* Контейнер с текстом (сверху) */}
-    <div className="idea-text-container">
-      <div className="idea-text-grid">
-        {/* Текст для столбика 1 */}
-        <div className="idea-text-column">
-          <div className="idea-label">
-            <p>Первичные решения опирались на прямые ассоциации с недвижимостью, но выглядели клишированно и не формировали уникальный образ бренда.</p>
-          </div>
-        </div>
+            {/* 4 ИДЕЯ */}
+            <div className="process-step idea-step reveal">
 
-        {/* Текст для столбика 2 */}
-        <div className="idea-text-column">
-          <div className="idea-label">
-            <p>Переход к более минималистичному визуальному языку позволил улучшить читаемость, но решения всё ещё не имели характерной идеи.</p>
-          </div>
-        </div>
+              {/* Общий контейнер 70% */}
+              <div className="idea-wrapper">
 
-        {/* Текст для столбика 3 */}
-        <div className="idea-text-column">
-          <div className="idea-label">
-            <p>В финальной концепции появился абстрактный символ — треугольник, который одновременно отсылает к форме крыши и создаёт устойчивый, современный знак.</p>
-          </div>
-        </div>
+                {/* Контейнер с текстом (сверху) */}
+                <div className="idea-text-container">
+                  <div className="idea-text-grid">
+                    {/* Текст для столбика 1 */}
+                    <div className="idea-text-column">
+                      <div className="idea-label">
+                        <p>Первичные решения опирались на прямые ассоциации с недвижимостью, но выглядели клишированно и не формировали уникальный образ бренда.</p>
+                      </div>
+                    </div>
 
-        {/* Текст для столбика 4 */}
-        <div className="idea-text-column">
-          <div className="idea-label">
-            <p>neo Dom</p>
-          </div>
-        </div>
-      </div>
-    </div>
+                    {/* Текст для столбика 2 */}
+                    <div className="idea-text-column">
+                      <div className="idea-label">
+                        <p>Переход к более минималистичному визуальному языку позволил улучшить читаемость, но решения всё ещё не имели характерной идеи.</p>
+                      </div>
+                    </div>
 
-    {/* Контейнер с картинками (снизу) */}
-    <div className="idea-visual-container">
-      <div className="idea-visual-grid">
-        {/* Столбик 1 - 4 картинки */}
-        <div className="idea-column">
-          <div className="idea-images vertical-4">
-            <img src="/src/assets/case/exam2-3.jpg" alt="Идея 1" />
-            <img src="/src/assets/case/exam2-4.jpg" alt="Идея 2" />
-            <img src="/src/assets/case/exam2-2.jpg" alt="Идея 3" />
-            <img src="/src/assets/case/exam2-1.jpg" alt="Идея 4" />
-          </div>
-        </div>
+                    {/* Текст для столбика 3 */}
+                    <div className="idea-text-column">
+                      <div className="idea-label">
+                        <p>В финальной концепции появился абстрактный символ — треугольник, который одновременно отсылает к форме крыши и создаёт устойчивый, современный знак.</p>
+                      </div>
+                    </div>
 
-        {/* Столбик 2 - 3 картинки */}
-        <div className="idea-column">
-          <div className="idea-images vertical-3">
-            <img src="/src/assets/case/exam2-5.jpg" alt="Идея 1" />
-            <img src="/src/assets/case/exam2-6.jpg" alt="Идея 2" />
-            <img src="/src/assets/case/exam2-7.jpg" alt="Идея 3" />
-          </div>
-        </div>
+                    {/* Текст для столбика 4 */}
+                    <div className="idea-text-column">
+                      <div className="idea-label">
+                        <p>neo Dom</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        {/* Столбик 3 - 2 картинки */}
-        <div className="idea-column">
-          <div className="idea-images vertical-2">
-            <img src="/src/assets/case/exam2-9.jpg" alt="Идея 1" />
-            <img src="/src/assets/case/exam2-8.jpg" alt="Идея 2" />
-          </div>
-        </div>
+                {/* Контейнер с картинками (снизу) */}
+                <div className="idea-visual-container">
+                  <div className="idea-visual-grid">
+                    {/* Столбик 1 - 4 картинки */}
+                    <div className="idea-column">
+                      <div className="idea-images vertical-4">
+                        <img src="/src/assets/case/exam2-3.jpg" alt="Идея 1" />
+                        <img src="/src/assets/case/exam2-4.jpg" alt="Идея 2" />
+                        <img src="/src/assets/case/exam2-2.jpg" alt="Идея 3" />
+                        <img src="/src/assets/case/exam2-1.jpg" alt="Идея 4" />
+                      </div>
+                    </div>
 
-        {/* Столбик 4 - 1 картинка */}
-        <div className="idea-column">
-          <div className="idea-images vertical-1">
-            <img src="/src/assets/case/exam2-10.jpg" alt="Идея 1" />
-          </div>
-        </div>
-      </div>
-    </div>
+                    {/* Столбик 2 - 3 картинки */}
+                    <div className="idea-column">
+                      <div className="idea-images vertical-3">
+                        <img src="/src/assets/case/exam2-5.jpg" alt="Идея 1" />
+                        <img src="/src/assets/case/exam2-6.jpg" alt="Идея 2" />
+                        <img src="/src/assets/case/exam2-7.jpg" alt="Идея 3" />
+                      </div>
+                    </div>
 
-  </div>
+                    {/* Столбик 3 - 2 картинки */}
+                    <div className="idea-column">
+                      <div className="idea-images vertical-2">
+                        <img src="/src/assets/case/exam2-9.jpg" alt="Идея 1" />
+                        <img src="/src/assets/case/exam2-8.jpg" alt="Идея 2" />
+                      </div>
+                    </div>
 
-  <div className="process-step-content">
-    <h3>Идея</h3>
-    <p className="process-step-description">
-      Недвижимость как структура.
-    </p>
-    <div className="process-step-details">
-      <p>
-        Отказ от буквальных образов в пользу геометрии, модульности и повторения.
-        В логотипе используется угол 60°, формирующий узнаваемый знак.
-        В прикладной графике угол адаптирован до 90° и 120° для повышения читаемости и удобства масштабирования.
-      </p>
-    </div>
-  </div>
-</div>
+                    {/* Столбик 4 - 1 картинка */}
+                    <div className="idea-column">
+                      <div className="idea-images vertical-1">
+                        <img src="/src/assets/case/exam2-10.jpg" alt="Идея 1" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="process-step-content">
+                <h3>Идея</h3>
+                <p className="process-step-description">
+                  Недвижимость как структура.
+                </p>
+                <div className="process-step-details">
+                  <p>
+                    Отказ от буквальных образов в пользу геометрии, модульности и повторения.
+                    В логотипе используется угол 60°, формирующий узнаваемый знак.
+                    В прикладной графике угол адаптирован до 90° и 120° для повышения читаемости и удобства масштабирования.
+                  </p>
+                </div>
+              </div>
+            </div>
 
 
             {/* 5 ВИЗУАЛ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               {/* БЛОК С ЦВЕТАМИ, ШРИФТАМИ И ЭЛЕМЕНТАМИ */}
               <div className="color-fonts-section">
 
@@ -314,7 +330,7 @@ const CorpStyleCase = () => {
             </div>
 
             {/* 6 ВИЗУАЛ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder patter-cont">
                 <div className="pattern">
                   <img src="/src/assets/case/patt.jpg" alt="Пример" />
@@ -344,7 +360,7 @@ const CorpStyleCase = () => {
 
 
             {/* 6 НОСИТЕЛИ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image mockup-grid">
                 <div className="mockup-grid-container">
                   {/* Строка 1 */}
@@ -383,7 +399,7 @@ const CorpStyleCase = () => {
             </div>
 
             {/* 7 РЕЗУЛЬТАТ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <div className="mockup-item-final"><img src="/src/assets/case/compose.jpg" alt="Композиция" /></div>
               </div>

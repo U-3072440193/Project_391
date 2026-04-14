@@ -21,7 +21,7 @@ body {
   position: relative;
   width: 100vw;
   margin: -60px -30px 0 -30px;
-  min-height: 110vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -235,6 +235,7 @@ body {
 /* RESULT */
 .result {
   text-align: center;
+  padding: 0 !important; 
 }
 
 .result-image {
@@ -243,7 +244,6 @@ body {
   align-items: center;
   justify-content: center;
   
-  margin-bottom: 32px;
 }
 
 .result h2 {
@@ -342,4 +342,66 @@ body {
 .modal-content {
   padding: 0 !important;
   overflow-x: hidden;
+}
+/* RESULT */
+.result {
+  text-align: center;
+  position: relative;
+}
+
+.result-image {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  display: block;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.result-image div {
+  margin: 80px;
+  padding: 0;
+  line-height: 0;
+}
+
+.final-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* Текст поверх картинки */
+.result-overlay {
+  position: absolute;
+  padding-top: 150px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px;
+  
+}
+
+.result-overlay h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.result-overlay p {
+  font-size: 18px;
+  color: white;
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.5;
+  word-wrap: break-word;      /* перенос длинных слов */
+  white-space: normal;        /* разрешаем перенос строк */
+  text-align: center;
 }

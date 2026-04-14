@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "./App.css";
 import "./polygraphy.css";
+import { createPortal } from "react-dom";
 
 // Тип для карточки
 type PrintCardProps = {
@@ -285,12 +286,15 @@ const Polygraphy = () => {
       </div>
 
       {/* Модальное окно */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
+      {selectedProject &&
+  createPortal(
+    <ProjectModal
+      project={selectedProject}
+      onClose={() => setSelectedProject(null)}
+    />,
+    document.body
+  )
+}
     </>
   );
 };

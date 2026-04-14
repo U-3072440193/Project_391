@@ -232,6 +232,34 @@ h3 {
   color: inherit;
 }
 
+.nav-line a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.nav-line a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 2px;
+  background: black;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0; 
+}
+
+.nav-line a:hover::before {
+  width: 100%;
+  left: 0;
+  transform: translateX(0);
+  opacity: 1;
+}
+
 /* ============================================ */
 /* 4. CASES & CAROUSEL (Кейсы и карусель)      */
 /* ============================================ */
@@ -1304,6 +1332,19 @@ h3 {
   }
 }
 
+/* ============================================ */
+/* Эффект скролла */
+/* ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);     /* меньше - меньше движение */
+  transition: 0.5s ease;          /* меньше - быстрее анимация */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* ============================================ */
 /* АДАПТАЦИЯ ХЕДЕРА (ПРИВЕТСТВИЕ И ИМЯ) */
 /* ============================================ */

@@ -1,14 +1,30 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './modal.css';
 
 const BookCoverCase = () => {
+  useEffect(() => {
+      const elements = document.querySelectorAll('.reveal');
+  
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+  
+      elements.forEach(el => observer.observe(el));
+    }, []);
   return (
     <div className="project-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/book-modal/top-knig.jpg" alt="Октавиан обложка" />
+          <img src="/src/assets/case/book-mock.jpg" alt="Октавиан обложка" />
           <div className="modal-hero-overlay"></div>
         </div>
 
@@ -65,7 +81,7 @@ const BookCoverCase = () => {
           <div className="process-steps">
 
             {/* 1 КОНТЕКСТ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <img src="/src/assets/case/book-example.jpg" alt="Контекст" />
               </div>
@@ -97,7 +113,7 @@ const BookCoverCase = () => {
 
 
             {/* 3 ЗАДАЧА */}
-            <div className="process-step no-image full-width-bg">
+            <div className="process-step no-image full-width-bg reveal">
               <div className="process-step-content full">
                 <h3>Задача</h3>
 
@@ -118,7 +134,7 @@ const BookCoverCase = () => {
             </div>
 
             {/* 4 ИДЕЯ */}
-            <div className="process-step idea-step">
+            <div className="process-step idea-step reveal">
 
               {/* Общий контейнер */}
               <div className="idea-wrapper">
@@ -159,9 +175,8 @@ const BookCoverCase = () => {
               </div>
             </div>
 
-            {/* 5 ВИЗУАЛ */}
             {/* 5 ТИПОГРАФИКА */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="idea-wrapper">
 
 
@@ -203,7 +218,7 @@ const BookCoverCase = () => {
             </div>
 
             {/* 6 МАТЕРИАЛЬНОСТЬ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <img src="/src/assets/case/book-material.png" alt="Материальность" />
               </div>
@@ -223,7 +238,7 @@ const BookCoverCase = () => {
             </div>
 
             {/* 7 НОСИТЕЛИ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image mockup-grid">
                 <div className="mockup-grid-container">
                   <div className="mockup-row">
@@ -252,7 +267,7 @@ const BookCoverCase = () => {
             </div>
 
             {/* 8 РЕЗУЛЬТАТ */}
-            <div className="process-step">
+            <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <div className="mockup-item-final">
                   <img src="/src/assets/case/final.jpg" alt="Финал" />

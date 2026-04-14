@@ -1,7 +1,23 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './modal.css';
 
 const PostersCase = () => {
+    useEffect(() => {
+          const elements = document.querySelectorAll('.reveal');
+      
+          const observer = new IntersectionObserver(
+            entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('active');
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+      
+          elements.forEach(el => observer.observe(el));
+        }, []);
     return (
         <div className="project-modal">
 
@@ -65,7 +81,7 @@ const PostersCase = () => {
                     <div className="process-steps">
 
                         {/* 1 КОНТЕКСТ */}
-                        <div className="process-step">
+                        <div className="process-step reveal">
                             <div className="process-step-image placeholder">
                                 <div className="placeholder-image">
                                     <img src="/src/assets/case/psy-example.jpg" alt="Пример" />
@@ -101,7 +117,7 @@ const PostersCase = () => {
 
 
                         {/* 3 ЗАДАЧА */}
-                        <div className="process-step no-image full-width-bg">
+                        <div className="process-step no-image full-width-bg reveal">
                             <div className="process-step-content full">
                                 <h3>Задача</h3>
 
@@ -123,7 +139,7 @@ const PostersCase = () => {
                         </div>
 
                         {/* 4 ИДЕЯ */}
-                        <div className="process-step idea-step">
+                        <div className="process-step idea-step reveal">
 
                             <div className="idea-wrapper">
 
@@ -168,7 +184,7 @@ const PostersCase = () => {
                         </div>
 
                         {/* 5 ТИПОГРАФИКА И ЦВЕТ */}
-                        <div className="process-step">
+                        <div className="process-step reveal">
                             <div className="idea-wrapper">
 
                                 <div className="idea-visual-container">
@@ -208,7 +224,7 @@ const PostersCase = () => {
                         </div>
 
                         {/* 6 ЦВЕТОВЫЕ СХЕМЫ */}
-                        <div className="process-step">
+                        <div className="process-step reveal">
                             <div className="idea-wrapper">
 
                                 <div className="idea-visual-container">
@@ -257,7 +273,7 @@ const PostersCase = () => {
 
 
                         {/* 8 РЕЗУЛЬТАТ */}
-                        <div className="process-step">
+                        <div className="process-step reveal">
 
                             <div className="process-step-image placeholder">
                                 <div className="mockup-item-final">

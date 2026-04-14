@@ -1,7 +1,7 @@
 import "./App.css";
 import "./components/modal.css";
 import type { ReactNode } from "react";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 
 // модалки
 import Vkladysh from "./components/Vkladysh";
@@ -21,7 +21,7 @@ import Web from "./Web";
 import leaf from "./assets/products/leaf-sd.jpg";
 import vklad from "./assets/products/vklad.png";
 import book from "./assets/products/book.jpg";
-import Corp from "./assets/products/corp-style.png";
+import Corp from "./assets/case/compose.jpg";
 import poster from "./assets/products/poster.jpg";
 import shishkaJpg from "./assets/shishka/shishka.jpg";
 import portfolio from "./assets/web/portf.jpg";
@@ -122,6 +122,8 @@ function PrintCard({ title, image, tags, onClick, size = "normal" }: PrintCardPr
   );
 }
 
+
+
 /* ================= APP ================= */
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -155,6 +157,23 @@ export default function App() {
   };
   const [isGrid, setIsGrid] = useState(false);
 
+  useEffect(() => {
+  const elements = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  elements.forEach(el => observer.observe(el));
+}, []);
+
   return (
     <div className="portfolio">
       <Header />
@@ -174,8 +193,7 @@ export default function App() {
 
       <main className="portfolio-body">
         {/* Секция КЕЙСЫ */}
-        {/* Секция КЕЙСЫ */}
-        <section className="cases container">
+        <section className="cases container reveal">
           <div className="cases-header">
             <div className="cases-circle">Кейсы</div>
             <div className="cases-line"></div>
@@ -196,21 +214,19 @@ export default function App() {
                   size="big"
                   onClick={() => openModal(<CorpStyleCase />)}
                 />
-
-                <PrintCard
-                  title="Разработка обложки книги"
-                  image={book}
-                  tags={["Полиграфия", "Книги"]}
-                  size="tall"
-                  onClick={() => openModal(<BookCoverCase />)}
-                />
-
                 <PrintCard
                   title="Разработка серии постеров"
                   image={poster}
                   tags={["Полиграфия", "плакат"]}
-                  size="big"
+                  size="tall"
                   onClick={() => openModal(<PosterCase />)}
+                />
+                <PrintCard
+                  title="Разработка обложки книги"
+                  image={book}
+                  tags={["Полиграфия", "Книги"]}
+                  size="big"
+                  onClick={() => openModal(<BookCoverCase />)}
                 />
 
                 {/* <PrintCard
@@ -234,7 +250,7 @@ export default function App() {
         </section>
 
         {/* Секция О СЕБЕ */}
-        <section id="about" className="about-section">
+        <section id="about" className="about-section reveal">
           <div className="cases container">
             <div className="cases-header">
               <div className="menu-head about-head"><h2>О себе</h2></div>
@@ -257,7 +273,7 @@ export default function App() {
         </section>
 
         {/* Секция ПОЛИГРАФИЯ */}
-        <section id="polygraphy" className="cases container">
+        <section id="polygraphy" className="cases container reveal">
           <div className="cases-header">
             <div className="menu-head"><h2>Полиграфия</h2></div>
             <div className="cases-line"></div>
@@ -275,7 +291,7 @@ export default function App() {
         </section>
 
         {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ - большая карточка на всю ширину */}
-        <section id="corpstyle" className="cases container">
+        <section id="corpstyle" className="cases container reveal">
           <div className="cases-header">
             <div className="menu-head"><h2>Корпоративный стиль</h2></div>
             <div className="cases-line"></div>
@@ -299,7 +315,7 @@ export default function App() {
 
 
         {/* Секция ВЕБ-РАЗРАБОТКА */}
-        <section id="web" className="cases container">
+        <section id="web" className="cases container reveal">
           <div className="cases-header">
             <div className="menu-head"><h2>Веб-разработка</h2></div>
             <div className="cases-line"></div>

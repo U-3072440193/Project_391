@@ -48,7 +48,7 @@ const Shishkatwo = () => {
 
       {/* WOW PRODUCT */}
       <section className="product reveal">
-        
+
 
         <div className="product-overlay">
           <h2>Интерфейс системы</h2>
@@ -70,6 +70,7 @@ const Shishkatwo = () => {
             <li>Real-time обновления</li>
             <li>Гибкие доски</li>
             <li>Статусы и дедлайны</li>
+            <li>Внутренняя почта</li>
           </ul>
         </div>
       </section>
@@ -107,16 +108,18 @@ const Shishkatwo = () => {
       </section>
 
       {/* RESULT */}
+      {/* RESULT */}
       <section className="section result reveal">
         <div className="result-image">
-          <div><img src="/src/assets/web/web2.jpg" alt="Final mockup" className="final-image" /></div>
+          <img src="/src/assets/web/web2.jpg" alt="Final mockup" className="final-image" />
+          <div className="result-overlay">
+            <h2>Результат</h2>
+            <p>
+              Полноценный fullstack-продукт с real-time системой
+              и продуманной архитектурой.
+            </p>
+          </div>
         </div>
-
-        <h2>Результат</h2>
-        <p>
-          Полноценный fullstack-продукт с real-time системой
-          и продуманной архитектурой.
-        </p>
       </section>
 
     </div>

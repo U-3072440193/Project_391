@@ -69,41 +69,53 @@
 /* 3. MODAL HERO (Шапка модалки)               */
 /* ============================================ */
 
+/* ============================================ */
+/* 3. MODAL HERO (Шапка модалки)               */
+/* ============================================ */
+
 .modal-hero {
     position: relative;
     margin: -60px -30px 0 -30px;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
+    height: 100vh;  /* высота на весь видимый экран модалки */
+    min-height: 400px;
 }
 
 .modal-hero-bg {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .modal-hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .modal-hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%);
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.743) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
 }
 
 .modal-hero-content {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
-    right: 40px;
+    bottom: 60px;
+    left: 80px;
+    right: auto;
     color: white;
     z-index: 2;
+    max-width: 55%;
+    text-align: left;
 }
 
 .modal-badge {
@@ -148,7 +160,7 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .stat-badge {
@@ -234,6 +246,7 @@
     margin-bottom: 48px;
     width: 100%;
     align-items: center;
+    padding: 0 80px;
 }
 
 .modal-section-header h2 {
@@ -269,6 +282,7 @@
     display: flex;
     gap: 48px;
     width: 100%;
+    padding: 0 40px;
 }
 
 .process-step:nth-child(even) {
@@ -290,7 +304,7 @@
 
 .process-step-content {
     flex: 1;
-    padding: 20px 20px;
+    padding: 20px 40px;
     text-align: left;
 }
 
@@ -366,6 +380,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    padding: 0 40px;
 }
 
 .idea-text-container {
@@ -624,6 +639,7 @@
     flex-direction: column;
     gap: 16px;
     width: 100%;
+    padding: 0 40px;
 }
 
 .mockup-row {
@@ -673,7 +689,7 @@
     color: #555;
     font-size: 14px;
     text-align: center;
-    padding: 20px;
+    padding: 40px;
     min-height: 260px;
 }
 
@@ -1223,4 +1239,18 @@
         grid-template-columns: 1fr;
         gap: 0.75rem;
     }
+}
+
+/* ============================================ */
+/* Эффект скролла */
+/* ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);     /* меньше - меньше движение */
+  transition: 0.5s ease;          /* меньше - быстрее анимация */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
