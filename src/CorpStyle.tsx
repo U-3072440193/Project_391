@@ -1,24 +1,45 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './components/modal.css';
 
 const CorpStyle = () => {
+  useEffect(() => {
+      const elements = document.querySelectorAll('.reveal');
+  
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+  
+      elements.forEach(el => observer.observe(el));
+    }, []);
   return (
     <div className="corpstyle-modal">
 
       {/* HERO */}
-      <div className="corpstyle-hero">
-        <div className="corpstyle-hero-bg">
-          <img src="/src/assets/corp-modal/top-corp.jpg" alt="neoДом" />
-          <div className="corpstyle-hero-overlay"></div>
+      <div className="modal-hero">
+        <div className="modal-hero-bg">
+          <img src="/src/assets/case/neodom.jpg" alt="inDom ребрендинг" />
+          <div className="modal-hero-overlay"></div>
         </div>
-        <div className="corpstyle-hero-content">
-          <h1 className="corpstyle-hero-title">
-            neoДом<br />
+
+        <div className="modal-hero-content">
+
+          <h1 className="modal-hero-title reveal">
+            neoДom<br />
             <span className="accent">Брендинг агентства недвижимости</span>
           </h1>
-          <p className="corpstyle-hero-subtitle">
+
+          <p className="modal-hero-subtitle">
             Минималистичный визуальный язык для выхода на новый уровень
           </p>
+
+          
         </div>
       </div>
 
@@ -41,7 +62,7 @@ const CorpStyle = () => {
         </div>
 
         {/* Концепция */}
-        <div className="corpstyle-section">
+        <div className="corpstyle-section reveal">
           <div className="corpstyle-section-header">
             <h2>Концепция</h2>
             <div className="section-line"></div>
@@ -57,7 +78,7 @@ const CorpStyle = () => {
         </div>
 
         {/* Визуальный язык + Типографика в ряд */}
-        <div className="two-columns-section">
+        <div className="two-columns-section reveal">
 
           {/* Визуальный язык - левая колонка */}
           <div className="corpstyle-section half">
@@ -116,7 +137,7 @@ const CorpStyle = () => {
         </div>
 
         {/* Паттерн */}
-        <div className="corpstyle-section">
+        <div className="corpstyle-section reveal">
           <div className="corpstyle-section-header">
             <h2>Паттерн</h2>
             <div className="section-line"></div>
@@ -138,7 +159,7 @@ const CorpStyle = () => {
         </div>
 
         {/* Носители */}
-        <div className="corpstyle-section">
+        <div className="corpstyle-section reveal">
           <div className="corpstyle-section-header">
             <h2>Носители</h2>
             <div className="section-line"></div>
@@ -148,7 +169,7 @@ const CorpStyle = () => {
             <img src="/src/assets/case/viz2.jpg" alt="Визитка" />
             <img src="/src/assets/case/kru.jpg" alt="Кружка" />
             <img src="/src/assets/case/key.jpg" alt="Брелок" />
-            <img src="/src/assets/case/blokn.jpg" alt="Блокнот" /> 
+            <img src="/src/assets/case/blokn.jpg" alt="Блокнот" />
             <img src="/src/assets/case/pen.jpg" alt="Ручка" />
             <img src="/src/assets/case/everyday.jpg" alt="Ежедневник" />
             <img src="/src/assets/case/baige.jpg" alt="<Бэйдж>" />
@@ -157,19 +178,19 @@ const CorpStyle = () => {
         </div>
 
         {/* Результат */}
-        <div className="corpstyle-section">
-          <div className="corpstyle-section-header">
+        <section className="section result-corp reveal ">
+        <div className="result-image-corp">
+          <img src="/src/assets/case/compose.jpg" alt="Финальная композиция"  className="final-image" />
+          <div className="result-overlay-corp">
             <h2>Результат</h2>
-            <div className="section-line"></div>
-          </div>
-          <div className="result-content">
-            <img src="/src/assets/case/compose.jpg" alt="Финальная композиция" />
             <p>
               Цельная визуальная система, которая выделяет бренд на рынке,
               выглядит современно и масштабируется на любые носители.
             </p>
           </div>
         </div>
+      </section>
+        
 
       </div>
     </div>

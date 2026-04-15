@@ -57,7 +57,7 @@ const Shishkatwo = () => {
 
       {/* FEATURE */}
       <section className="section feature reveal">
-        <div className="feature-media">
+        <div className="feature-media  shishka-placeholder">
           <video autoPlay loop muted playsInline>
             <source src="/src/assets/shishka/demo.mp4" type="video/mp4" />
           </video>
@@ -77,7 +77,7 @@ const Shishkatwo = () => {
 
       {/* CHAT */}
       <section className="section feature reverse reveal">
-        <div className="feature-media placeholder">
+        <div className="feature-media shishka-placeholder">
           <video autoPlay loop muted playsInline>
             <source src="/src/assets/shishka/chat.mp4" type="video/mp4" />
           </video>

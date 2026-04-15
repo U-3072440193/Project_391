@@ -27,8 +27,8 @@ const CorpStyleCase = () => {
           <img src="/src/assets/case/neodom.jpg" alt="inDom ребрендинг" />
           <div className="modal-hero-overlay"></div>
         </div>
-
-        <div className="modal-hero-content">
+ 
+        <div className="modal-hero-content reveal">
           <div className="modal-badge">КОНЦЕПТ</div>
 
           <h1 className="modal-hero-title">
@@ -51,11 +51,11 @@ const CorpStyleCase = () => {
       <div className="inner-proj-modal">
 
         {/* INFO */}
-        <div className="modal-info-grid">
+        <div className="modal-info-grid reveal">
           <div className="info-card">
             <div className="info-icon"><img src="/icons/project.svg" alt="Проект" /></div>
             <h3>Проект</h3>
-            <p>Концептуальный брендинг агентства недвижимости неоДом</p>
+            <p>Концептуальный брендинг</p>
           </div>
 
           <div className="info-card">
@@ -85,7 +85,7 @@ const CorpStyleCase = () => {
 
             {/* 1 КОНТЕКСТ */}
             <div className="process-step reveal">
-              <div className="process-step-image placeholder">
+              <div className="process-step-image placeholder unpadding">
                 <img src="/src/assets/corp-modal/neodom-problem2.gif" alt="Контекст рынка" />
               </div>
 
@@ -105,7 +105,7 @@ const CorpStyleCase = () => {
 
             {/* 2 ПРОБЛЕМА */}
             <div className="process-step reveal">
-              <div className="process-step-image placeholder">
+              <div className="process-step-image placeholder unpadding">
                 <img src="/src/assets/case/example-neodom.jpg" alt="Пример" />
               </div>
 
@@ -177,7 +177,7 @@ const CorpStyleCase = () => {
                     {/* Текст для столбика 4 */}
                     <div className="idea-text-column">
                       <div className="idea-label">
-                        <p>neo Dom</p>
+                        <p>Выбран итоговй вариант логотипа neo Dom</p>
                       </div>
                     </div>
                   </div>
@@ -331,7 +331,7 @@ const CorpStyleCase = () => {
 
             {/* 6 ВИЗУАЛ */}
             <div className="process-step reveal">
-              <div className="process-step-image placeholder patter-cont">
+              <div className="process-step-image placeholder patter-cont unpadding">
                 <div className="pattern">
                   <img src="/src/assets/case/patt.jpg" alt="Пример" />
                 </div>
@@ -361,7 +361,7 @@ const CorpStyleCase = () => {
 
             {/* 6 НОСИТЕЛИ */}
             <div className="process-step reveal">
-              <div className="process-step-image mockup-grid">
+              <div className="process-step-image mockup-grid unpadding">
                 <div className="mockup-grid-container">
                   {/* Строка 1 */}
                   <div className="mockup-row">
@@ -400,7 +400,7 @@ const CorpStyleCase = () => {
 
             {/* 7 РЕЗУЛЬТАТ */}
             <div className="process-step reveal">
-              <div className="process-step-image placeholder">
+              <div className="process-step-image placeholder unpadding">
                 <div className="mockup-item-final"><img src="/src/assets/case/compose.jpg" alt="Композиция" /></div>
               </div>
 

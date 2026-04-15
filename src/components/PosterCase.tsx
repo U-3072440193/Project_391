@@ -24,12 +24,12 @@ const PostersCase = () => {
             {/* HERO */}
             <div className="modal-hero">
                 <div className="modal-hero-bg">
-                    <img src="/src/assets/case/poster-banner.jpg" alt="Психоделические постеры" />
+                    <img src="/src/assets/case/main-poster.jpg" alt="Психоделические постеры" />
                     <div className="modal-hero-overlay"></div>
                 </div>
 
-                <div className="modal-hero-content">
-                    <div className="modal-badge">КОНЦЕПТ</div>
+                <div className="modal-hero-content reveal">
+                    <div className="modal-badge">ПОЛИГРАФИЯ</div>
 
                     <h1 className="modal-hero-title">
                         PSYCHO 70<br />
@@ -51,7 +51,7 @@ const PostersCase = () => {
             <div className="inner-proj-modal">
 
                 {/* INFO */}
-                <div className="modal-info-grid">
+                <div className="modal-info-grid reveal">
                     <div className="info-card">
                         <div className="info-icon"><img src="/icons/concept.svg" alt="Формат" /></div>
                         <h3>Концепция</h3>
@@ -82,7 +82,7 @@ const PostersCase = () => {
 
                         {/* 1 КОНТЕКСТ */}
                         <div className="process-step reveal">
-                            <div className="process-step-image placeholder">
+                            <div className="process-step-image placeholder unpadding">
                                 <div className="placeholder-image">
                                     <img src="/src/assets/case/psy-example.jpg" alt="Пример" />
                                 </div>
@@ -275,7 +275,7 @@ const PostersCase = () => {
                         {/* 8 РЕЗУЛЬТАТ */}
                         <div className="process-step reveal">
 
-                            <div className="process-step-image placeholder">
+                            <div className="process-step-image placeholder unpadding-right">
                                 <div className="mockup-item-final">
                                     <img src="/src/assets/case/poster.jpg" alt="Финальный коллаж" />
                                 </div>

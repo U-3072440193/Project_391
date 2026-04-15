@@ -29,7 +29,19 @@ body {
   padding: 80px;
   overflow: hidden;
 }
-.feature{}
+
+.shishka-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  padding: 0px 40px 40px 40px;
+  min-height: 300px;
+
+
+}
 
 .hero-bg-container {
   position: absolute;
@@ -64,6 +76,7 @@ body {
   max-width: 600px;
   text-align: left;
   margin-bottom: 0px;
+  left: 20px;
   /* отступ снизу */
 }
 
@@ -81,17 +94,18 @@ body {
 
 .hero-title {
   font-family: 'Alumni Sans', sans-serif !important;
-  font-size: 80px;
+  font-size: 48px;
   line-height: 0.9;
   margin: 0 0 16px 0;
   color: #ffffff !important;
+  
 }
 
 .hero-accent {
   display: block;
   font-size: 42px;
-  color: #ff2a2a;
-  margin-top: -10px;
+  color: #ffffff;
+  margin-top: 10px;
 }
 
 .hero-content p {
@@ -141,7 +155,8 @@ body {
 .feature {
   display: flex;
   gap: 80px;
-  align-items: top;  /* ← меняем с 'top' на 'center' */
+  align-items: top;
+  /* ← меняем с 'top' на 'center' */
   flex-direction: row;
 }
 
@@ -157,10 +172,11 @@ body {
 .feature-text {
   flex: 1;
   text-align: left;
-  padding-left: 60px;
+  padding-left: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;  /* ← прижимает текст к верху */
+  justify-content: flex-start;
+  /* ← прижимает текст к верху */
 }
 
 .feature-media video {
@@ -204,7 +220,7 @@ body {
   margin: 0;
 }
 
-.final-image{
+.final-image {
   margin: 30px 0 30px;
   width: 100%;
 }
@@ -235,15 +251,15 @@ body {
 /* RESULT */
 .result {
   text-align: center;
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 
 .result-image {
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 .result h2 {
@@ -280,7 +296,7 @@ body {
   }
 
   .feature.reverse {
-     flex-direction: row-reverse !important;
+    flex-direction: row-reverse !important;
   }
 
   .section {
@@ -343,6 +359,7 @@ body {
   padding: 0 !important;
   overflow-x: hidden;
 }
+
 /* RESULT */
 .result {
   text-align: center;
@@ -383,7 +400,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding-top: 60px;
-  
+
 }
 
 .result-overlay h2 {
@@ -401,7 +418,9 @@ body {
   margin: 0 auto;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   line-height: 1.5;
-  word-wrap: break-word;      /* перенос длинных слов */
-  white-space: normal;        /* разрешаем перенос строк */
+  word-wrap: break-word;
+  /* перенос длинных слов */
+  white-space: normal;
+  /* разрешаем перенос строк */
   text-align: center;
 }

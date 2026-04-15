@@ -110,22 +110,21 @@ const Polygraphy = () => {
   const printItems: Project[] = [
     // ==================== СЕРИЯ ВКЛАДЫШЕЙ ====================
     {
-      title: "Серия вкладышей для постельного белья",
+      title: "Вкладыши в упаковку",
       coverImage: "/src/assets/vklad-modal/vklad.png",
-      tags: ["Вкладыши", "Офсетная печать", "Серия"],
+      tags: ["Вкладыши", "Офсетная печать", "Сборник макетов"],
       blocks: [
         { type: 'heading', content: "Вкладыш для КПБ" },
         { type: 'text', content: "Разработка вкладыша КПБ с двумя биговками и металлизированным пантоном 871с." },
         { type: 'images', content: ["/src/assets/vklad-modal/alis.jpg"], layout: 'column' },
         { type: 'text', content: "Размеры, места биговки, расположение пантона." },
-        { type: 'images', content: ["/src/assets/vklad-modal/shemme.svg"], layout: 'column', captions: ["Схема вкладыша с размерами"] },
+        { type: 'images', content: ["/src/assets/vklad-modal/shemme.svg"], layout: 'column',  },
         
         { type: 'heading', content: "Вкладыш 'Защита и комфорт'" },
         { type: 'text', content: "Разработка вкладыша для упаковки постельного белья. 270×350мм, мелованная бумага." },
         { type: 'images', content: ["/src/assets/vklad-modal/merz.jpg"], layout: 'column' },
         
-        { type: 'heading', content: "Финишная обработка" },
-        { type: 'text', content: "Вырубка по контуру, контроль качества." }
+        
       ]
     },
     // ==================== ЛИФЛЕТЫ ====================
@@ -144,9 +143,9 @@ const Polygraphy = () => {
     
     // ==================== СЕРИЯ ЛИСТОВОК ====================
     {
-      title: "Серия рекламных листовок",
+      title: "Рекламные листовки",
       coverImage: "/src/assets/list-modal/ikspr.jpg",
-      tags: ["Листовки", "Офсетная печать", "Серия"],
+      tags: ["Листовки", "Офсетная печать", "Сборник макетов"],
       blocks: [
         
     
@@ -162,9 +161,9 @@ const Polygraphy = () => {
     
     // ==================== СЕРИЯ ВИЗИТОК ====================
     {
-      title: "Серия корпоративных визиток",
+      title: "Корпоративные визитки",
       coverImage: "/src/assets/viz-modal/pulse.jpg",
-      tags: ["Визитки", "Корпоративный стиль", "Серия"],
+      tags: ["Визитки", "Корпоративный стиль", "Сборник макетов"],
       blocks: [
         { type: 'heading', content: "Визитки Ultronix" },
         { type: 'text', content: "Разработка визиток для компаний Ultronix, 4+4, цифровая печать." },
@@ -201,9 +200,9 @@ const Polygraphy = () => {
     
     // ==================== СЕРИЯ БЛОКНОТОВ ====================
     {
-      title: "Серия фирменных блокнотов",
+      title: "Фирменные блокноты",
       coverImage: "/src/assets/blokn-modal/bloknot-aero.png",
-      tags: ["Блокноты", "Корпоративный стиль", "Серия"],
+      tags: ["Блокноты", "Корпоративный стиль", "Сборник макетов"],
       blocks: [
         { type: 'heading', content: "Блокнот «Аэрооктябрь»" },
         { type: 'text', content: "Разработка дизайна фирменного блокнота. Офсетная бумага, твёрдая обложка." },
@@ -236,12 +235,19 @@ const Polygraphy = () => {
       ]
     },
     {
-      title: "Квартальный календарь для Арены",
+      title: "Квартальные календари",
       coverImage: "/src/assets/kvart-modal/kvart.jpg",
       tags: ["Календари", "Полиграфия", "Печать"],
       blocks: [
+        { type: 'heading', content: 'Квартальный календарь "Арены"' },
+        { type: 'text', content: 'Дизайн квартального календаря для "Арены". Постер 297×210мм, подложка 297×160мм, блок 297×145мм.' },
+        { type: 'images', content: ["/src/assets/kvart-modal/arena.jpg"], layout: 'column' },
+        { type: 'heading', content: 'Квартальный календарь для спорткомплекса' },
         { type: 'text', content: "Дизайн квартального календаря для спортивного комплекса. Постер 297×210мм, подложка 297×160мм, блок 297×145мм." },
-        { type: 'images', content: ["/src/assets/kvart-modal/arena.jpg"], layout: 'column' }
+        { type: 'images', content: ["/src/assets/kvart-modal/sportco.jpg"], layout: 'column' },
+        { type: 'heading', content: 'Квартальный календарь для "Бурят Фармации"' },
+        { type: 'text', content: "Дизайн квартального календаря для фармацевтической фирмы. Постер 297×210мм, подложка 297×210мм, блок 297×145мм." },
+        { type: 'images', content: ["/src/assets/kvart-modal/bur.jpg"], layout: 'column' },
       ]
     },
     {
@@ -252,6 +258,17 @@ const Polygraphy = () => {
         { type: 'text', content: "Разработка дизайна наружного баннера для компании Трансметалл. Широкоформатная печать, размер 2×3 м." },
         { type: 'images', content: ["/src/assets/banner-modal/transmetall1.jpg"], layout: 'column' },
         { type: 'text', content: "Баннер размещён на фасаде здания, виден с большого расстояния." }
+      ]
+    },{
+      title: "Каталог ТехноАвиа",
+      coverImage: "/src/assets/products/katal.jpg",
+      tags: ["Наружная реклама", "Полиграфия", "Афиша"],
+      blocks: [
+        { type: 'text', content: "Дизайн каталога спецодежды ТехноАвиа. А4, 8 полос, мелованная бумага, крепление на скобу." },
+        { type: 'images', content: ["/src/assets/bookl-modal/katalog1.jpg"], layout: 'column' },
+        { type: 'images', content: ["/src/assets/bookl-modal/katalog2.jpg"], layout: 'column' },
+        { type: 'images', content: ["/src/assets/bookl-modal/katalog4.jpg"], layout: 'column' },
+        { type: 'images', content: ["/src/assets/bookl-modal/katalog3.jpg"], layout: 'column' },
       ]
     },
     {

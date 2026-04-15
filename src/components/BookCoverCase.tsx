@@ -28,8 +28,8 @@ const BookCoverCase = () => {
           <div className="modal-hero-overlay"></div>
         </div>
 
-        <div className="modal-hero-content">
-          <div className="modal-badge">КОНЦЕПТ</div>
+        <div className="modal-hero-content reveal">
+          <div className="modal-badge">ПОЛИГРАФИЯ</div>
 
           <h1 className="modal-hero-title">
             Октавиан<br />
@@ -51,7 +51,7 @@ const BookCoverCase = () => {
       <div className="inner-proj-modal">
 
         {/* INFO */}
-        <div className="modal-info-grid">
+        <div className="modal-info-grid reveal">
           <div className="info-card">
             <div className="info-icon"><img src="/icons/book.svg" alt="Формат" /></div>
             <h3>Формат</h3>
@@ -239,7 +239,7 @@ const BookCoverCase = () => {
 
             {/* 7 НОСИТЕЛИ */}
             <div className="process-step reveal">
-              <div className="process-step-image mockup-grid">
+              <div className="process-step-image mockup-grid unpadding-right">
                 <div className="mockup-grid-container">
                   <div className="mockup-row">
                     <div className="mockup-item"><img src="/src/assets/case/book-face.jpg" alt="Книга" /></div>
