@@ -45,13 +45,13 @@ import burKvartImg from "../assets/kvart-modal/bur.jpg";
 import transmetallImg from "../assets/banner-modal/transmetall.jpg";
 import transmetall1Img from "../assets/banner-modal/transmetall1.jpg";
 
-import stenkImg from "../assets/afisha-modal/stenk.jpg";
-import stenk1Img from "../assets/afisha-modal/stenk1.jpg";
+/* import stenkImg from "../assets/afisha-modal/stenk.jpg";
+import stenk1Img from "../assets/afisha-modal/stenk1.jpg"; */
 
 import katalImg from "../assets/products/katal.jpg";
 
 // Тип для блока контента в модалке
-export type ContentBlock = 
+export type ContentBlock =
   | { type: 'text'; content: string }
   | { type: 'heading'; content: string }
   | { type: 'images'; content: string[]; captions?: string[]; layout?: 'grid' | 'row' | 'column' };
@@ -71,12 +71,12 @@ export const printItems: Project[] = [
     tags: ["Вкладыши", "Офсетная печать", "Сборник макетов"],
     blocks: [
       { type: 'heading', content: "Вкладыш для КПБ" },
-      { type: 'text', content: "Разработка вкладыша КПБ с двумя биговками и металлизированным пантоном 871с." },
+      { type: 'text', content: "Разработка вкладыша КПБ с двумя биговками и металлизированным пантоном 871с. 5+0" },
       { type: 'images', content: [alisImg], layout: 'column' },
-      { type: 'text', content: "Размеры, места биговки, расположение пантона." },
+      { type: 'text', content: "Размеры, места биговки." },
       { type: 'images', content: [shemmeImg], layout: 'column' },
       { type: 'heading', content: "Вкладыш 'Защита и комфорт'" },
-      { type: 'text', content: "Разработка вкладыша для упаковки постельного белья. 270×350мм, мелованная бумага." },
+      { type: 'text', content: "Разработка вкладыша для упаковки постельного белья. 270×350мм, мелованная бумага. Логотип с тиснением золотой фольгой" },
       { type: 'images', content: [merzImg], layout: 'column' },
     ]
   },
@@ -86,7 +86,7 @@ export const printItems: Project[] = [
     tags: ["Лифлет", "Офсетная печать", "Серия"],
     blocks: [
       { type: 'heading', content: "Лифлет для пекарни «Сдобная улица»" },
-      { type: 'text', content: 'Разработка двустороннего лифлета для пекарни "Сдобная улица".' },
+      { type: 'text', content: 'Разработка двустороннего лифлета для пекарни "Сдобная улица". 297х210мм, 4+4, 2 биговки 100/100/97мм' },
       { type: 'images', content: [sdobUl1Img], layout: 'column' },
       { type: 'images', content: [sdobUl2Img], layout: 'column' },
     ]
@@ -100,7 +100,7 @@ export const printItems: Project[] = [
       { type: 'text', content: "Разработка рекламной листовки для нового подразделения типографии Икспресс. Формат А5 4+0, мелованная бумага, полноцветная печать." },
       { type: 'images', content: [iksprInnerImg], layout: 'column' },
       { type: 'heading', content: "Листовки для Суши 37" },
-      { type: 'text', content: "Рекламные двусторонние листовки А5, мелованная бумага." },
+      { type: 'text', content: "Рекламные двусторонние листовки А5, мелованная бумага, 4+4." },
       { type: 'images', content: [su1Img, su2Img], layout: 'row' }
     ]
   },
@@ -133,10 +133,10 @@ export const printItems: Project[] = [
     tags: ["Блокноты", "Корпоративный стиль", "Сборник макетов"],
     blocks: [
       { type: 'heading', content: "Блокнот «Аэрооктябрь»" },
-      { type: 'text', content: "Разработка дизайна фирменного блокнота. Офсетная бумага, твёрдая обложка." },
+      { type: 'text', content: "Разработка дизайна фирменного блокнота. Офсетная бумага, твёрдая обложка.Обложка 4+0, 0+0, блок 1+0 К." },
       { type: 'images', content: [aero1Img, aero2Img], layout: 'row' },
       { type: 'heading', content: "Блокнот для Бурят Фармации" },
-      { type: 'text', content: "Фирменный блокнот для фармацевтической компании. Корпоративные цвета, логотип на обложке." },
+      { type: 'text', content: "Фирменный блокнот для фармацевтической компании. Корпоративные цвета, логотип на обложке. Обложка 4+0, 0+4, блок 1+0 К." },
       { type: 'images', content: [bur1Img, bur2Img, bur3Img], layout: 'row' }
     ]
   },
@@ -145,9 +145,21 @@ export const printItems: Project[] = [
     coverImage: boxzImg,
     tags: ["Вырубные изделия", "Полиграфия"],
     blocks: [
-      { type: 'text', content: "Разработка дизайна и конструирование коробки для подарков." },
+      { type: 'text', content: "Разработка дизайна и конструирование коробки для подарков, 100х100х100мм. Штанц-форма сконструирована по близким аналогам. Картон 215гр." },
       { type: 'images', content: [korobka2Img], layout: 'column' },
       { type: 'text', content: "Развертка коробки с размерами и местами склейки." }
+    ]
+  },
+  {
+    title: "Каталог ТехноАвиа",
+    coverImage: katalImg,
+    tags: ["Наружная реклама", "Полиграфия", "Афиша"],
+    blocks: [
+      { type: 'text', content: "Дизайн каталога спецодежды ТехноАвиа. А4, 8 полос, мелованная бумага, крепление на скобу. Бумага мелованная 150гр." },
+      { type: 'images', content: [katalog1Img], layout: 'column' },
+      { type: 'images', content: [katalog2Img], layout: 'column' },
+      { type: 'images', content: [katalog4Img], layout: 'column' },
+      { type: 'images', content: [katalog3Img], layout: 'column' }
     ]
   },
   {
@@ -171,7 +183,7 @@ export const printItems: Project[] = [
       { type: 'text', content: "Дизайн квартального календаря для спортивного комплекса. Постер 297×210мм, подложка 297×160мм, блок 297×145мм." },
       { type: 'images', content: [sportcoImg], layout: 'column' },
       { type: 'heading', content: 'Квартальный календарь для "Бурят Фармации"' },
-      { type: 'text', content: "Дизайн квартального календаря для фармацевтической фирмы. Постер 297×210мм, подложка 297×210мм, блок 297×145мм." },
+      { type: 'text', content: "Дизайн квартального календаря для фармацевтической фирмы. Постер 297×210мм, подложка 297×210мм, блок 297×145мм. Постер с глянцевой ламинацией." },
       { type: 'images', content: [burKvartImg], layout: 'column' }
     ]
   },
@@ -185,19 +197,8 @@ export const printItems: Project[] = [
       { type: 'text', content: "Баннер размещён на фасаде здания, виден с большого расстояния." }
     ]
   },
-  {
-    title: "Каталог ТехноАвиа",
-    coverImage: katalImg,
-    tags: ["Наружная реклама", "Полиграфия", "Афиша"],
-    blocks: [
-      { type: 'text', content: "Дизайн каталога спецодежды ТехноАвиа. А4, 8 полос, мелованная бумага, крепление на скобу." },
-      { type: 'images', content: [katalog1Img], layout: 'column' },
-      { type: 'images', content: [katalog2Img], layout: 'column' },
-      { type: 'images', content: [katalog4Img], layout: 'column' },
-      { type: 'images', content: [katalog3Img], layout: 'column' }
-    ]
-  },
-  {
+
+  /* {
     title: "Афиша",
     coverImage: stenkImg,
     tags: ["Наружная реклама", "Полиграфия", "Афиша"],
@@ -205,5 +206,5 @@ export const printItems: Project[] = [
       { type: 'text', content: "Дизайн афиши для культурного мероприятия. 297×465мм." },
       { type: 'images', content: [stenk1Img], layout: 'column' }
     ]
-  }
+  } */
 ];

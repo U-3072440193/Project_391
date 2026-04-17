@@ -41,7 +41,7 @@ import pen from "../assets/case/pen.jpg";
 import folder from "../assets/case/folder.jpg";
 
 // Картинка для результата
-import compose from "../assets/case/compose.jpg";
+import compose2 from "../assets/case/compose2.jpg";
 
 const CorpStyleCase = () => {
   useReveal();
@@ -381,11 +381,19 @@ const CorpStyleCase = () => {
               <div className="process-step-content">
                 <h3>Носители</h3>
                 <p className="process-step-description">
-                  Система адаптируется под любые форматы.
+                  Система адаптируется под любые форматы и технологии печати.
                 </p>
                 <div className="process-step-details">
                   <p>
-                    Айдентика работает одинаково хорошо на всех носителях.
+                    Айдентика одинаково эффективно работает на всех носителях — от визитки до билборда.
+                  </p>
+                </div>
+                <br/>
+                <div className="process-step-details">
+                  <p>
+                    Макет легко адаптируется под различные технологии: офсетная, цифровая,
+                    широкоформатная печать, шелкография, тампопечать, тиснение, вырубка
+                    и плоттерная резка. Поддерживаются цветовые модели CMYK и Pantone.
                   </p>
                 </div>
               </div>
@@ -394,7 +402,7 @@ const CorpStyleCase = () => {
             {/* РЕЗУЛЬТАТ */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder unpadding">
-                <div className="mockup-item-final"><img src={compose} alt="Композиция" /></div>
+                <div className="mockup-item-final"><img src={compose2} alt="Композиция" /></div>
               </div>
 
               <div className="process-step-content">

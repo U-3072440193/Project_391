@@ -249,7 +249,7 @@ export default function App() {
 
             <div className="contact-item">
               <i className="fab fa-telegram contact-icon"><img src="/icons/tele.svg" alt="Телеграмм" /></i>
-              <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://t.me/U_3072440193" target="_blank" rel="noopener noreferrer">Telegram</a>
             </div>
 
             <div className="contact-item">

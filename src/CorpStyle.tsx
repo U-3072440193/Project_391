@@ -22,7 +22,7 @@ import baige from "./assets/case/baige.jpg";
 import folder from "./assets/case/folder.jpg";
 
 // Картинка для результата
-import compose from "./assets/case/compose.jpg";
+import compose1 from "./assets/case/compose1.jpg";
 
 const CorpStyle = () => {
   useReveal();
@@ -184,7 +184,7 @@ const CorpStyle = () => {
         {/* Результат */}
         <section className="section result-corp reveal">
           <div className="result-image-corp">
-            <img src={compose} alt="Финальная композиция" className="final-image" />
+            <img src={compose1} alt="Финальная композиция" className="final-image" />
             <div className="result-overlay-corp">
               <h2>Результат</h2>
               <p>

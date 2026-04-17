@@ -391,3 +391,241 @@
         font-size: 10px !important;
     }
 }
+
+
+/* ============================================ */
+/* ПОЛНЫЙ ПЕРЕЗАПУСК МОБИЛЬНЫХ СТИЛЕЙ */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* Переопределяем hero */
+    .modal-hero {
+        margin: 0 !important;
+        height: auto !important;
+        min-height: 400px !important;
+        border-radius: 0 !important;
+    }
+    
+    .modal-hero-bg {
+        position: relative !important;
+        height: 400px !important;
+    }
+    
+    .modal-hero-bg img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .modal-hero-content {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        right: 20px !important;
+        top: auto !important;
+        max-width: none !important;
+        padding: 0 !important;
+    }
+    
+    .modal-hero-title {
+        font-size: 22px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .modal-hero-subtitle {
+        font-size: 12px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* Корпстайл секции */
+    .corpstyle-inner {
+        padding: 20px 16px !important;
+    }
+    
+    .corpstyle-section {
+        padding: 40px 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .corpstyle-section-header {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .corpstyle-section-header h2 {
+        font-size: 24px !important;
+        white-space: normal !important;
+    }
+    
+    .section-line {
+        flex: 1 !important;
+        display: block !important;
+    }
+    
+    .corpstyle-text p,.pattern-text p {
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        text-align: left;
+    }
+    
+    /* Визуальный язык - 2 колонки в ряд */
+    .visual-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+    
+    .visual-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 12px !important;
+        gap: 8px !important;
+    }
+    
+    .visual-item .color-cube {
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 auto !important;
+    }
+    
+    .visual-info {
+        text-align: center !important;
+    }
+    
+    .visual-info h3 {
+        font-size: 12px !important;
+        margin-bottom: 4px !important;
+    }
+    
+    .visual-info p {
+        font-size: 10px !important;
+    }
+    
+    /* Типографика - 3 колонки в ряд */
+    .typography-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 8px !important;
+    }
+    
+    .typo-item {
+        padding: 12px 8px !important;
+    }
+    
+    .typo-item h3 {
+        font-size: 11px !important;
+    }
+    
+    .typo-item p {
+        font-size: 9px !important;
+    }
+    
+    /* Паттерн */
+    .pattern-showcase {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    
+    .pattern-images-corps {
+        width: 100% !important;
+        gap: 8px !important;
+    }
+    
+    .pattern-images-corps img {
+        width: calc(50% - 4px) !important;
+        height: auto !important;
+    }
+    
+    .pattern-text {
+        margin: 0 !important;
+    }
+    
+    .pattern-text p {
+        font-size: 13px !important;
+    }
+    
+    /* Носители - 2 колонки */
+    .mockups-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    
+    /* Результат */
+    .result-image-corp {
+        margin-top: 20px !important;
+    }
+    
+    .result-overlay-corp {
+        padding-top: 30px !important;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .result-overlay-corp h2 {
+        font-size: 22px !important;
+    }
+    
+    .result-overlay-corp p {
+        font-size: 12px !important;
+        width: 95% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-hero {
+        min-height: 350px !important;
+    }
+    
+    .modal-hero-bg {
+        height: 350px !important;
+    }
+    
+    .modal-hero-title {
+        font-size: 18px !important;
+    }
+    
+    .modal-hero-subtitle {
+        font-size: 11px !important;
+    }
+    
+    .corpstyle-section-header h2 {
+        font-size: 20px !important;
+    }
+    
+    /* Визуальный язык - 1 колонка на совсем маленьких */
+    .visual-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Типографика - 2 колонки */
+    .typography-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    
+    /* Носители - 1 колонка */
+    .mockups-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .mockups-grid img {
+        max-width: 250px !important;
+        margin: 0 auto !important;
+    }
+    
+    .pattern-images-corps {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .pattern-images-corps img {
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+}
