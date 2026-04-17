@@ -61,13 +61,8 @@
     background: #ffffff;
 }
 
-.inner-proj-modal {
-    /* внутренние отступы */
-}
 
-/* ============================================ */
-/* 3. MODAL HERO (Шапка модалки)               */
-/* ============================================ */
+
 
 /* ============================================ */
 /* 3. MODAL HERO (Шапка модалки)               */
@@ -78,7 +73,8 @@
     margin: -60px -30px 0 -30px;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-    height: 100vh;  /* высота на весь видимый экран модалки */
+    height: 100vh;
+    /* высота на весь видимый экран модалки */
     min-height: 400px;
 }
 
@@ -274,8 +270,10 @@
     flex-direction: column;
     gap: 80px;
 }
+
 .process-step.no-gap-after {
-  margin-bottom: -80px; /* Отрицательный margin, компенсирующий gap */
+    margin-bottom: -80px;
+    /* Отрицательный margin, компенсирующий gap */
 }
 
 .process-step {
@@ -491,7 +489,7 @@
 
 .color-fonts-section {
     display: flex;
-    
+
     padding: 2rem;
     background: #f8f8f8;
     border-radius: 8px;
@@ -522,10 +520,22 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.color-cube.dark { background: #3c3c3b; }
-.color-cube.accent { background: #01435d; }
-.color-cube.light { background: #43af9a; }
-.color-cube.angle { background: white; border: 1px solid #000000; }
+.color-cube.dark {
+    background: #3c3c3b;
+}
+
+.color-cube.accent {
+    background: #01435d;
+}
+
+.color-cube.light {
+    background: #43af9a;
+}
+
+.color-cube.angle {
+    background: white;
+    border: 1px solid #000000;
+}
 
 .color-description {
     text-align: left;
@@ -640,7 +650,7 @@
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    
+
 }
 
 .mockup-row {
@@ -693,12 +703,14 @@
     padding: 40px;
     min-height: 260px;
 }
-.unpadding{
-padding: 0px 40px;
-} 
-.unpadding-right{
-padding: 0 40px 0 0;
-} 
+
+.unpadding {
+    padding: 0px 40px;
+}
+
+.unpadding-right {
+    padding: 0 40px 0 0;
+}
 
 .process-step-image img {
     border-radius: 8px;
@@ -1031,11 +1043,11 @@ padding: 0 40px 0 0;
 .project-link-btn:hover {
     background: #ff0000;
     color: rgb(255, 255, 255);
-    border:none;
+    border: none;
 }
 
 .project-link-btn.disabled {
-   
+
     cursor: not-allowed;
     pointer-events: none;
 }
@@ -1110,157 +1122,22 @@ padding: 0 40px 0 0;
     flex: 1;
 }
 
-/* ============================================ */
-/* 17. MEDIA QUERIES (Адаптивность)            */
-/* ============================================ */
 
-@media (max-width: 1024px) {
-    .idea-wrapper {
-        flex: 0 0 100%;
-    }
-    .idea-step {
-        flex-direction: column;
-    }
-    .idea-visual-grid,
-    .idea-text-grid {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .modal-hero-bg {
-        height: 500px;
-    }
-    .modal-hero-content {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-    }
-    .modal-hero-title {
-        font-size: 32px;
-    }
-    .process-step {
-        flex-direction: column !important;
-        gap: 24px;
-    }
-    .process-step-content h3 {
-        font-size: 30px;
-    }
-    .process-step-description {
-        font-size: 24px;
-    }
-    .idea-text-grid,
-    .idea-visual-grid {
-        flex-wrap: wrap;
-    }
-    .idea-text-column,
-    .idea-column {
-        min-width: calc(50% - 0.5rem);
-    }
-    .idea-images img {
-        aspect-ratio: 16 / 9;
-    }
-    .idea-label p {
-        font-size: 0.7rem;
-    }
-    .idea-grid-2x2 {
-        gap: 0.5rem;
-    }
-    .grid-item,
-    .grid-item-poster {
-        aspect-ratio: 16 / 9;
-    }
-    .color-fonts-section {
-        flex-direction: column;
-        padding: 1.5rem;
-    }
-    .color-cube {
-        width: 50px;
-        height: 50px;
-    }
-    .process-step-image.mockup-grid {
-        width: 100%;
-    }
-    .mockup-row {
-        flex-direction: column;
-    }
-    .corpstyle-hero-bg {
-        height: 250px;
-    }
-    .corpstyle-hero-title {
-        font-size: 28px;
-    }
-    .typography-grid {
-        grid-template-columns: 1fr;
-    }
-    .pattern-showcase {
-        flex-direction: column;
-    }
-    .mockups-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .corpstyle-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .corpstyle-section-header .section-line {
-        width: 100%;
-    }
-    .two-columns-section {
-        flex-direction: column;
-        gap: 40px;
-    }
-    .footer {
-        padding: 40px 0;
-    }
-    .footer-contacts {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-hero-title {
-        font-size: 24px;
-    }
-    .modal-hero-subtitle {
-        font-size: 14px;
-    }
-    .modal-section-header h2 {
-        font-size: 36px;
-    }
-    .process-step-content h3 {
-        font-size: 20px;
-    }
-    .process-step-details {
-        padding: 16px;
-    }
-    .process-step-details p {
-        font-size: 13px;
-    }
-    .idea-text-column,
-    .idea-column {
-        min-width: 100%;
-    }
-    .idea-grid-2x2 {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-}
 
 /* ============================================ */
 /* Эффект скролла */
 /* ============================================ */
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);     /* меньше - меньше движение */
-  transition: 0.5s ease;          /* меньше - быстрее анимация */
+    opacity: 0;
+    transform: translateY(20px);
+    /* меньше - меньше движение */
+    transition: 0.5s ease;
+    /* меньше - быстрее анимация */
 }
 
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================ */
@@ -1302,12 +1179,10 @@ padding: 0 40px 0 0;
     align-items: center;
     justify-content: flex-start;
     padding-top: 80px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.8) 0%,
-        rgba(0, 0, 0, 0.6) 50%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0) 100%);
     padding-bottom: 300px;
 }
 
@@ -1328,33 +1203,3 @@ padding: 0 40px 0 0;
     line-height: 1.5;
     text-align: center;
 }
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .result-overlay-corp {
-        padding-top: 40px;
-    }
-    
-    .result-overlay-corp h2 {
-        font-size: 28px;
-    }
-    
-    .result-overlay-corp p {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .result-overlay-corp {
-        padding-top: 30px;
-    }
-    
-    .result-overlay-corp h2 {
-        font-size: 24px;
-    }
-    
-    .result-overlay-corp p {
-        font-size: 12px;
-    }
-}
-

@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 
 const AboutMirror = () => {
@@ -32,7 +32,7 @@ const AboutMirror = () => {
                     <div className="skill-tag t4">Indesign</div>
                     <div className="skill-tag t5">Adobe Acrobat Pro</div>
                     <div className="skill-tag t6">React</div>
-                    <div className="skill-tag t7">Печатное<br/>оборудование</div>
+                    <div className="skill-tag t7">Печатное<br />оборудование</div>
                     <div className="skill-tag t8">Django</div>
 
                 </div>
@@ -42,7 +42,7 @@ const AboutMirror = () => {
             <div className="about-left">
                 <div className="about-image" >
                     <div className="about-content-overlay">
-                        
+
 
                         {/* Опыт работы */}
                         <div className="experience-section">
@@ -85,7 +85,7 @@ const AboutMirror = () => {
                 </div>
             </div>
 
-            
+
 
         </section>
     );

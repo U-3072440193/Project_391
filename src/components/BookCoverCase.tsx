@@ -1,30 +1,33 @@
-import React,{useEffect} from 'react';
+import { useReveal } from '../hooks/useReveal';
 import './modal.css';
+import './modalmedia.css';
+// Картинки
+import bookmock from "../assets/case/book-mock.jpg";
+import bookexample from "../assets/case/book-example.jpg";
+import bookidea1 from "../assets/case/book-idea1.jpg";
+import bookidea2 from "../assets/case/book-idea2.jpg";
+import bookidea3 from "../assets/case/book-idea3.jpg";
+import bookidea4 from "../assets/case/book-idea4.jpg";
+import bookvar1 from "../assets/case/book-var1.jpg";
+import bookvar2 from "../assets/case/book-var2.jpg";
+import bookvar3 from "../assets/case/book-var3.jpg";
+import bookvar4 from "../assets/case/book-var4.jpg";
+import bookmaterial from "../assets/case/book-material.png";
+import bookface from "../assets/case/book-face.jpg";
+import bookback from "../assets/case/book-back.jpg";
+import bookopen from "../assets/case/book-open.jpg";
+import bookfinal from "../assets/case/final.jpg";
 
 const BookCoverCase = () => {
-  useEffect(() => {
-      const elements = document.querySelectorAll('.reveal');
-  
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-  
-      elements.forEach(el => observer.observe(el));
-    }, []);
+  useReveal();
+
   return (
     <div className="project-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/case/book-mock.jpg" alt="Октавиан обложка" />
+          <img src={bookmock} alt="Октавиан обложка" />
           <div className="modal-hero-overlay"></div>
         </div>
 
@@ -83,7 +86,7 @@ const BookCoverCase = () => {
             {/* 1 КОНТЕКСТ */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder">
-                <img src="/src/assets/case/book-example.jpg" alt="Контекст" />
+                <img src={bookexample} alt="Контекст" />
               </div>
 
               <div className="process-step-content">
@@ -110,8 +113,6 @@ const BookCoverCase = () => {
               </div>
             </div>
 
-
-
             {/* 3 ЗАДАЧА */}
             <div className="process-step no-image full-width-bg reveal">
               <div className="process-step-content full">
@@ -135,30 +136,23 @@ const BookCoverCase = () => {
 
             {/* 4 ИДЕЯ */}
             <div className="process-step idea-step reveal">
-
-              {/* Общий контейнер */}
               <div className="idea-wrapper">
-
-
-
-                {/* Контейнер с картинками 2×2 */}
                 <div className="idea-visual-container">
                   <div className="idea-grid-2x2">
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-idea1.jpg" alt="Идея 1" />
+                      <img src={bookidea1} alt="Идея 1" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-idea2.jpg" alt="Идея 2" />
+                      <img src={bookidea2} alt="Идея 2" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-idea3.jpg" alt="Идея 3" />
+                      <img src={bookidea3} alt="Идея 3" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-idea4.jpg" alt="Идея 4" />
+                      <img src={bookidea4} alt="Идея 4" />
                     </div>
                   </div>
                 </div>
-
               </div>
 
               <div className="process-step-content">
@@ -178,29 +172,23 @@ const BookCoverCase = () => {
             {/* 5 ТИПОГРАФИКА */}
             <div className="process-step reveal">
               <div className="idea-wrapper">
-
-
-
-                {/* Контейнер с картинками 2×2 */}
                 <div className="idea-visual-container">
                   <div className="idea-grid-2x2">
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-var1.jpg" alt="Идея 1" />
+                      <img src={bookvar1} alt="Вариант 1" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-var2.jpg" alt="Идея 2" />
+                      <img src={bookvar2} alt="Вариант 2" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-var3.jpg" alt="Идея 3" />
+                      <img src={bookvar3} alt="Вариант 3" />
                     </div>
                     <div className="grid-item">
-                      <img src="/src/assets/case/book-var4.jpg" alt="Идея 4" />
+                      <img src={bookvar4} alt="Вариант 4" />
                     </div>
                   </div>
                 </div>
-
               </div>
-
 
               <div className="process-step-content">
                 <h3>Типографика</h3>
@@ -220,7 +208,7 @@ const BookCoverCase = () => {
             {/* 6 МАТЕРИАЛЬНОСТЬ */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder">
-                <img src="/src/assets/case/book-material.png" alt="Материальность" />
+                <img src={bookmaterial} alt="Материальность" />
               </div>
 
               <div className="process-step-content">
@@ -242,12 +230,12 @@ const BookCoverCase = () => {
               <div className="process-step-image mockup-grid unpadding-right">
                 <div className="mockup-grid-container">
                   <div className="mockup-row">
-                    <div className="mockup-item"><img src="/src/assets/case/book-face.jpg" alt="Книга" /></div>
-                    <div className="mockup-item"><img src="/src/assets/case/book-back.jpg" alt="Книга" /></div>
+                    <div className="mockup-item"><img src={bookface} alt="Книга лицевая" /></div>
+                    <div className="mockup-item"><img src={bookback} alt="Книга задняя" /></div>
                   </div>
 
                   <div className="mockup-row full">
-                    <div className="mockup-item full-width"><img src="/src/assets/case/book-open.jpg" alt="Композиция" /></div>
+                    <div className="mockup-item full-width"><img src={bookopen} alt="Книга раскрытая" /></div>
                   </div>
                 </div>
               </div>
@@ -270,7 +258,7 @@ const BookCoverCase = () => {
             <div className="process-step reveal">
               <div className="process-step-image placeholder">
                 <div className="mockup-item-final">
-                  <img src="/src/assets/case/final.jpg" alt="Финал" />
+                  <img src={bookfinal} alt="Финал" />
                 </div>
               </div>
 

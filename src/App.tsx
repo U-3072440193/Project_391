@@ -1,130 +1,35 @@
 import "./App.css";
 import "./components/modal.css";
 import type { ReactNode } from "react";
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useReveal } from './hooks/useReveal';
+import { PrintCard } from './components/PrintCard';
+import { ServiceCard } from './components/ServiceCard';
 
-// модалки
-import Vkladysh from "./components/Vkladysh";
-import BookCoverCase from "./components/BookCoverCase";
-import PosterCase from "./components/PosterCase";
-import LeafleetCase from "./components/LeafleetCase";
+
+
+import Header from "./Header";
 import About from "./About";
 import AboutMirror from "./AboutMirror";
+
+// модалки
+import BookCoverCase from "./components/BookCoverCase";
+import PosterCase from "./components/PosterCase";
 import Polygraphy from "./Polygraphy";
 import CorpStyle from "./CorpStyle";
-import Shishka from "./Shishka";
 import Shishkatwo from "./Shishkatwo";
 import CorpStyleCase from "./components/CorpStyleCase";
-import Web from "./Web";
+
 
 // картинки
-import leaf from "./assets/products/leaf-sd.jpg";
-import vklad from "./assets/products/vklad.png";
 import book from "./assets/products/book.jpg";
 import Corp from "./assets/case/compose.jpg";
 import poster from "./assets/products/poster.jpg";
 import shishkaJpg from "./assets/shishka/shishka.jpg";
 import portfolio from "./assets/web/portf.jpg";
 
-/* ================= HEADER ================= */
-function Header() {
-  return (
-    <>
-      {/* HERO (только фон) */}
-      <header className="header">
-        <div className="hero-box">
-          <div className="hero-bg"></div>
-          <div className="hero-overlay"></div>
-        </div>
-      </header>
-
-      {/* ВЫНЕСЕННЫЙ БЛОК С ЛИНИЯМИ */}
-      <div className="hero-content-wrapper">
-
-        {/* ЛИНИИ ТЕПЕРЬ ТУТ */}
-        <svg className="rays" viewBox="0 0 1000 500" preserveAspectRatio="none">
-          <line x1="500" y1="150" x2="130" y2="500" />
-          <line x1="500" y1="150" x2="300" y2="500" />
-          <line x1="500" y1="150" x2="500" y2="500" />
-          <line x1="500" y1="150" x2="700" y2="500" />
-          <line x1="500" y1="150" x2="870" y2="500" />
-        </svg>
-
-        <div className="schema-center">
-          <div className="inner-sh-ce">
-            <div className="center-left">
-              <h3>Приветствую вас на моей страничке</h3>
-              <h3 className="muted">Предлагаю посмотреть моё портфолио</h3>
-            </div>
-
-            <div className="big-circle"></div>
-
-            <div className="center-right">
-              <h1>Антон Зарубин</h1>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </>
-  );
-}
-
-/* ================= SERVICE CARD (большая карточка как у Polygraphy) ================= */
-type ServiceCardProps = {
-  title: string;
-  description: string;
-  image?: string;
-  onClick?: () => void;
-};
-
-function ServiceCard({ title, description, image, onClick }: ServiceCardProps) {
-  return (
-    <div className="service-card-full" onClick={onClick}>
-      {image && <img src={image} alt={title} className="service-card-img" />}
-      <div className="service-card-overlay">
-        <div className="service-card-content">
-          <h2>{title}</h2>
-          <p>{description}</p>
-          <button className="service-card-btn">Подробнее</button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ================= CARD ================= */
-type PrintCardProps = {
-  title: string;
-  image: string;
-  tags?: string[];
-  onClick?: () => void;
-  size?: "normal" | "wide" | "tall" | "big";
-};
-
-function PrintCard({ title, image, tags, onClick, size = "normal" }: PrintCardProps) {
-  return (
-    <div className={`print-card ${size}`} onClick={onClick}>
-      <img src={image} alt={title} className="print-card-img" />
-
-      <div className="print-card-overlay">
-        <div className="card-center">
-          <div className="card-tags">
-            {tags?.map((tag, i) => (
-              <span key={i} className="card-tag">{tag}</span>
-            ))}
-          </div>
-          <h2 className="card-title">{title}</h2>
-          <button className="card-btn">посмотреть</button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
-
-/* ================= APP ================= */
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<ReactNode | null>(null);
@@ -136,7 +41,7 @@ export default function App() {
   const [showCorpStyle, setShowCorpStyle] = useState(true);
   const [showWeb, setShowWeb] = useState(true);
 
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+
 
   const openModal = (content: React.ReactNode): void => {
     setModalContent(content);
@@ -147,32 +52,23 @@ export default function App() {
     setIsModalOpen(false);
     setModalContent(null);
   };
+  useReveal();
 
-  const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -300, behavior: "smooth" });
-  };
 
-  const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
-  };
-  const [isGrid, setIsGrid] = useState(false);
+
+
 
   useEffect(() => {
-  const elements = document.querySelectorAll('.reveal');
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  elements.forEach(el => observer.observe(el));
-}, []);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
 
   return (
     <div className="portfolio">
@@ -197,7 +93,7 @@ export default function App() {
           <div className="cases-header">
             <div className="cases-circle">Кейсы</div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowCases(!showCases)}>
+            <button className="toggle" onClick={() => setShowCases(!showCases)} aria-label="Свернуть/развернуть секцию">
               <svg className={`toggle-icon ${showCases ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -228,22 +124,6 @@ export default function App() {
                   size="big"
                   onClick={() => openModal(<BookCoverCase />)}
                 />
-
-                {/* <PrintCard
-                  title="Вкладыш"
-                  image={vklad}
-                  tags={["Полиграфия", "Вкладыш"]}
-                  size="normal"
-                  onClick={() => openModal(<Vkladysh />)}
-                /> */}
-
-                {/* <PrintCard
-                  title="Листовка"
-                  image={leaf}
-                  tags={["Полиграфия", "Листовка"]}
-                  size="normal"
-                  onClick={() => openModal(<LeafleetCase />)}
-                /> */}
               </div>
             </div>
           )}
@@ -256,7 +136,7 @@ export default function App() {
               <div className="menu-head about-head"><h2>О себе</h2></div>
               <div className="cases-line about-head-line"></div>
 
-              <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)}>
+              <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)} aria-label="Свернуть/развернуть секцию">
                 <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
                   <polyline points="20,60 50,30 80,60" />
                 </svg>
@@ -277,7 +157,7 @@ export default function App() {
           <div className="cases-header">
             <div className="menu-head"><h2>Полиграфия</h2></div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowPoly(!showPoly)}>
+            <button className="toggle" onClick={() => setShowPoly(!showPoly)} aria-label="Свернуть/развернуть секцию">
               <svg className={`toggle-icon ${showPoly ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -295,7 +175,7 @@ export default function App() {
           <div className="cases-header">
             <div className="menu-head"><h2>Корпоративный стиль</h2></div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowCorpStyle(!showCorpStyle)}>
+            <button className="toggle" onClick={() => setShowCorpStyle(!showCorpStyle)} aria-label="Свернуть/развернуть секцию">
               <svg className={`toggle-icon ${showCorpStyle ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -319,7 +199,7 @@ export default function App() {
           <div className="cases-header">
             <div className="menu-head"><h2>Веб-разработка</h2></div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowWeb(!showWeb)}>
+            <button className="toggle" onClick={() => setShowWeb(!showWeb)} aria-label="Свернуть/развернуть секцию">
               <svg className={`toggle-icon ${showWeb ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -349,7 +229,7 @@ export default function App() {
 
       {/* MODAL */}
       {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
+        <div className="modal-overlay" onClick={closeModal} role="dialog" aria-modal="true">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             {modalContent}
@@ -363,18 +243,18 @@ export default function App() {
         <div className="footer-content container">
           <div className="footer-contacts">
             <div className="contact-item">
-              <i className="fas fa-envelope contact-icon"></i>
+              <i className="fas fa-envelope contact-icon"><img src="/icons/mail.svg" alt="Почта" /></i>
               <a href="mailto:shkatzman@mail.ru">shkatzman@mail.ru</a>
             </div>
 
             <div className="contact-item">
-              <i className="fab fa-telegram contact-icon"></i>
+              <i className="fab fa-telegram contact-icon"><img src="/icons/tele.svg" alt="Телеграмм" /></i>
               <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer">Telegram</a>
             </div>
 
             <div className="contact-item">
-              <i className="fab fa-github contact-icon"></i>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <i className="fab fa-github contact-icon"><img src="/icons/git.svg" alt="Гитхаб" /></i>
+              <a href="https://github.com/U-3072440193" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>

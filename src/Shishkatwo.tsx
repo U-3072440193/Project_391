@@ -1,24 +1,15 @@
-import React, { useEffect } from 'react';
-import './components/shishka-clean.css';
+import './shishka.css';
+import { useReveal } from './hooks/useReveal';
+
+// Импорты картинок и видео
+import mainImg from "./assets/shishka/main.jpg";
+import demoVideo from "./assets/shishka/demo.mp4";
+import chatVideo from "./assets/shishka/chat.mp4";
+import webImg from "./assets/web/web2.jpg";
 
 const Shishkatwo = () => {
 
-  useEffect(() => {
-    const elements = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    elements.forEach(el => observer.observe(el));
-  }, []);
+  useReveal();
 
   return (
     <div className="project">
@@ -26,7 +17,7 @@ const Shishkatwo = () => {
       {/* HERO - только картинка с текстом */}
       <section className="hero">
         <div className="hero-bg-container">
-          <img src="/src/assets/shishka/main.jpg" alt="Шишка Task Manager" className="hero-bg-image" />
+          <img src={mainImg} alt="Шишка Task Manager" className="hero-bg-image" />
           <div className="hero-overlay"></div>
         </div>
 
@@ -45,21 +36,40 @@ const Shishkatwo = () => {
           </p>
         </div>
       </section>
+      {/* ЗАДАЧА */}
+      <div className="process-step no-image full-width-bg no-gap-after">
+        {/* Фоновая картинка и затемнение */}
+        <div className="step-bg"></div>
+        <div className="step-bg-overlay"></div>
+
+        <div className="process-step-content full ">
+          <h3>Задача</h3>
+          <div className="keywords">
+            <span>Kanban</span>
+            <span>Real-time</span>
+            <span>Drag-and-drop</span>
+            <span>Чат</span>
+            <span>Файлы</span>
+          </div>
+          <div className="process-step-details">
+            <p>
+              Создать fullstack-приложение для управления задачами по методологии Kanban
+              с возможностью real-time общения, загрузки файлов и гибкой системой ролей.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* WOW PRODUCT */}
-      <section className="product reveal">
-
-
-        <div className="product-overlay">
-          <h2>Интерфейс системы</h2>
-        </div>
+      <section className="section narrow reveal">
+        <h2>Интерфейс системы</h2>
       </section>
 
       {/* FEATURE */}
       <section className="section feature reveal">
-        <div className="feature-media  shishka-placeholder">
+        <div className="feature-media shishka-placeholder">
           <video autoPlay loop muted playsInline>
-            <source src="/src/assets/shishka/demo.mp4" type="video/mp4" />
+            <source src={demoVideo} type="video/mp4" />
           </video>
         </div>
 
@@ -79,7 +89,7 @@ const Shishkatwo = () => {
       <section className="section feature reverse reveal">
         <div className="feature-media shishka-placeholder">
           <video autoPlay loop muted playsInline>
-            <source src="/src/assets/shishka/chat.mp4" type="video/mp4" />
+            <source src={chatVideo} type="video/mp4" />
           </video>
         </div>
 
@@ -108,10 +118,9 @@ const Shishkatwo = () => {
       </section>
 
       {/* RESULT */}
-      {/* RESULT */}
       <section className="section result reveal">
         <div className="result-image">
-          <img src="/src/assets/web/web2.jpg" alt="Final mockup" className="final-image" />
+          <img src={webImg} alt="Final mockup" className="final-image" />
           <div className="result-overlay">
             <h2>Результат</h2>
             <p>

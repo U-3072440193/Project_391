@@ -1,52 +1,58 @@
-import React,{useEffect} from 'react';
+
 import './components/modal.css';
+import './components/modalmedia.css';
+import { useReveal } from './hooks/useReveal';
+
+// Картинки для HERO
+import neodom from "./assets/case/neodom.jpg";
+
+// Картинки для паттерна
+import patt from "./assets/case/patt.jpg";
+import patt2 from "./assets/case/patt2.jpg";
+
+// Картинки для носителей
+import viz1 from "./assets/case/viz1.jpg";
+import viz2 from "./assets/case/viz2.jpg";
+import kru from "./assets/case/kru.jpg";
+import key from "./assets/case/key.jpg";
+import blokn from "./assets/case/blokn.jpg";
+import pen from "./assets/case/pen.jpg";
+import everyday from "./assets/case/everyday.jpg";
+import baige from "./assets/case/baige.jpg";
+import folder from "./assets/case/folder.jpg";
+
+// Картинка для результата
+import compose from "./assets/case/compose.jpg";
 
 const CorpStyle = () => {
-  useEffect(() => {
-      const elements = document.querySelectorAll('.reveal');
-  
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-  
-      elements.forEach(el => observer.observe(el));
-    }, []);
+  useReveal();
+
   return (
     <div className="corpstyle-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/case/neodom.jpg" alt="inDom ребрендинг" />
+          <img src={neodom} alt="inDom ребрендинг" />
           <div className="modal-hero-overlay"></div>
         </div>
 
         <div className="modal-hero-content">
-
           <h1 className="modal-hero-title reveal">
-            neoДom<br />
+            neoДом<br />
             <span className="accent">Брендинг агентства недвижимости</span>
           </h1>
 
           <p className="modal-hero-subtitle">
             Минималистичный визуальный язык для выхода на новый уровень
           </p>
-
-          
         </div>
       </div>
 
       <div className="corpstyle-inner">
 
         {/* О проекте */}
-        <div className="corpstyle-section">
+        <div className="corpstyle-section reveal">
           <div className="corpstyle-section-header">
             <h2>О проекте</h2>
             <div className="section-line"></div>
@@ -79,7 +85,6 @@ const CorpStyle = () => {
 
         {/* Визуальный язык + Типографика в ряд */}
         <div className="two-columns-section reveal">
-
           {/* Визуальный язык - левая колонка */}
           <div className="corpstyle-section half">
             <div className="corpstyle-section-header">
@@ -133,7 +138,6 @@ const CorpStyle = () => {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* Паттерн */}
@@ -144,8 +148,8 @@ const CorpStyle = () => {
           </div>
           <div className="pattern-showcase">
             <div className="pattern-images-corps">
-              <img src="/src/assets/case/patt.jpg" alt="Паттерн" />
-              <img src="/src/assets/case/patt2.jpg" alt="Паттерн деталь" />
+              <img src={patt} alt="Паттерн" />
+              <img src={patt2} alt="Паттерн деталь" />
             </div>
             <div className="pattern-text">
               <p>
@@ -165,32 +169,31 @@ const CorpStyle = () => {
             <div className="section-line"></div>
           </div>
           <div className="mockups-grid">
-            <img src="/src/assets/case/viz1.jpg" alt="Визитка" />
-            <img src="/src/assets/case/viz2.jpg" alt="Визитка" />
-            <img src="/src/assets/case/kru.jpg" alt="Кружка" />
-            <img src="/src/assets/case/key.jpg" alt="Брелок" />
-            <img src="/src/assets/case/blokn.jpg" alt="Блокнот" />
-            <img src="/src/assets/case/pen.jpg" alt="Ручка" />
-            <img src="/src/assets/case/everyday.jpg" alt="Ежедневник" />
-            <img src="/src/assets/case/baige.jpg" alt="<Бэйдж>" />
-            <img src="/src/assets/case/folder.jpg" alt="Папка" />
+            <img src={viz1} alt="Визитка" />
+            <img src={viz2} alt="Визитка" />
+            <img src={kru} alt="Кружка" />
+            <img src={key} alt="Брелок" />
+            <img src={blokn} alt="Блокнот" />
+            <img src={pen} alt="Ручка" />
+            <img src={everyday} alt="Ежедневник" />
+            <img src={baige} alt="Бэйдж" />
+            <img src={folder} alt="Папка" />
           </div>
         </div>
 
         {/* Результат */}
-        <section className="section result-corp reveal ">
-        <div className="result-image-corp">
-          <img src="/src/assets/case/compose.jpg" alt="Финальная композиция"  className="final-image" />
-          <div className="result-overlay-corp">
-            <h2>Результат</h2>
-            <p>
-              Цельная визуальная система, которая выделяет бренд на рынке,
-              выглядит современно и масштабируется на любые носители.
-            </p>
+        <section className="section result-corp reveal">
+          <div className="result-image-corp">
+            <img src={compose} alt="Финальная композиция" className="final-image" />
+            <div className="result-overlay-corp">
+              <h2>Результат</h2>
+              <p>
+                Цельная визуальная система, которая выделяет бренд на рынке,
+                выглядит современно и масштабируется на любые носители.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-        
+        </section>
 
       </div>
     </div>

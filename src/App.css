@@ -51,7 +51,7 @@ html, body {
 }
 
 .hero-spacer {
-  height: 120px; /* подбирается */
+  height: 120px;
 }
 
 /* Hero фон */
@@ -65,7 +65,7 @@ html, body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url("./background9.jpg") center/cover no-repeat;
+   background: url("./assets/background9.jpg") center/cover no-repeat;
   background-attachment: fixed;
   z-index: 0;
   border-radius: var(--radius-bottom);
@@ -89,7 +89,7 @@ html, body {
 
 .rays line {
   stroke: #ffffff;
-  stroke-width: 1.5;
+  stroke-width: 1.0;
   opacity: 0.9;
 }
 
@@ -172,12 +172,13 @@ html, body {
   flex-shrink: 0;
   overflow: hidden;
 }
+
 .big-circle::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("./assets/wall-texture-circle.jpg") center/cover no-repeat;
-  opacity: 0.2; /* ВОТ КЛЮЧ */
+  opacity: 0.2;
   z-index: 1;
   border-radius: 50%;
 }
@@ -226,15 +227,6 @@ h3 {
 .nav-line a {
   text-decoration: none;
   color: inherit;
-}
-
-.nav-line a:visited {
-  color: inherit;
-}
-
-.nav-line a {
-  text-decoration: none;
-  color: inherit;
   position: relative;
   padding-bottom: 8px;
 }
@@ -250,7 +242,7 @@ h3 {
   border-radius: 2px;
   transform: translateX(-50%);
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0; 
+  opacity: 0;
 }
 
 .nav-line a:hover::before {
@@ -325,7 +317,7 @@ h3 {
   cursor: pointer;
   z-index: 10;
   transition: 0.2s ease;
-  border: none
+  border: none;
 }
 
 .carousel-btn.left {
@@ -571,34 +563,12 @@ h3 {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   position: relative;
-  /* background: url("./assets/grunge-wall-texture.jpg") center/cover no-repeat; */
-}
-
-.about-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* background: rgba(255, 0, 0, 0.801); */
-  z-index: 0;
 }
 
 .about-section .cases {
   position: relative;
   z-index: 2;
 }
-
-/* .about-head h2 {
-  color: white !important;
-} */
-
-/* .about-head-line {
-  background: #ffffff;
-}
-
-.about-head-btn {
-  border: 2px solid white;
-  color: white;
-} */
 
 /* About контент */
 .about {
@@ -838,26 +808,21 @@ h3 {
 /* 9. TOGGLE BUTTON (Кнопка свернуть/развернуть) */
 /* ============================================ */
 
-/* ============================================ */
-/* 9. TOGGLE BUTTON (Кнопка свернуть/развернуть) */
-/* ============================================ */
-
 .toggle {
   display: flex;
   align-items: center;
-  justify-content: center; /* Добавить — центрирует иконку по горизонтали */
+  justify-content: center;
   width: 40px;
   height: 40px;
   background: none;
   border: 2px solid black;
   border-radius: 50%;
   cursor: pointer;
-  padding: 0; /* Убрать внутренние отступы */
+  padding: 0;
   margin: 0;
-  flex-shrink: 0; /* Чтобы кнопка не сжималась */
+  flex-shrink: 0;
 }
 
-/* Убираем лишние стили */
 .toggle-icon {
   width: 20px;
   height: 20px;
@@ -869,9 +834,7 @@ h3 {
   transition: 0.25s ease;
   display: block;
 }
-/* .about-head-btn{
-  border: 2px solid rgb(255, 255, 255);
-} */
+
 .toggle-icon.up {
   transform: rotate(0deg);
 }
@@ -879,14 +842,6 @@ h3 {
 .toggle-icon.down {
   transform: rotate(180deg);
 }
-
-/* .about-head-btn {
-  border-color: white;
-}
-
-.about-head-btn .toggle-icon {
-  stroke: white;
-} */
 
 /* ============================================ */
 /* 10. FOOTER (Подвал)                         */
@@ -906,7 +861,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/src/assets/grunge.jpg');
+  background-image: url('./assets/grunge.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -920,7 +875,8 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(248, 0, 0, 0.737);
+  background: rgba(0, 0, 0, 0.737);
+  border-top: 4px solid red;
   z-index: 1;
 }
 
@@ -993,15 +949,6 @@ h3 {
     font-size: 14px;
   }
 }
-
-
-
-
-
-
-
-
-
 
 /* ============================================ */
 /* GRID РЕЖИМ (ТОЛЬКО СЕТКА, БЕЗ КАРУСЕЛИ)      */
@@ -1117,6 +1064,7 @@ h3 {
     white-space: nowrap;
   }
 }
+
 /* ============================================ */
 /* АДАПТИВНОСТЬ ДЛЯ СЕКЦИИ ABOUT */
 /* ============================================ */
@@ -1157,11 +1105,30 @@ h3 {
   .about-content-overlay-edu {
     padding: 40px 30px;
   }
+  .skills-center{
+    font-size: 10px;
+  }
   
   .skills {
     height: auto;
     min-height: 500px;
     margin: 0 auto;
+  }
+    .skill-tag {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 5px !important;
+    display: inline-block !important;
+    width: calc(50% - 10px) !important;  /* 2 колонки */
+    max-width: none !important;
+    font-size: 10px;
+    padding: 8px 10px;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 
@@ -1264,7 +1231,7 @@ h3 {
   .skills-center {
     width: 65px;
     height: 65px;
-    font-size: 10px;
+    font-size: 8px;
   }
   
   .t1, .t2, .t3, .t4, .t5, .t6, .t7, .t8 {
@@ -1297,54 +1264,20 @@ h3 {
   }
 }
 
-@media (max-width: 480px) {
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    height: auto;
-    position: relative;
-  }
-  
-  .skills-center {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 10px auto;
-    order: -1;
-  }
-  
-  .skill-tag {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 5px;
-    width: auto;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-  }
-  
-  .skills-lines {
-    display: none;
-  }
-}
-
 /* ============================================ */
 /* Эффект скролла */
 /* ============================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);     /* меньше - меньше движение */
-  transition: 0.5s ease;          /* меньше - быстрее анимация */
+  transform: translateY(20px);
+  transition: 0.5s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
+
 /* ============================================ */
 /* АДАПТАЦИЯ ХЕДЕРА (ПРИВЕТСТВИЕ И ИМЯ) */
 /* ============================================ */
@@ -1538,5 +1471,105 @@ h3 {
 @media (max-width: 480px) {
   .hero-box {
     height: 280px;
+  }
+}
+
+/* ============================================ */
+/* ФИКС ДЛЯ МОБИЛЬНЫХ - КРУЖОК НАВЫКИ/ИНСТРУМЕНТЫ */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  /* Контейнер навыков - вертикальная колонка */
+  .skills {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 20px !important;
+    position: relative !important;
+  }
+  
+  /* Круг по центру сверху */
+  .skills-center {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 auto 30px auto !important;
+    width: 100px;
+    height: 100px;
+    font-size: 14px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Теги - сеткой под кругом */
+  .skill-tag {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 5px !important;
+    display: inline-block !important;
+    width: auto !important;
+    max-width: calc(100% - 10px);
+    font-size: 10px;
+    padding: 6px 10px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  /* Обертка для тегов */
+  .skills {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  /* Контейнер для тегов (сетка) */
+  .skills::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  
+  /* Скрываем линии */
+  .skills-lines {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-head h2{
+    font-size: 20px;
+  }
+  .timeline-date,.timeline-place,.education-year,.education-place{
+    font-size: 14px;
+  }
+  .polygraphy-carousel .print-card {
+    width: 100% !important;
+    min-width: 200px !important;
+    height: 400px !important;
+  }
+  .skills-center {
+    width: 85px;
+    height: 85px;
+    font-size: 10px;
+    margin-bottom: 25px !important;
+  }
+  
+  .skill-tag {
+    max-width: calc(50% - 8px);
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .skill-tag {
+    max-width: calc(100% - 10px);  /* на очень маленьких экранах — в столбик */
   }
 }

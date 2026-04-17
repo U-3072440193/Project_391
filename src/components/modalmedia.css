@@ -1,0 +1,393 @@
+/* ============================================ */
+/* 17. MEDIA QUERIES (Адаптивность)            */
+/* ============================================ */
+
+@media (max-width: 1024px) {
+    .idea-wrapper {
+        flex: 0 0 100%;
+    }
+    .idea-step {
+        flex-direction: column;
+    }
+    .idea-visual-grid,
+    .idea-text-grid {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero */
+    .modal-hero-bg {
+        height: 500px;
+    }
+    .modal-hero-title {
+        font-size: 26px;
+    }
+    .modal-hero-content{
+        top: 10px;
+    }
+    
+    /* Process steps */
+    .process-step {
+        flex-direction: column !important;
+        gap: 24px;
+        padding: 0 16px !important;
+    }
+    .process-step-content {
+        padding: 0 !important;
+    }
+    .process-step-content h3 {
+        margin-top: 15px;
+        font-size: 24px;
+    }
+    .process-step-description {
+        font-size: 16px;
+    }
+    .process-step-details p {
+        font-size: 14px;
+    }
+    .process-step-image {
+        width: 100% !important;
+    }
+    .process-step-image.mockup-grid {
+        width: 100%;
+    }
+    
+    /* Idea block */
+    .idea-text-grid,
+    .idea-visual-grid {
+        flex-wrap: wrap;
+        flex-direction: column !important;
+    }
+    .idea-text-column,
+    .idea-column {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .idea-images img {
+        aspect-ratio: 16 / 9;
+    }
+    .idea-label p {
+        font-size: 0.7rem;
+    }
+    .idea-grid-2x2 {
+        gap: 0.5rem;
+    }
+    .idea-wrapper {
+        padding: 0 16px !important;
+    }
+    
+    /* Colors & Fonts */
+    .color-fonts-section {
+        flex-direction: column;
+        max-width: 100% !important;
+        padding: 16px !important;
+    }
+    .color-cube {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Mockup grid */
+    .mockup-grid-container {
+        padding: 0 !important;
+    }
+    .mockup-row {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+    
+    /* Pattern */
+    .patter-cont {
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+    
+    /* Info cards */
+    .modal-info-grid {
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+    .info-card {
+        max-width: 100% !important;
+        padding: 16px !important;
+    }
+    .info-card h3 {
+        font-size: 18px !important;
+    }
+    .info-card p {
+        font-size: 14px !important;
+    }
+    .info-icon img {
+        height: 40px !important;
+    }
+    
+    /* Modal close button */
+    .modal-close {
+        right: 45px !important;
+        top: 60px !important;
+    }
+    
+    /* Two elements */
+    .two-elements {
+        flex-direction: column !important;
+    }
+    .element-caption {
+        font-size: 12px !important;
+    }
+    
+    /* Corp style */
+    .corpstyle-hero-bg {
+        height: 250px;
+    }
+    .corpstyle-hero-title {
+        font-size: 28px;
+    }
+    .typography-grid {
+        grid-template-columns: 1fr;
+    }
+    .pattern-showcase {
+        flex-direction: column;
+    }
+    .mockups-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .corpstyle-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .corpstyle-section-header .section-line {
+        width: 100%;
+    }
+    .two-columns-section {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    /* Result overlay */
+    .result-overlay-corp {
+        padding-top: 40px;
+    }
+    .result-overlay-corp h2 {
+        font-size: 28px;
+    }
+    .result-overlay-corp p {
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0;
+    }
+    .footer-contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    /* Helpers */
+    .unpadding {
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-hero-title {
+        font-size: 20px;
+    }
+    .modal-hero-subtitle {
+        font-size: 12px;
+    }
+    .modal-badge {
+        font-size: 10px;
+    }
+    .stat-badge {
+        font-size: 10px;
+    }
+    .modal-section-header h2 {
+        font-size: 28px;
+    }
+    .process-step-content h3 {
+        font-size: 20px;
+    }
+    .process-step-details {
+        padding: 16px;
+    }
+    .process-step-details p {
+        font-size: 12px;
+    }
+    .process-step-description {
+        font-size: 14px;
+    }
+    .idea-text-column,
+    .idea-column {
+        min-width: 100%;
+    }
+    .idea-grid-2x2 {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .section-line {
+        display: none !important;
+    }
+    .modal-section-header {
+        justify-content: flex-start !important;
+    }
+    .color-cube {
+        width: 40px;
+        height: 40px;
+    }
+    .color-name {
+        font-size: 10px;
+    }
+    .element-caption {
+        font-size: 10px;
+    }
+    .result-overlay-corp {
+        padding-top: 30px;
+    }
+    .result-overlay-corp h2 {
+        font-size: 24px;
+    }
+    .result-overlay-corp p {
+        font-size: 12px;
+    }
+}
+
+/* ============================================ */
+/* ФИКС COLOR-FONTS-SECTION НА МОБИЛЬНЫХ */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    /* Контейнер цветов и шрифтов */
+    .color-fonts-section {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 16px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Левая колонка с цветами */
+    .colors-list {
+        width: 100% !important;
+        min-width: auto !important;
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+    }
+    
+    /* Каждый цвет в строку */
+    .color-row {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    /* Кубик цвета */
+    .color-cube {
+        width: 50px !important;
+        height: 50px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Описание цвета */
+    .color-description {
+        flex: 1 !important;
+        min-width: 120px !important;
+        text-align: left !important;
+    }
+    
+    .color-name {
+        font-size: 12px !important;
+        margin-bottom: 2px !important;
+    }
+    
+    /* Правая колонка со шрифтами и элементами */
+    .fonts-elements-block {
+        width: 100% !important;
+        min-width: auto !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Картинка со шрифтами */
+    .fonts-image {
+        width: 100% !important;
+        margin-bottom: 16px !important;
+        overflow: hidden !important;
+    }
+    
+    .fonts-image img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+    
+    /* Два элемента (углы) */
+    .two-elements {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 16px !important;
+    }
+    
+    .element-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .element-item {
+        width: 100% !important;
+        max-width: 200px !important;
+        margin: 0 auto !important;
+        aspect-ratio: 1 / 1 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+    }
+    
+    .element-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .element-caption {
+        font-size: 11px !important;
+        text-align: center !important;
+        margin-top: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .color-row {
+        gap: 8px !important;
+    }
+    
+    .color-cube {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .color-name {
+        font-size: 10px !important;
+    }
+    
+    .element-item {
+        max-width: 150px !important;
+    }
+    
+    .element-caption {
+        font-size: 10px !important;
+    }
+}

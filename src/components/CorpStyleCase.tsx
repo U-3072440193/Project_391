@@ -1,38 +1,66 @@
-import React, { useEffect } from 'react';
+import { useReveal } from '../hooks/useReveal';
 import './modal.css';
+import './modalmedia.css';
+
+// Картинки для HERO
+import neodom from "../assets/case/neodom.jpg";
+
+// Картинки для контекста и процесса
+import neodomProblem from "../assets/corp-modal/neodom-problem2.gif";
+import exampleNeodom from "../assets/case/example-neodom.jpg";
+
+// Картинки для идеи (exam2)
+import exam2_1 from "../assets/case/exam2-1.jpg";
+import exam2_2 from "../assets/case/exam2-2.jpg";
+import exam2_3 from "../assets/case/exam2-3.jpg";
+import exam2_4 from "../assets/case/exam2-4.jpg";
+import exam2_5 from "../assets/case/exam2-5.jpg";
+import exam2_6 from "../assets/case/exam2-6.jpg";
+import exam2_7 from "../assets/case/exam2-7.jpg";
+import exam2_8 from "../assets/case/exam2-8.jpg";
+import exam2_9 from "../assets/case/exam2-9.jpg";
+import exam2_10 from "../assets/case/exam2-10.jpg";
+
+// Картинки для визуального языка
+import visual5 from "../assets/case/visual-5.jpg";
+import visual6 from "../assets/case/visual-6.jpg";
+import visual7 from "../assets/case/visual-7.jpg";
+
+// Картинки для паттерна
+import patt from "../assets/case/patt.jpg";
+import patt2 from "../assets/case/patt2.jpg";
+import patt2ex from "../assets/case/patt2-ex.jpg";
+
+// Картинки для носителей
+import viz1 from "../assets/case/viz1.jpg";
+import viz2 from "../assets/case/viz2.jpg";
+import kru from "../assets/case/kru.jpg";
+import key from "../assets/case/key.jpg";
+import blokn from "../assets/case/blokn.jpg";
+import pen from "../assets/case/pen.jpg";
+import folder from "../assets/case/folder.jpg";
+
+// Картинка для результата
+import compose from "../assets/case/compose.jpg";
 
 const CorpStyleCase = () => {
-  useEffect(() => {
-    const elements = document.querySelectorAll('.reveal');
+  useReveal();
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    elements.forEach(el => observer.observe(el));
-  }, []);
   return (
     <div className="project-modal">
 
       {/* HERO */}
       <div className="modal-hero">
         <div className="modal-hero-bg">
-          <img src="/src/assets/case/neodom.jpg" alt="inDom ребрендинг" />
+          <img src={neodom} alt="inDom ребрендинг" />
           <div className="modal-hero-overlay"></div>
         </div>
- 
+
         <div className="modal-hero-content reveal">
           <div className="modal-badge">КОНЦЕПТ</div>
 
           <h1 className="modal-hero-title">
-            neoДom<br />
+            neoДом<br />
             <span className="accent">Брендинг агентства недвижимости</span>
           </h1>
 
@@ -71,9 +99,6 @@ const CorpStyleCase = () => {
           </div>
         </div>
 
-
-
-
         {/* PROCESS */}
         <div className="modal-section">
           <div className="modal-section-header">
@@ -86,7 +111,7 @@ const CorpStyleCase = () => {
             {/* 1 КОНТЕКСТ */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder unpadding">
-                <img src="/src/assets/corp-modal/neodom-problem2.gif" alt="Контекст рынка" />
+                <img src={neodomProblem} alt="Контекст рынка" />
               </div>
 
               <div className="process-step-content">
@@ -106,7 +131,7 @@ const CorpStyleCase = () => {
             {/* 2 ПРОБЛЕМА */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder unpadding">
-                <img src="/src/assets/case/example-neodom.jpg" alt="Пример" />
+                <img src={exampleNeodom} alt="Пример" />
               </div>
 
               <div className="process-step-content">
@@ -147,76 +172,65 @@ const CorpStyleCase = () => {
             {/* 4 ИДЕЯ */}
             <div className="process-step idea-step reveal">
 
-              {/* Общий контейнер 70% */}
               <div className="idea-wrapper">
 
-                {/* Контейнер с текстом (сверху) */}
                 <div className="idea-text-container">
                   <div className="idea-text-grid">
-                    {/* Текст для столбика 1 */}
                     <div className="idea-text-column">
                       <div className="idea-label">
                         <p>Первичные решения опирались на прямые ассоциации с недвижимостью, но выглядели клишированно и не формировали уникальный образ бренда.</p>
                       </div>
                     </div>
 
-                    {/* Текст для столбика 2 */}
                     <div className="idea-text-column">
                       <div className="idea-label">
                         <p>Переход к более минималистичному визуальному языку позволил улучшить читаемость, но решения всё ещё не имели характерной идеи.</p>
                       </div>
                     </div>
 
-                    {/* Текст для столбика 3 */}
                     <div className="idea-text-column">
                       <div className="idea-label">
                         <p>В финальной концепции появился абстрактный символ — треугольник, который одновременно отсылает к форме крыши и создаёт устойчивый, современный знак.</p>
                       </div>
                     </div>
 
-                    {/* Текст для столбика 4 */}
                     <div className="idea-text-column">
                       <div className="idea-label">
-                        <p>Выбран итоговй вариант логотипа neo Dom</p>
+                        <p>Выбран итоговый вариант логотипа neo Dom</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Контейнер с картинками (снизу) */}
                 <div className="idea-visual-container">
                   <div className="idea-visual-grid">
-                    {/* Столбик 1 - 4 картинки */}
                     <div className="idea-column">
                       <div className="idea-images vertical-4">
-                        <img src="/src/assets/case/exam2-3.jpg" alt="Идея 1" />
-                        <img src="/src/assets/case/exam2-4.jpg" alt="Идея 2" />
-                        <img src="/src/assets/case/exam2-2.jpg" alt="Идея 3" />
-                        <img src="/src/assets/case/exam2-1.jpg" alt="Идея 4" />
+                        <img src={exam2_3} alt="Идея 1" />
+                        <img src={exam2_4} alt="Идея 2" />
+                        <img src={exam2_2} alt="Идея 3" />
+                        <img src={exam2_1} alt="Идея 4" />
                       </div>
                     </div>
 
-                    {/* Столбик 2 - 3 картинки */}
                     <div className="idea-column">
                       <div className="idea-images vertical-3">
-                        <img src="/src/assets/case/exam2-5.jpg" alt="Идея 1" />
-                        <img src="/src/assets/case/exam2-6.jpg" alt="Идея 2" />
-                        <img src="/src/assets/case/exam2-7.jpg" alt="Идея 3" />
+                        <img src={exam2_5} alt="Идея 1" />
+                        <img src={exam2_6} alt="Идея 2" />
+                        <img src={exam2_7} alt="Идея 3" />
                       </div>
                     </div>
 
-                    {/* Столбик 3 - 2 картинки */}
                     <div className="idea-column">
                       <div className="idea-images vertical-2">
-                        <img src="/src/assets/case/exam2-9.jpg" alt="Идея 1" />
-                        <img src="/src/assets/case/exam2-8.jpg" alt="Идея 2" />
+                        <img src={exam2_9} alt="Идея 1" />
+                        <img src={exam2_8} alt="Идея 2" />
                       </div>
                     </div>
 
-                    {/* Столбик 4 - 1 картинка */}
                     <div className="idea-column">
                       <div className="idea-images vertical-1">
-                        <img src="/src/assets/case/exam2-10.jpg" alt="Идея 1" />
+                        <img src={exam2_10} alt="Идея 1" />
                       </div>
                     </div>
                   </div>
@@ -239,74 +253,60 @@ const CorpStyleCase = () => {
               </div>
             </div>
 
-
             {/* 5 ВИЗУАЛ */}
             <div className="process-step reveal">
-              {/* БЛОК С ЦВЕТАМИ, ШРИФТАМИ И ЭЛЕМЕНТАМИ */}
               <div className="color-fonts-section">
 
-                {/* Левая колонка - кубики цветов с описанием */}
                 <div className="colors-list">
-                  {/* Цвет 1 */}
                   <div className="color-row">
                     <div className="color-cube dark"></div>
                     <div className="color-description">
                       <div className="color-name">Фон</div>
                       <div className="color-name">Заголовки</div>
                       <div className="color-name">Основной текст</div>
-
                     </div>
                   </div>
 
-                  {/* Цвет 2 */}
                   <div className="color-row">
                     <div className="color-cube accent"></div>
                     <div className="color-description">
                       <div className="color-name">Акцент</div>
                       <div className="color-name">Иконки</div>
                       <div className="color-name">Кнопки</div>
-
                     </div>
                   </div>
 
-                  {/* Цвет 3 */}
                   <div className="color-row">
                     <div className="color-cube light"></div>
                     <div className="color-description">
                       <div className="color-name">Фон</div>
                       <div className="color-name">Заголовки</div>
-
                     </div>
                   </div>
 
-                  {/* Цвет 4 */}
                   <div className="color-row">
                     <div className="color-cube angle"></div>
                     <div className="color-description">
                       <div className="color-name">Фон</div>
-
                     </div>
                   </div>
                 </div>
 
-                {/* Правая колонка - шрифты и элементы */}
                 <div className="fonts-elements-block">
-                  {/* Картинка со шрифтами */}
                   <div className="fonts-image">
-                    <img src="/src/assets/case/visual-7.jpg" alt="Шрифты" />
+                    <img src={visual7} alt="Шрифты" />
                   </div>
 
-                  {/* Два элемента с подписями под ними */}
                   <div className="two-elements">
                     <div className="element-wrapper">
                       <div className="element-item">
-                        <img src="/src/assets/case/visual-5.jpg" alt="Элемент 1" />
+                        <img src={visual5} alt="Элемент 1" />
                       </div>
                       <div className="element-caption">Основной угол в декоративном элементе</div>
                     </div>
                     <div className="element-wrapper">
                       <div className="element-item">
-                        <img src="/src/assets/case/visual-6.jpg" alt="Элемент 2" />
+                        <img src={visual6} alt="Элемент 2" />
                       </div>
                       <div className="element-caption">Допустимый угол в декоративном элементе</div>
                     </div>
@@ -329,18 +329,17 @@ const CorpStyleCase = () => {
               </div>
             </div>
 
-            {/* 6 ВИЗУАЛ */}
+            {/* 6 ВИЗУАЛ - ПАТТЕРН */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder patter-cont unpadding">
                 <div className="pattern">
-                  <img src="/src/assets/case/patt.jpg" alt="Пример" />
+                  <img src={patt} alt="Пример" />
                 </div>
 
                 <div className="inner-pattern">
-                  <img src="/src/assets/case/patt2.jpg" alt="Пример" />
-                  <img src="/src/assets/case/patt2-ex.jpg" alt="Пример" />
+                  <img src={patt2} alt="Пример" />
+                  <img src={patt2ex} alt="Пример" />
                 </div>
-
               </div>
 
               <div className="process-step-content">
@@ -357,30 +356,24 @@ const CorpStyleCase = () => {
               </div>
             </div>
 
-
-
-            {/* 6 НОСИТЕЛИ */}
+            {/* НОСИТЕЛИ */}
             <div className="process-step reveal">
               <div className="process-step-image mockup-grid unpadding">
                 <div className="mockup-grid-container">
-                  {/* Строка 1 */}
                   <div className="mockup-row">
-                    <div className="mockup-item"><img src="/src/assets/case/viz1.jpg" alt="Визитка" /></div>
-                    <div className="mockup-item"><img src="/src/assets/case/viz2.jpg" alt="Визитка" /></div>
+                    <div className="mockup-item"><img src={viz1} alt="Визитка" /></div>
+                    <div className="mockup-item"><img src={viz2} alt="Визитка" /></div>
                   </div>
-                  {/* Строка 2 */}
                   <div className="mockup-row">
-                    <div className="mockup-item"><img src="/src/assets/case/kru.jpg" alt="Кружка" /></div>
-                    <div className="mockup-item"><img src="/src/assets/case/key.jpg" alt="Брелок" /></div>
+                    <div className="mockup-item"><img src={kru} alt="Кружка" /></div>
+                    <div className="mockup-item"><img src={key} alt="Брелок" /></div>
                   </div>
-                  {/* Строка 3 */}
                   <div className="mockup-row">
-                    <div className="mockup-item"><img src="/src/assets/case/blokn.jpg" alt="Блокнот" /></div>
-                    <div className="mockup-item"><img src="/src/assets/case/pen.jpg" alt="Ручка" /></div>
+                    <div className="mockup-item"><img src={blokn} alt="Блокнот" /></div>
+                    <div className="mockup-item"><img src={pen} alt="Ручка" /></div>
                   </div>
-                  {/* Строка 4 — одна картинка на всю ширину */}
                   <div className="mockup-row full">
-                    <div className="mockup-item full-width"><img src="/src/assets/case/folder.jpg" alt="Папка" /></div>
+                    <div className="mockup-item full-width"><img src={folder} alt="Папка" /></div>
                   </div>
                 </div>
               </div>
@@ -398,10 +391,10 @@ const CorpStyleCase = () => {
               </div>
             </div>
 
-            {/* 7 РЕЗУЛЬТАТ */}
+            {/* РЕЗУЛЬТАТ */}
             <div className="process-step reveal">
               <div className="process-step-image placeholder unpadding">
-                <div className="mockup-item-final"><img src="/src/assets/case/compose.jpg" alt="Композиция" /></div>
+                <div className="mockup-item-final"><img src={compose} alt="Композиция" /></div>
               </div>
 
               <div className="process-step-content">
@@ -419,8 +412,6 @@ const CorpStyleCase = () => {
 
           </div>
         </div>
-
-
 
       </div>
     </div>
