@@ -3,7 +3,7 @@ import './modal.css';
 import './modalmedia.css';
 
 // Картинки для HERO
-import mainPoster from "../assets/case/main-poster.jpg";
+import mainPoster from "../assets/case/main-poster.webp";
 
 // Картинки для контекста
 import psyExample from "../assets/case/psy-example.jpg";

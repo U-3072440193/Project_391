@@ -2,7 +2,7 @@ import { useReveal } from '../hooks/useReveal';
 import './modal.css';
 import './modalmedia.css';
 // Картинки
-import bookmock from "../assets/case/book-mock.jpg";
+import bookmock from "../assets/case/book-mock.webp";
 import bookexample from "../assets/case/book-example.jpg";
 import bookidea1 from "../assets/case/book-idea1.jpg";
 import bookidea2 from "../assets/case/book-idea2.jpg";

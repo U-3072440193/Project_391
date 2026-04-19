@@ -24,6 +24,7 @@ import CorpStyleCase from "./components/CorpStyleCase";
 // картинки
 import book from "./assets/products/book.jpg";
 import Corp from "./assets/case/compose.jpg";
+import Corp1 from "./assets/case/compose1.jpg";
 import poster from "./assets/products/poster.jpg";
 import shishkaJpg from "./assets/shishka/shishka.jpg";
 import portfolio from "./assets/web/portf.jpg";
@@ -105,7 +106,7 @@ export default function App() {
               <div className="cases-grid">
                 <PrintCard
                   title="Корпоративный стиль НеоДом"
-                  image={Corp}
+                  image={Corp1}
                   tags={["Корп.стиль", "Брендинг"]}
                   size="big"
                   onClick={() => openModal(<CorpStyleCase />)}

@@ -3,7 +3,7 @@ import './modal.css';
 import './modalmedia.css';
 
 // Картинки для HERO
-import neodom from "../assets/case/neodom.jpg";
+import neodom from "../assets/case/neodom.webp";
 
 // Картинки для контекста и процесса
 import neodomProblem from "../assets/corp-modal/neodom-problem2.gif";
