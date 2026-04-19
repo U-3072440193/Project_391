@@ -331,7 +331,7 @@ const CorpStyleCase = () => {
 
             {/* 6 ВИЗУАЛ - ПАТТЕРН */}
             <div className="process-step reveal">
-              <div className="process-step-image placeholder patter-cont unpadding">
+              <div className="process-step-image placeholder patter-cont unpadding antialign-center">
                 <div className="pattern">
                   <img src={patt} alt="Пример" />
                 </div>

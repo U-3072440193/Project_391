@@ -703,6 +703,9 @@
     padding: 40px;
     min-height: 260px;
 }
+.antialign-center{
+    align-items: stretch;
+}
 
 .unpadding {
     padding: 0px 40px;
