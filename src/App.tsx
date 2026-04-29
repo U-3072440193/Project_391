@@ -1,12 +1,10 @@
 import "./App.css";
 import "./components/modal.css";
 import type { ReactNode } from "react";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect, useCallback } from "react";
 import { useReveal } from './hooks/useReveal';
 import { PrintCard } from './components/PrintCard';
 import { ServiceCard } from './components/ServiceCard';
-
-
 
 import Header from "./Header";
 import About from "./About";
@@ -20,16 +18,20 @@ import CorpStyle from "./CorpStyle";
 import Shishkatwo from "./Shishkatwo";
 import CorpStyleCase from "./components/CorpStyleCase";
 
-
 // картинки
-import book from "./assets/products/book.jpg";
+import book from "./assets/products/book.webp";
 import Corp from "./assets/case/compose.jpg";
-import Corp1 from "./assets/case/compose1.jpg";
-import poster from "./assets/products/poster.jpg";
+import Corp1 from "./assets/case/compose1.webp";
+import poster from "./assets/products/poster.webp";
 import shishkaJpg from "./assets/shishka/shishka.jpg";
 import portfolio from "./assets/web/portf.jpg";
 
-
+// Константы для контактов (вынесено для чистоты)
+const CONTACTS = [
+  { icon: "/icons/mail.svg", href: "mailto:shkatzman@mail.ru", text: "shkatzman@mail.ru", external: false },
+  { icon: "/icons/tele.svg", href: "https://t.me/U_3072440193", text: "Telegram", external: true },
+  { icon: "/icons/git.svg", href: "https://github.com/U-3072440193", text: "GitHub", external: true },
+];
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,22 +44,18 @@ export default function App() {
   const [showCorpStyle, setShowCorpStyle] = useState(true);
   const [showWeb, setShowWeb] = useState(true);
 
-
-
-  const openModal = (content: React.ReactNode): void => {
+  // useCallback для предотвращения лишних ререндеров
+  const openModal = useCallback((content: ReactNode): void => {
     setModalContent(content);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback((): void => {
     setIsModalOpen(false);
     setModalContent(null);
-  };
+  }, []);
+
   useReveal();
-
-
-
-
 
   useEffect(() => {
     if (isModalOpen) {
@@ -74,9 +72,6 @@ export default function App() {
   return (
     <div className="portfolio">
       <Header />
-
-      <div className="container"></div>
-
       <div className="nav-wrapper">
         <nav className="nav-line">
           <a href="#about">О себе</a>
@@ -94,7 +89,11 @@ export default function App() {
           <div className="cases-header">
             <div className="cases-circle">Кейсы</div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowCases(!showCases)} aria-label="Свернуть/развернуть секцию">
+            <button 
+              className="toggle" 
+              onClick={() => setShowCases(!showCases)} 
+              aria-label="Свернуть/развернуть секцию"
+            >
               <svg className={`toggle-icon ${showCases ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -134,10 +133,15 @@ export default function App() {
         <section id="about" className="about-section reveal">
           <div className="cases container">
             <div className="cases-header">
-              <div className="menu-head about-head"><h2>О себе</h2></div>
+              <div className="menu-head about-head">
+                <h2>О себе</h2>
+              </div>
               <div className="cases-line about-head-line"></div>
-
-              <button className="toggle about-head-btn" onClick={() => setShowAbout(!showAbout)} aria-label="Свернуть/развернуть секцию">
+              <button 
+                className="toggle about-head-btn" 
+                onClick={() => setShowAbout(!showAbout)} 
+                aria-label="Свернуть/развернуть секцию"
+              >
                 <svg className={`toggle-icon ${showAbout ? "up" : "down"}`} viewBox="0 0 100 100">
                   <polyline points="20,60 50,30 80,60" />
                 </svg>
@@ -156,9 +160,15 @@ export default function App() {
         {/* Секция ПОЛИГРАФИЯ */}
         <section id="polygraphy" className="cases container reveal">
           <div className="cases-header">
-            <div className="menu-head"><h2>Полиграфия</h2></div>
+            <div className="menu-head">
+              <h2>Полиграфия</h2>
+            </div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowPoly(!showPoly)} aria-label="Свернуть/развернуть секцию">
+            <button 
+              className="toggle" 
+              onClick={() => setShowPoly(!showPoly)} 
+              aria-label="Свернуть/развернуть секцию"
+            >
               <svg className={`toggle-icon ${showPoly ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -171,12 +181,18 @@ export default function App() {
           )}
         </section>
 
-        {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ - большая карточка на всю ширину */}
+        {/* Секция КОРПОРАТИВНЫЙ СТИЛЬ */}
         <section id="corpstyle" className="cases container reveal">
           <div className="cases-header">
-            <div className="menu-head"><h2>Корпоративный стиль</h2></div>
+            <div className="menu-head">
+              <h2>Корпоративный стиль</h2>
+            </div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowCorpStyle(!showCorpStyle)} aria-label="Свернуть/развернуть секцию">
+            <button 
+              className="toggle" 
+              onClick={() => setShowCorpStyle(!showCorpStyle)} 
+              aria-label="Свернуть/развернуть секцию"
+            >
               <svg className={`toggle-icon ${showCorpStyle ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -194,13 +210,18 @@ export default function App() {
           )}
         </section>
 
-
         {/* Секция ВЕБ-РАЗРАБОТКА */}
         <section id="web" className="cases container reveal">
           <div className="cases-header">
-            <div className="menu-head"><h2>Веб-разработка</h2></div>
+            <div className="menu-head">
+              <h2>Веб-разработка</h2>
+            </div>
             <div className="cases-line"></div>
-            <button className="toggle" onClick={() => setShowWeb(!showWeb)} aria-label="Свернуть/развернуть секцию">
+            <button 
+              className="toggle" 
+              onClick={() => setShowWeb(!showWeb)} 
+              aria-label="Свернуть/развернуть секцию"
+            >
               <svg className={`toggle-icon ${showWeb ? "up" : "down"}`} viewBox="0 0 100 100">
                 <polyline points="20,60 50,30 80,60" />
               </svg>
@@ -208,19 +229,16 @@ export default function App() {
           </div>
           {showWeb && (
             <div className="cases-controls">
-              {/* Карточка для открытия модалки Shishka */}
               <ServiceCard
                 title="Сайт для Kanban доски «Шишка»"
                 description="Fullstack-платформа для управления проектами"
                 image={shishkaJpg}
                 onClick={() => openModal(<Shishkatwo />)}
               />
-
-              {/* Карточка для сайта-портфолио */}
               <ServiceCard
                 title="Сайт-портфолио"
                 description="React + TypeScript + Vite, адаптивная верстка, модальные окна с проектами"
-                image={portfolio} // замени на свою картинку для портфолио
+                image={portfolio}
                 onClick={() => window.open('https://github.com/U-3072440193/Project_391', '_blank')}
               />
             </div>
@@ -238,25 +256,24 @@ export default function App() {
         </div>
       )}
 
-      <footer id='contacts' className="footer">
+      <footer id="contacts" className="footer">
         <div className="footer-bg"></div>
         <div className="footer-overlay"></div>
         <div className="footer-content container">
           <div className="footer-contacts">
-            <div className="contact-item">
-              <i className="fas fa-envelope contact-icon"><img src="/icons/mail.svg" alt="Почта" /></i>
-              <a href="mailto:shkatzman@mail.ru">shkatzman@mail.ru</a>
-            </div>
-
-            <div className="contact-item">
-              <i className="fab fa-telegram contact-icon"><img src="/icons/tele.svg" alt="Телеграмм" /></i>
-              <a href="https://t.me/U_3072440193" target="_blank" rel="noopener noreferrer">Telegram</a>
-            </div>
-
-            <div className="contact-item">
-              <i className="fab fa-github contact-icon"><img src="/icons/git.svg" alt="Гитхаб" /></i>
-              <a href="https://github.com/U-3072440193" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
+            {CONTACTS.map((contact, index) => (
+              <div key={index} className="contact-item">
+                <i className="fas fa-envelope contact-icon">
+                  <img src={contact.icon} alt={contact.text} />
+                </i>
+                <a 
+                  href={contact.href} 
+                  {...(contact.external && { target: "_blank", rel: "noopener noreferrer" })}
+                >
+                  {contact.text}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </footer>

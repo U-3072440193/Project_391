@@ -1,631 +1,619 @@
 /* ============================================ */
-/* 17. MEDIA QUERIES (Адаптивность)            */
+/* MEDIA QUERIES (Адаптивность)                */
 /* ============================================ */
 
+/* Планшеты (до 1024px) */
 @media (max-width: 1024px) {
-    .idea-wrapper {
-        flex: 0 0 100%;
-    }
-    .idea-step {
-        flex-direction: column;
-    }
-    .idea-visual-grid,
-    .idea-text-grid {
-        width: 100%;
-    }
+  .idea-wrapper {
+    flex: 0 0 100%;
+  }
+  
+  .idea-step {
+    flex-direction: column;
+  }
+  
+  .idea-visual-grid,
+  .idea-text-grid {
+    width: 100%;
+  }
 }
 
+/* Мобильные (до 768px) */
 @media (max-width: 768px) {
-    /* Hero */
-    .modal-hero-bg {
-        height: 500px;
-    }
-    .modal-hero-title {
-        font-size: 26px;
-    }
-    .modal-hero-content{
-        top: 10px;
-    }
+  /* Hero */
+  .modal-hero-bg {
+    height: 500px;
+  }
+  
+  .modal-hero-title {
+    font-size: 26px;
+    letter-spacing: 0.01em;
+  }
+  
+  .modal-hero-content {
+    top: 10px;
+  }
+  .placeholder{
+    padding:0 16px;
+  }
+  /* Process steps */
+  .process-step {
+    flex-direction: column !important;
+    gap: 24px;
+    padding: 0 16px !important;
     
-    /* Process steps */
-    .process-step {
-        flex-direction: column !important;
-        gap: 24px;
-        padding: 0 16px !important;
-    }
-    .process-step-content {
-        padding: 0 !important;
-    }
-    .process-step-content h3 {
+    &-content {
+      padding: 0 !important;
+      
+      h3 {
         margin-top: 15px;
         font-size: 24px;
+      }
     }
-    .process-step-description {
-        font-size: 16px;
+    
+    &-description {
+      font-size: 16px;
     }
-    .process-step-details p {
-        font-size: 14px;
+    
+    &-details p {
+      font-size: 14px;
     }
-    .process-step-image {
-        width: 100% !important;
-    }
-    .process-step-image.mockup-grid {
+    
+    &-image {
+      width: 100% !important;
+      
+      &.mockup-grid {
         width: 100%;
+      }
     }
+  }
+  
+  /* Idea block */
+  .idea-text-grid,
+  .idea-visual-grid {
+    flex-wrap: wrap;
+    flex-direction: column !important;
+  }
+  
+  .idea-text-column,
+  .idea-column {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .idea-images img {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .idea-label p {
+    font-size: 0.7rem;
+  }
+  
+  .idea-grid-2x2 {
+    gap: 0.5rem;
+  }
+  
+  .idea-wrapper {
+    padding: 0 16px !important;
+  }
+  
+  /* Colors & Fonts */
+  .color-fonts-section {
+    flex-direction: column;
+    max-width: 100% !important;
+    padding: 16px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .colors-list {
+    width: 100% !important;
+    min-width: auto !important;
+    margin-bottom: 24px !important;
+    padding: 0 !important;
+  }
+  
+  .color-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .color-cube {
+    width: 50px !important;
+    height: 50px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .color-description {
+    flex: 1 !important;
+    min-width: 120px !important;
+    text-align: left !important;
+  }
+  
+  .color-name {
+    font-size: 12px !important;
+    margin-bottom: 2px !important;
+  }
+  
+  .fonts-elements-block {
+    width: 100% !important;
+    min-width: auto !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .fonts-image {
+    width: 100% !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
     
-    /* Idea block */
-    .idea-text-grid,
-    .idea-visual-grid {
-        flex-wrap: wrap;
-        flex-direction: column !important;
+    img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      display: block !important;
     }
-    .idea-text-column,
-    .idea-column {
-        min-width: 100% !important;
-        width: 100% !important;
-    }
-    .idea-images img {
-        aspect-ratio: 16 / 9;
-    }
-    .idea-label p {
-        font-size: 0.7rem;
-    }
-    .idea-grid-2x2 {
-        gap: 0.5rem;
-    }
-    .idea-wrapper {
-        padding: 0 16px !important;
-    }
+  }
+  
+  .two-elements {
+    flex-direction: column !important;
+    display: flex !important;
+    width: 100% !important;
+    gap: 16px !important;
+  }
+  
+  .element-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .element-item {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
     
-    /* Colors & Fonts */
-    .color-fonts-section {
-        flex-direction: column;
-        max-width: 100% !important;
-        padding: 16px !important;
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
     }
-    .color-cube {
-        width: 50px;
-        height: 50px;
-    }
-    
-    /* Mockup grid */
-    .mockup-grid-container {
-        padding: 0 !important;
-    }
-    .mockup-row {
-        flex-direction: column;
-        gap: 10px !important;
-    }
-    
-    /* Pattern */
-    .patter-cont {
-        width: 100% !important;
-        flex-direction: column !important;
-    }
-    
-    /* Info cards */
-    .modal-info-grid {
-        flex-direction: column !important;
-        gap: 20px !important;
-        padding: 20px !important;
-    }
-    .info-card {
-        max-width: 100% !important;
-        padding: 16px !important;
-    }
-    .info-card h3 {
-        font-size: 18px !important;
-    }
-    .info-card p {
-        font-size: 14px !important;
-    }
-    .info-icon img {
-        height: 40px !important;
-    }
-    
-    /* Modal close button */
-    .modal-close {
-        right: 45px !important;
-        top: 60px !important;
-    }
-    
-    /* Two elements */
-    .two-elements {
-        flex-direction: column !important;
-    }
-    .element-caption {
-        font-size: 12px !important;
-    }
-    
-    /* Corp style */
-    .corpstyle-hero-bg {
-        height: 250px;
-    }
-    .corpstyle-hero-title {
-        font-size: 28px;
-    }
-    .typography-grid {
-        grid-template-columns: 1fr;
-    }
-    .pattern-showcase {
-        flex-direction: column;
-    }
-    .mockups-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .corpstyle-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .corpstyle-section-header .section-line {
-        width: 100%;
-    }
-    .two-columns-section {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    /* Result overlay */
-    .result-overlay-corp {
-        padding-top: 40px;
-    }
-    .result-overlay-corp h2 {
-        font-size: 28px;
-    }
-    .result-overlay-corp p {
-        font-size: 14px;
-    }
-    
-    /* Footer */
-    .footer {
-        padding: 40px 0;
-    }
-    .footer-contacts {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    
-    /* Helpers */
-    .unpadding {
-        padding: 0 !important;
-    }
-}
+  }
+  
+  .element-caption {
+    font-size: 11px !important;
+    text-align: center !important;
+    margin-top: 8px !important;
+  }
+  
+  /* Mockup grid */
+  .mockup-grid-container {
+    padding: 0 !important;
+  }
+  
+  .mockup-row {
+    flex-direction: column;
+    gap: 10px !important;
+  }
 
-@media (max-width: 480px) {
-    .modal-hero-title {
-        font-size: 20px;
-    }
-    .modal-hero-subtitle {
-        font-size: 12px;
-    }
-    .modal-badge {
-        font-size: 10px;
-    }
-    .stat-badge {
-        font-size: 10px;
-    }
-    .modal-section-header h2 {
-        font-size: 28px;
-    }
-    .process-step-content h3 {
-        font-size: 20px;
-    }
-    .process-step-details {
-        padding: 16px;
-    }
-    .process-step-details p {
-        font-size: 12px;
-    }
-    .process-step-description {
-        font-size: 14px;
-    }
-    .idea-text-column,
-    .idea-column {
-        min-width: 100%;
-    }
-    .idea-grid-2x2 {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-    .section-line {
-        display: none !important;
-    }
-    .modal-section-header {
-        justify-content: flex-start !important;
-    }
-    .color-cube {
-        width: 40px;
-        height: 40px;
-    }
-    .color-name {
-        font-size: 10px;
-    }
-    .element-caption {
-        font-size: 10px;
-    }
-    .result-overlay-corp {
-        padding-top: 30px;
-    }
-    .result-overlay-corp h2 {
-        font-size: 24px;
-    }
-    .result-overlay-corp p {
-        font-size: 12px;
-    }
-}
+  .process-step-image.mockup-grid {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
 
-/* ============================================ */
-/* ФИКС COLOR-FONTS-SECTION НА МОБИЛЬНЫХ */
-/* ============================================ */
+  .mockup-item,
+  .mockup-item-final {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: none !important;
 
-@media (max-width: 768px) {
-    /* Контейнер цветов и шрифтов */
-    .color-fonts-section {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 16px !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        overflow-x: hidden !important;
+    img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      object-fit: cover !important;
+    }
+  }
+  
+  /* Pattern */
+  .patter-cont {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  
+  /* Info cards */
+  .modal-info-grid {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 20px !important;
+  }
+  
+  .info-card {
+    max-width: 100% !important;
+    padding: 16px !important;
+    
+    h3 {
+      font-size: 18px !important;
     }
     
-    /* Левая колонка с цветами */
-    .colors-list {
-        width: 100% !important;
-        min-width: auto !important;
-        margin-bottom: 24px !important;
-        padding: 0 !important;
+    p {
+      font-size: 14px !important;
+    }
+  }
+  
+  .info-icon img {
+    height: 40px !important;
+  }
+  
+  /* Modal close button */
+  .modal-close {
+    right: 45px !important;
+    top: 60px !important;
+  }
+  
+  /* Corp style */
+  .corpstyle {
+    &-hero-bg {
+      height: 250px;
     }
     
-    /* Каждый цвет в строку */
-    .color-row {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 12px !important;
-        margin-bottom: 16px !important;
+    &-hero-title {
+      font-size: 28px;
     }
     
-    /* Кубик цвета */
-    .color-cube {
-        width: 50px !important;
-        height: 50px !important;
-        flex-shrink: 0 !important;
+    &-inner {
+      padding: 20px 16px !important;
     }
     
-    /* Описание цвета */
-    .color-description {
-        flex: 1 !important;
-        min-width: 120px !important;
-        text-align: left !important;
-    }
-    
-    .color-name {
-        font-size: 12px !important;
-        margin-bottom: 2px !important;
-    }
-    
-    /* Правая колонка со шрифтами и элементами */
-    .fonts-elements-block {
-        width: 100% !important;
-        min-width: auto !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* Картинка со шрифтами */
-    .fonts-image {
-        width: 100% !important;
-        margin-bottom: 16px !important;
-        overflow: hidden !important;
-    }
-    
-    .fonts-image img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
-        display: block !important;
-    }
-    
-    /* Два элемента (углы) */
-    .two-elements {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 16px !important;
-    }
-    
-    .element-wrapper {
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    .element-item {
-        width: 100% !important;
-        max-width: 200px !important;
-        margin: 0 auto !important;
-        aspect-ratio: 1 / 1 !important;
-        border-radius: 8px !important;
-        overflow: hidden !important;
-    }
-    
-    .element-item img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-    
-    .element-caption {
-        font-size: 11px !important;
-        text-align: center !important;
-        margin-top: 8px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .color-row {
-        gap: 8px !important;
-    }
-    
-    .color-cube {
-        width: 40px !important;
-        height: 40px !important;
-    }
-    
-    .color-name {
-        font-size: 10px !important;
-    }
-    
-    .element-item {
-        max-width: 150px !important;
-    }
-    
-    .element-caption {
-        font-size: 10px !important;
-    }
-}
-
-
-/* ============================================ */
-/* ПОЛНЫЙ ПЕРЕЗАПУСК МОБИЛЬНЫХ СТИЛЕЙ */
-/* ============================================ */
-
-@media (max-width: 768px) {
-    /* Переопределяем hero */
-    .modal-hero {
-        margin: 0 !important;
-        height: auto !important;
-        min-height: 400px !important;
-        border-radius: 0 !important;
-    }
-    
-    .modal-hero-bg {
-        position: relative !important;
-        height: 400px !important;
-    }
-    
-    .modal-hero-bg img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-    
-    .modal-hero-content {
-        position: absolute !important;
-        bottom: 20px !important;
-        left: 20px !important;
-        right: 20px !important;
-        top: auto !important;
-        max-width: none !important;
-        padding: 0 !important;
-    }
-    
-    .modal-hero-title {
-        font-size: 22px !important;
-        margin-bottom: 8px !important;
-    }
-    
-    .modal-hero-subtitle {
-        font-size: 12px !important;
-        margin-bottom: 12px !important;
-    }
-    
-    /* Корпстайл секции */
-    .corpstyle-inner {
-        padding: 20px 16px !important;
-    }
-    
-    .corpstyle-section {
-        padding: 40px 0 !important;
-        margin-bottom: 0 !important;
-    }
-    
-    .corpstyle-section-header {
+    &-section {
+      padding: 40px 0 !important;
+      margin-bottom: 0 !important;
+      
+      &-header {
         flex-direction: row !important;
         align-items: center !important;
         gap: 12px !important;
         margin-bottom: 20px !important;
+        
+        h2 {
+          font-size: 24px !important;
+          white-space: normal !important;
+        }
+        
+        .section-line {
+          flex: 1 !important;
+          display: block !important;
+        }
+      }
     }
     
-    .corpstyle-section-header h2 {
-        font-size: 24px !important;
-        white-space: normal !important;
-    }
-    
-    .section-line {
-        flex: 1 !important;
-        display: block !important;
-    }
-    
-    .corpstyle-text p,.pattern-text p {
-        font-size: 12px !important;
-        line-height: 1.5 !important;
-        text-align: left;
-    }
-    
-    /* Визуальный язык - 2 колонки в ряд */
-    .visual-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 12px !important;
-    }
-    
-    .visual-item {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        padding: 12px !important;
-        gap: 8px !important;
-    }
-    
-    .visual-item .color-cube {
-        width: 40px !important;
-        height: 40px !important;
-        margin: 0 auto !important;
-    }
-    
-    .visual-info {
-        text-align: center !important;
-    }
-    
-    .visual-info h3 {
-        font-size: 12px !important;
-        margin-bottom: 4px !important;
-    }
-    
-    .visual-info p {
-        font-size: 10px !important;
-    }
-    
-    /* Типографика - 3 колонки в ряд */
-    .typography-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr !important;
-        gap: 8px !important;
-    }
-    
-    .typo-item {
-        padding: 12px 8px !important;
-    }
-    
-    .typo-item h3 {
-        font-size: 11px !important;
-    }
-    
-    .typo-item p {
-        font-size: 9px !important;
-    }
-    
-    /* Паттерн */
-    .pattern-showcase {
-        flex-direction: column !important;
-        gap: 16px !important;
-    }
-    
-    .pattern-images-corps {
-        width: 100% !important;
-        gap: 8px !important;
-    }
-    
-    .pattern-images-corps img {
-        width: calc(50% - 4px) !important;
-        height: auto !important;
-    }
-    
-    .pattern-text {
-        margin: 0 !important;
-    }
-    
+    &-text p,
     .pattern-text p {
-        font-size: 13px !important;
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      text-align: left;
+    }
+  }
+  
+  /* Typography grid */
+  .typography-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  
+  .typo-item {
+    padding: 12px 8px !important;
+    
+    h3 {
+      font-size: 11px !important;
     }
     
-    /* Носители - 2 колонки */
-    .mockups-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
+    p {
+      font-size: 9px !important;
+    }
+  }
+  
+  /* Visual grid */
+  .visual-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .visual-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 12px !important;
+    gap: 8px !important;
+    
+    .color-cube {
+      width: 40px !important;
+      height: 40px !important;
+      margin: 0 auto !important;
+    }
+  }
+  
+  .visual-info {
+    text-align: center !important;
+    
+    h3 {
+      font-size: 12px !important;
+      margin-bottom: 4px !important;
     }
     
-    /* Результат */
-    .result-image-corp {
-        margin-top: 20px !important;
+    p {
+      font-size: 10px !important;
+    }
+  }
+  
+  /* Two columns */
+  .two-columns-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  /* Pattern showcase */
+  .pattern-showcase {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  .pattern-images-corps {
+    width: 100% !important;
+    gap: 8px !important;
+    
+    img {
+      width: calc(50% - 4px) !important;
+      height: auto !important;
+    }
+  }
+  
+  .pattern-text {
+    margin: 0 !important;
+    
+    p {
+      font-size: 13px !important;
+    }
+  }
+  
+  /* Mockups grid */
+  .mockups-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  
+  /* Result overlay */
+  .result-overlay-corp {
+    padding-top: 30px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    h2 {
+      font-size: 22px !important;
     }
     
-    .result-overlay-corp {
-        padding-top: 30px !important;
-        padding-left: 15px;
-        padding-right: 15px;
+    p {
+      font-size: 12px !important;
+      width: 95% !important;
     }
+  }
+  
+  .result-image-corp {
+    margin-top: 20px !important;
+  }
+  
+  /* Hero переопределение */
+  .modal-hero {
+    margin: 0 !important;
+    height: auto !important;
+    min-height: 400px !important;
+    border-radius: 0 !important;
+  }
+  
+  .modal-hero-bg {
+    position: relative !important;
+    height: 400px !important;
     
-    .result-overlay-corp h2 {
-        font-size: 22px !important;
+    img {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
     }
+  }
+  
+  .modal-hero-content {
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  
+  /* Section line */
+  .section-line {
+    flex: 1 !important;
+    display: block !important;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 0;
     
-    .result-overlay-corp p {
-        font-size: 12px !important;
-        width: 95% !important;
+    &-contacts {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
+  }
+  
+  /* Helpers */
+  .unpadding {
+    padding: 0 !important;
+  }
+
+  .unpadding-right {
+    padding: 0 !important;
+  }
 }
 
+/* Очень маленькие мобильные (до 480px) */
 @media (max-width: 480px) {
-    .modal-hero {
-        min-height: 350px !important;
+  .modal-hero {
+    min-height: 350px !important;
+    
+    &-bg {
+      height: 350px !important;
     }
     
-    .modal-hero-bg {
-        height: 350px !important;
+    &-title {
+      font-size: 18px !important;
     }
     
-    .modal-hero-title {
-        font-size: 18px !important;
+    &-subtitle {
+      font-size: 11px !important;
+    }
+  }
+  
+  .modal-badge {
+    font-size: 10px;
+  }
+  
+  .stat-badge {
+    font-size: 10px;
+  }
+  
+  .modal-section-header h2 {
+    font-size: 28px;
+  }
+  
+  .process-step-content h3 {
+    font-size: 20px;
+  }
+  
+  .process-step-details {
+    padding: 16px;
+    
+    p {
+      font-size: 12px;
+    }
+  }
+  
+  .process-step-description {
+    font-size: 14px;
+  }
+  
+  .idea-text-column,
+  .idea-column {
+    min-width: 100%;
+  }
+  
+  .idea-grid-2x2 {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .section-line {
+    display: none !important;
+  }
+  
+  .modal-section-header {
+    justify-content: flex-start !important;
+  }
+  
+  .color-cube {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .color-name {
+    font-size: 10px !important;
+  }
+  
+  .element-caption {
+    font-size: 10px !important;
+  }
+  
+  .element-item {
+    max-width: 150px !important;
+  }
+  
+  .result-overlay-corp {
+    padding-top: 30px;
+    
+    h2 {
+      font-size: 20px !important;
     }
     
-    .modal-hero-subtitle {
-        font-size: 11px !important;
+    p {
+      font-size: 11px !important;
     }
+  }
+  
+  /* Visual grid - 1 колонка */
+  .visual-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Typography - 2 колонки */
+  .typography-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  /* Mockups - 1 колонка */
+  .mockups-grid {
+    grid-template-columns: 1fr !important;
     
-    .corpstyle-section-header h2 {
-        font-size: 20px !important;
+    img {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
     }
+  }
+  
+  /* Pattern */
+  .pattern-images-corps {
+    flex-direction: column !important;
+    align-items: center !important;
     
-    /* Визуальный язык - 1 колонка на совсем маленьких */
-    .visual-grid {
-        grid-template-columns: 1fr !important;
+    img {
+      width: 100% !important;
+      max-width: 280px !important;
     }
-    
-    /* Типографика - 2 колонки */
-    .typography-grid {
-        grid-template-columns: 1fr 1fr !important;
-    }
-    
-    /* Носители - 1 колонка */
-    .mockups-grid {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .mockups-grid img {
-        max-width: 250px !important;
-        margin: 0 auto !important;
-    }
-    
-    .pattern-images-corps {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    .pattern-images-corps img {
-        width: 100% !important;
-        max-width: 280px !important;
-    }
+  }
+  
+  /* Corp style */
+  .corpstyle-section-header h2 {
+    font-size: 20px !important;
+  }
+  
+  /* Color row */
+  .color-row {
+    gap: 8px !important;
+  }
+  
+  .color-cube {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .color-name {
+    font-size: 10px !important;
+  }
 }

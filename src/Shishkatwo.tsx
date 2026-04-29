@@ -2,7 +2,7 @@ import './shishka.css';
 import { useReveal } from './hooks/useReveal';
 
 // Импорты картинок и видео
-import mainImg from "./assets/shishka/main.jpg";
+import mainImg from "./assets/shishka/main.webp";
 import demoVideo from "./assets/shishka/demo.mp4";
 import chatVideo from "./assets/shishka/chat.mp4";
 import webImg from "./assets/web/web2.jpg";

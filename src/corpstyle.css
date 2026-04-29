@@ -1,3 +1,15 @@
+/* ===== ПЕРЕМЕННЫЕ ===== */
+:root {
+  --corp-image-height: 500px;
+  --corp-image-height-mobile: 350px;
+  --transition-slow: 0.5s;
+  --transition-normal: 0.3s;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --btn-border: 2px solid white;
+  --btn-padding: 12px 32px;
+  --btn-padding-mobile: 8px 24px;
+}
+
 /* ===== КОРПОРАТИВНЫЙ СТИЛЬ ===== */
 .corpstyle-section {
   width: 100%;
@@ -11,108 +23,132 @@
   overflow: hidden;
 }
 
-/* Ограничиваем размер картинки как у About */
 .corpstyle-image {
   position: relative;
   width: 100%;
-  height: 500px; /* Такая же высота как у About */
+  height: var(--corp-image-height);
   overflow: hidden;
   border-radius: 8px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow) ease;
+  }
+
+  /* Затемнение */
+  .corpstyle-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-normal) ease;
+  }
+
+  /* Контент */
+  .corpstyle-content {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    max-width: 80%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal) ease, visibility var(--transition-normal) ease;
+
+    h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+  }
+
+  /* Hover эффекты */
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    .corpstyle-overlay {
+      background: var(--overlay-bg);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .corpstyle-content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
-.corpstyle-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Картинка заполняет блок без искажений */
-  transition: transform 0.5s ease;
-}
-
-/* Затемнение */
-.corpstyle-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
-
-.corpstyle-content {
-  text-align: center;
-  color: white;
-  padding: 40px;
-  max-width: 80%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.corpstyle-image:hover .corpstyle-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-.corpstyle-content h2 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.corpstyle-content p {
-  font-size: 18px;
-  margin-bottom: 30px;
-  opacity: 0.9;
-}
-
+/* Кнопка */
 .corpstyle-btn {
   background: transparent;
   color: white;
-  border: 2px solid white;
-  padding: 12px 32px;
+  border: var(--btn-border);
+  padding: var(--btn-padding);
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal) ease;
   border-radius: 8px;
+
+  &:hover {
+    background: white;
+    color: black;
+  }
 }
 
-.corpstyle-btn:hover {
-  background: white;
-  color: black;
+/* Типографика */
+.inter-black h3 {
+  font-family: 'Inter', sans-serif;
 }
 
-/* Эффект при ховере */
-.corpstyle-image:hover img {
-  transform: scale(1.05);
-}
-
-.corpstyle-image:hover .corpstyle-overlay {
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Адаптивность */
+/* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 768px) {
   .corpstyle-image {
-    height: 350px; /* Меньше на мобильных */
+    height: var(--corp-image-height-mobile);
+
+    .corpstyle-content {
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
   }
-  
-  .corpstyle-content h2 {
-    font-size: 24px;
-  }
-  
-  .corpstyle-content p {
-    font-size: 14px;
-  }
-  
+
   .corpstyle-btn {
-    padding: 8px 24px;
+    padding: var(--btn-padding-mobile);
     font-size: 14px;
   }
 }
-.inter-black h3{
-  font-family: 'Inter' !important;
+
+/* Для пользователей с уменьшением движения */
+@media (prefers-reduced-motion: reduce) {
+  .corpstyle-image {
+    img,
+    .corpstyle-overlay,
+    .corpstyle-content {
+      transition: none;
+    }
+
+    &:hover img {
+      transform: none;
+    }
+  }
+
+  .corpstyle-btn {
+    transition: none;
+  }
 }

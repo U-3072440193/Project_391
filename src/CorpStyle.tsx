@@ -4,7 +4,7 @@ import './components/modalmedia.css';
 import { useReveal } from './hooks/useReveal';
 
 // Картинки для HERO
-import neodom from "./assets/case/neodom.jpg";
+import neodom from "./assets/case/neodom.webp";
 
 // Картинки для паттерна
 import patt from "./assets/case/patt.jpg";

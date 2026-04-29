@@ -3,7 +3,7 @@ import alisImg from "../assets/vklad-modal/alis.jpg";
 import shemmeImg from "../assets/vklad-modal/shemme.svg";
 import merzImg from "../assets/vklad-modal/merz.jpg";
 
-import sdobUlImg from "../assets/bookl-modal/sdob-ul.jpg";
+import sdobUlImg from "../assets/bookl-modal/sdob-ul.webp";
 import sdobUl1Img from "../assets/bookl-modal/sdob-ul1.jpg";
 import sdobUl2Img from "../assets/bookl-modal/sdob-ul2.jpg";
 import katalog1Img from "../assets/bookl-modal/katalog1.jpg";
@@ -11,12 +11,12 @@ import katalog2Img from "../assets/bookl-modal/katalog2.jpg";
 import katalog3Img from "../assets/bookl-modal/katalog3.jpg";
 import katalog4Img from "../assets/bookl-modal/katalog4.jpg";
 
-import iksprImg from "../assets/list-modal/ikspr.jpg";
+import iksprImg from "../assets/list-modal/ikspr.webp";
 import iksprInnerImg from "../assets/list-modal/ikspr-inner.jpg";
 import su1Img from "../assets/list-modal/su1.jpg";
 import su2Img from "../assets/list-modal/su2.jpg";
 
-import pulseImg from "../assets/viz-modal/pulse.jpg";
+import pulseImg from "../assets/viz-modal/pulse.webp";
 import pulse1Img from "../assets/viz-modal/pulse1.jpg";
 import pulse2Img from "../assets/viz-modal/pulse2.jpg";
 import ultr1Img from "../assets/viz-modal/ultr1.jpg";
@@ -37,7 +37,7 @@ import korobka2Img from "../assets/vyrub-modal/korobka2.jpg";
 import hangerImg from "../assets/vyrub-modal/hanger.png";
 import zharImg from "../assets/vyrub-modal/zhar.jpg";
 
-import kvartImg from "../assets/kvart-modal/kvart.jpg";
+import kvartImg from "../assets/kvart-modal/kvart.webp";
 import arenaImg from "../assets/kvart-modal/arena.jpg";
 import sportcoImg from "../assets/kvart-modal/sportco.jpg";
 import burKvartImg from "../assets/kvart-modal/bur.jpg";
@@ -145,7 +145,7 @@ export const printItems: Project[] = [
     coverImage: boxzImg,
     tags: ["Вырубные изделия", "Полиграфия"],
     blocks: [
-      { type: 'text', content: "Разработка дизайна и конструирование коробки для подарков, 100х100х100мм. Штанц-форма сконструирована по близким аналогам. Картон 215гр." },
+      { type: 'text', content: "Разработка дизайна и конструирование коробки для подарков, 100х100х100мм. Штанцформа сконструирована по близким аналогам. Картон 215гр." },
       { type: 'images', content: [korobka2Img], layout: 'column' },
       { type: 'text', content: "Развертка коробки с размерами и местами склейки." }
     ]
