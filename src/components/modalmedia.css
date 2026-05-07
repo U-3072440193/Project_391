@@ -408,7 +408,11 @@
     p {
       font-size: 12px !important;
       width: 95% !important;
+      padding: 0 20px;
     }
+  }
+  .modal-hero-subtitle{
+    font-size: 12px;
   }
   
   .result-image-corp {
@@ -471,6 +475,12 @@
   .unpadding-right {
     padding: 0 !important;
   }
+  .final-image{
+    margin: 0 !important;
+  }
+  .corpstyle-text{
+    font-size: 14px;
+  }
 }
 
 /* Очень маленькие мобильные (до 480px) */
@@ -512,8 +522,10 @@
     
     p {
       font-size: 12px;
+      text-align: left;
     }
   }
+  
   
   .process-step-description {
     font-size: 14px;
@@ -578,13 +590,20 @@
   
   /* Mockups - 1 колонка */
   .mockups-grid {
-    grid-template-columns: 1fr !important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: stretch;
     
     img {
       width: 100% !important;
       max-width: none !important;
       margin: 0 !important;
     }
+  }
+  .typography-grid{
+    display: flex;
+    flex-direction: column !important;
+    align-items: stretch;
   }
   
   /* Pattern */
@@ -601,6 +620,9 @@
   /* Corp style */
   .corpstyle-section-header h2 {
     font-size: 20px !important;
+  }
+  .corpstyle-inner{
+    padding: 40px 20px;
   }
   
   /* Color row */

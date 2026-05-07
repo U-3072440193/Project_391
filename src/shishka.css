@@ -231,7 +231,7 @@ body {
 }
 
 .final-image {
-  margin: 30px 0;
+  margin: 0 !important;
   width: 100%;
 }
 
