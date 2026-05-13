@@ -745,6 +745,7 @@ h3 {
 }
 
 .skill-tag {
+  background: white;
   font-size: 14px;
   position: absolute;
   padding: 8px 14px;
@@ -1124,6 +1125,7 @@ h3 {
     word-break: break-word;
     text-align: center;
     box-sizing: border-box;
+    
   }
 }
 
